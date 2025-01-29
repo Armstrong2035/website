@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+  <Property>
+    <Property_Ref_No><![CDATA[undefined]]></Property_Ref_No>
+    <Permit_Number><![CDATA[undefined]]></Permit_Number>
+    <Property_Status><![CDATA[live]]></Property_Status>
+    <Property_purpose><![CDATA[undefined]]></Property_purpose>
+    <Property_Type><![CDATA[undefined]]></Property_Type>
+    <Property_Size><![CDATA[undefined]]></Property_Size>
+    <Property_Size_Unit><![CDATA[SQFT]]></Property_Size_Unit>
+    <plotArea><![CDATA[undefined]]></plotArea>
+    <Bedrooms><![CDATA[undefined]]></Bedrooms>
+    <Bathrooms><![CDATA[undefined]]></Bathrooms>
+    <Features>
+      
+    </Features>
+    <Off_plan><![CDATA[No]]></Off_plan>
+    <Portals>
+      <Portal><![CDATA[Bayut]]></Portal>
+      <Portal><![CDATA[dubizzle]]></Portal>
+    </Portals>
+    <Last_Updated><![CDATA[2025-01-20T10:45:53.529Z]]></Last_Updated>
+    <Property_Title><![CDATA[undefined]]></Property_Title>
+    <Property_Description><![CDATA[undefined]]></Property_Description>
+    <Price><![CDATA[undefined]]></Price>
+    <Furnished><![CDATA[undefined]]></Furnished>
+    <Images>
+      
+    </Images>
+    <City><![CDATA[undefined]]></City>
+    <Locality><![CDATA[undefined]]></Locality>
+    <Tower_Name><![CDATA[]]></Tower_Name>
+    <Listing_Agent><![CDATA[undefined]]></Listing_Agent>
+    <Listing_Agent_Phone><![CDATA[undefined]]></Listing_Agent_Phone>
+    <Listing_Agent_Email><![CDATA[undefined]]></Listing_Agent_Email>
+  </Property>
+</Properties>
