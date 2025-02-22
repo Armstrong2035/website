@@ -1,6 +1,7 @@
 // app/listings/api/webhook/route.js
 import { NextResponse } from "next/server";
 import { generateXML } from "../../lib/xml/generator";
+import { sendListingToFirestore } from "../../../../firebaseUtils/app";
 
 // Value mappings
 const RENTAL_FREQUENCY = {
@@ -42,7 +43,7 @@ function getFieldValue(fields, fieldName) {
   return field ? field.value : "";
 }
 
-export async function POST(request) {
+export const POST = async (request) => {
   try {
     const body = await request.json();
     // console.log("Full webhook data:", JSON.stringify(body, null, 2));
@@ -52,6 +53,8 @@ export async function POST(request) {
     const propertyRef = `SUB-${dateCreated.getFullYear()}-${payload.id.slice(
       -4
     )}`;
+
+    console.log("2. Created property ref:", propertyRef);
 
     const listing = {
       reference: propertyRef,
@@ -128,6 +131,14 @@ export async function POST(request) {
 
     const xml = await generateXML(listing);
 
+    console.log("4. Generated XML");
+    const listingId = listing.reference;
+    console.log("5. About to send to Firestore", listingId);
+
+    await sendListingToFirestore(listing, xml, listingId);
+
+    console.log("6. Sent to Firestore");
+
     return NextResponse.json({
       success: true,
       listing,
@@ -138,4 +149,4 @@ export async function POST(request) {
     console.error("Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
+};

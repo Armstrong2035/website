@@ -1,28 +1,22 @@
-// app/listings/xmlfiles/[id]/route.js
-import { NextResponse } from "next/server";
-
-export async function GET(request, { params }) {
+// In your XML route
+export const GET = async (request, { params }) => {
   try {
-    const { id } = params; // This will be 'SUB-2025-6nj3'
+    const id = params.id;
+    const listingRef = doc(db, "listings", id);
+    const listingSnap = await getDoc(listingRef);
 
-    // For now, let's just return some test XML
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<Properties>
-  <Property>
-    <Property_Ref_No><![CDATA[${id}]]></Property_Ref_No>
-    <Test>Testing XML Route</Test>
-  </Property>
-</Properties>`;
+    if (!listingSnap.exists()) {
+      return NextResponse.json({ error: "Listing not found" }, { status: 404 });
+    }
 
-    const headers = new Headers();
-    headers.set("Content-Type", "application/xml");
+    // Get just the XML from the document
+    const xmlData = listingSnap.data().xmlData;
 
-    return new NextResponse(xml, {
-      status: 200,
-      headers,
+    return new NextResponse(xmlData, {
+      headers: { "Content-Type": "application/xml" },
     });
   } catch (error) {
-    console.error("Error serving XML:", error);
-    return NextResponse.json({ error: "XML not found" }, { status: 404 });
+    console.error("Error:", error);
+    return NextResponse.json({ error: "Error fetching XML" }, { status: 500 });
   }
-}
+};
