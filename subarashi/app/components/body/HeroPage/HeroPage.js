@@ -4,6 +4,7 @@ import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
 import HeroNav from "./HeroNav";
 import { Container, Box, Stack } from "@mui/material";
+import { useListingsStore } from "../../../zustand/listingsStore";
 
 const styles = {
   heroTitle: {
@@ -35,11 +36,14 @@ const styles = {
 };
 
 export default function HeroPage({ heroImage }) {
+  const listings = useListingsStore((state) => state.listings);
+
+  // console.log(listings);
   return (
     <div
       style={{
         height: "100vh",
-        border: "1px solid red",
+
         backgroundColor: "#005244",
       }}
     >

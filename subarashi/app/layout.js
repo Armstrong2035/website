@@ -8,7 +8,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         style={{
-          border: "1px solid blue",
           margin: 0,
           padding: 0,
           width: "100%", // Changed from 100vw to 100%

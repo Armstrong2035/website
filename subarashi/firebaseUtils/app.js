@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -38,4 +44,24 @@ async function sendListingToFirestore(listing, xml, listingId) {
   }
 }
 
-export { sendListingToFirestore };
+async function receiveListingsFromFirestore() {
+  try {
+    const listingsRef = collection(db, "listings");
+    const querySnapshot = await getDocs(listingsRef);
+
+    const listings = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+      dateCreated: doc.data().dateCreated?.toDate(),
+      lastUpdated: doc.data().lastUpdated?.toDate(),
+    }));
+
+    console.log(`Retrieved ${listings.length} listings`);
+    return listings;
+  } catch (error) {
+    console.error("Error fetching listings:", error);
+    throw error;
+  }
+}
+
+export { sendListingToFirestore, receiveListingsFromFirestore };
