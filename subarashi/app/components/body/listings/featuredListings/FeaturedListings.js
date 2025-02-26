@@ -1,6 +1,7 @@
 import { mockListings } from "../../../../../public/mockListings";
 import { Container, Card, Grid2, Box } from "@mui/material";
-import ListingCard from "./ListingCard";
+import ListingCard from "./listingCard/ListingCard";
+import Title from "./Title";
 
 export default function FeaturedListings() {
   //   console.log(mockListings);
@@ -13,6 +14,8 @@ export default function FeaturedListings() {
           </Grid2>
         ))}
       </Grid2>
+
+      <Title />
     </Box>
   );
 }

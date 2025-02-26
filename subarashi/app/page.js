@@ -3,6 +3,8 @@ import HeroPage from "./components/body/HeroPage/HeroPage";
 import { receiveListingsFromFirestore } from "../firebaseUtils/app";
 import ListingsProvider from "./components/body/listings/ListingsProvider";
 import FeaturedListings from "./components/body/listings/featuredListings/FeaturedListings";
+import Inquiries from "./components/body/inquiries/Inquiries";
+import Footer from "./components/footer/Footer";
 
 export const revalidate = 3600;
 
@@ -24,6 +26,8 @@ export default async function Home() {
       <ListingsProvider listings={listings} />
       <HeroPage heroImage={heroImage} />
       <FeaturedListings />
+      <Inquiries />
+      <Footer />
     </div>
   );
 }
