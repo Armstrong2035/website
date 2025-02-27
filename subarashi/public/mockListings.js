@@ -1,5 +1,6 @@
 export const mockListings = [
   {
+    id: "mock-listing-1",
     price: {
       amount: 255000,
       currency: "AED",
@@ -69,6 +70,7 @@ export const mockListings = [
     ],
   },
   {
+    id: "mock-listing-2",
     price: {
       amount: 450000,
       currency: "AED",
@@ -135,6 +137,7 @@ export const mockListings = [
     ],
   },
   {
+    id: "mock-listing-3",
     price: {
       amount: 170000,
       currency: "AED",
@@ -211,6 +214,7 @@ export const mockListings = [
   },
 
   {
+    id: "mock-listing-4",
     price: {
       amount: 140000,
       currency: "AED",

@@ -14,29 +14,32 @@ import AddIcon from "@mui/icons-material/Add";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ListingDetails from "./listingDetail/ListingDetails";
 import ListingActions from "./ListingActions";
+import Link from "next/link";
 
 export default function ListingCard({ listing }) {
   return (
     <Card sx={{ display: "flex", flexDirection: "column" }}>
       {/* Image Container */}
-      <Box
-        sx={{
-          height: 300, // Adjust image height
-          backgroundImage: `url(${listing.images[0]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          transition: "background-size 0.3s ease",
-          "&:hover": {
-            cursor: "pointer",
-            backgroundSize: "105%", // Zoom effect on hover
-          },
-        }}
-      >
-        {/* Top Bar with Actions */}
-        <Box p={1}>
-          <ListingActions listing={listing} />
+      <Link href={`/listings/${listing.id}`} style={{ textDecoration: "none" }}>
+        <Box
+          sx={{
+            height: 300, // Adjust image height
+            backgroundImage: `url(${listing.images[0]})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            transition: "background-size 0.3s ease",
+            "&:hover": {
+              cursor: "pointer",
+              backgroundSize: "105%", // Zoom effect on hover
+            },
+          }}
+        >
+          {/* Top Bar with Actions */}
+          <Box p={1}>
+            <ListingActions listing={listing} />
+          </Box>
         </Box>
-      </Box>
+      </Link>
 
       {/* Content Below Image */}
 

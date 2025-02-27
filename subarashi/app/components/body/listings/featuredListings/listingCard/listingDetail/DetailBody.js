@@ -26,7 +26,7 @@ export default function DetailBody({ listing }) {
       >
         <Price listing={listing} />
 
-        <CTA />
+        <CTA listing={listing} />
       </Stack>
     </Stack>
   );
