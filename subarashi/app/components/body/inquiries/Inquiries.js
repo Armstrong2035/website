@@ -1,4 +1,5 @@
 import { Typography, Box, Button } from "@mui/material";
+import typographyStyles from "../../../styles";
 
 export default function Inquiries() {
   return (
@@ -13,9 +14,18 @@ export default function Inquiries() {
         gap: 2,
       }}
     >
-      <Typography variant={"h4"}>Any Inquiries? Please contact us</Typography>
+      <Typography sx={{ ...typographyStyles.displayMedium, color: "#005244" }}>
+        Any Inquiries? Please contact us
+      </Typography>
 
-      <Button variant={"contained"} sx={{ backgroundColor: "#005244" }}>
+      <Button
+        variant={"contained"}
+        sx={{
+          ...typographyStyles.button,
+          backgroundColor: "#005244",
+          color: "#F2FFC2",
+        }}
+      >
         Send a message
       </Button>
     </Box>

@@ -6,7 +6,13 @@ import Title from "./Title";
 export default function FeaturedListings() {
   //   console.log(mockListings);
   return (
-    <Box sx={{ mr: 10, ml: 10, mt: 10 }}>
+    <Box
+      sx={{
+        mr: { xs: 2, sm: 5, md: 8, lg: 10 },
+        ml: { xs: 2, sm: 5, md: 8, lg: 10 },
+        mt: { xs: 5, sm: 7, md: 10 },
+      }}
+    >
       <Grid2 container spacing={4}>
         {mockListings.map((listing) => (
           <Grid2 item size={{ lg: 6 }}>

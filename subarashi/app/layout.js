@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import { Red_Hat_Display } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 export const metadata = {
   title: "Subarashi",
   description: "The official website for Subarashi",
@@ -37,6 +38,15 @@ const redHatDisplay = Red_Hat_Display({
   variable: "--font-red-hat",
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
+});
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-be-vietnam-pro",
+  weight: ["300", "400", "500", "600", "700"],
+  // Include italic if needed
+  style: ["normal"],
 });
 
 export default function RootLayout({ children }) {

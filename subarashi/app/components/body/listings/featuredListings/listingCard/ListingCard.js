@@ -43,9 +43,7 @@ export default function ListingCard({ listing }) {
 
       {/* Content Below Image */}
 
-      <CardContent sx={{}}>
-        <ListingDetails listing={listing} />
-      </CardContent>
+      <ListingDetails listing={listing} />
     </Card>
   );
 }

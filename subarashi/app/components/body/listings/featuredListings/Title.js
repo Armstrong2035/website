@@ -1,6 +1,7 @@
 import { Description } from "@mui/icons-material";
 import { Button, Typography, Box, Stack, Grid2 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import typographyStyles from "../../../../styles";
 
 export default function Title() {
   const titleItems = {
@@ -19,10 +20,14 @@ export default function Title() {
       sx={{ pr: 10, pl: 10, mt: 7, mb: 7 }}
     >
       <Grid2 item size={{ lg: 6 }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
+        <Typography
+          sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#005244" }}
+        >
           {titleItems.title}
         </Typography>
-        <Typography variant="p">{titleItems.description}</Typography>
+        <Typography sx={{ ...typographyStyles.featureText, color: "#005244" }}>
+          {titleItems.description}
+        </Typography>
       </Grid2>
 
       <Grid2
@@ -38,7 +43,7 @@ export default function Title() {
         <Button
           variant={"text"}
           endIcon={<ArrowForwardIcon />}
-          sx={{ color: "#005244" }}
+          sx={{ ...typographyStyles.pageTitle, color: "#005244" }}
         >
           View all listings
         </Button>

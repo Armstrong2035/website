@@ -1,47 +1,74 @@
-import {
-  Typography,
-  Grid,
-  Chip,
-  IconButton,
-  Box,
-  Grid2,
-  Stack,
-  Divider,
-} from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import AddIcon from "@mui/icons-material/Add";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import DetailBody from "./DetailBody";
 import typographyStyles from "../../../../../../styles";
 
 export default function ListingDetails({ listing }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <Grid2 container sx={{ border: "1px solid #005244" }}>
-      <Grid2
+    <Grid
+      container
+      sx={{
+        flexGrow: 1,
+        flexDirection: { xs: "column", sm: "row" },
+      }}
+    >
+      <Grid
         item
-        size={{ lg: 6 }}
-        sx={{ backgroundColor: "#005244", p: 3 }}
-        direction={"column"}
+        xs={12}
+        sm={6}
+        sx={{
+          backgroundColor: "#005244",
+          p: { xs: 2, sm: 2.5, md: 3 },
+          order: { xs: 2, sm: 1 }, // On mobile, this appears second
+        }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: { xs: "10px", sm: "15px", md: "20px" },
+            height: "100%",
+            justifyContent: "center",
+          }}
+        >
           <Typography
-            sx={{ ...typographyStyles.sectionTitle, color: "#FFFFFF" }}
+            sx={{
+              ...typographyStyles.sectionTitle,
+              color: "#FFFFFF",
+              fontSize: { xs: "18px", sm: "22px", md: "28px" },
+              lineHeight: { xs: "24px", sm: "28px", md: "30px" },
+            }}
           >
             {listing.title}
           </Typography>
 
           <Typography
-            variant="p"
-            sx={{ ...typographyStyles.bodyLarge, color: "#F2FFC2" }}
+            sx={{
+              ...typographyStyles.bodyLarge,
+              color: "#F2FFC2",
+              fontSize: { xs: "14px", sm: "16px", md: "18px" },
+              lineHeight: { xs: "20px", sm: "24px", md: "30px" },
+            }}
           >
             {`${listing.location.area}, ${listing.location.city}`}
           </Typography>
         </Box>
-      </Grid2>
+      </Grid>
 
-      <Grid2 size={{ lg: 6 }} sx={{ backgroundColor: "#FFFFFF", p: 2 }}>
+      <Grid
+        item
+        xs={12}
+        sm={6}
+        sx={{
+          backgroundColor: "#FFFFFF",
+          p: { xs: 2, sm: 2, md: 2 },
+          order: { xs: 1, sm: 2 }, // On mobile, this appears first
+        }}
+      >
         <DetailBody listing={listing} />
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 }
