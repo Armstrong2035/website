@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
+import Link from "next/link";
 export default function HeroNav({ style1, style2 }) {
   const navItems = ["Rentals", "Sales", "Holiday Homes", "Property Management"];
   const item = "Resources";
@@ -14,10 +14,12 @@ export default function HeroNav({ style1, style2 }) {
     >
       <Stack direction={"row"} spacing={4}>
         {navItems.map((item, index) => (
-          <Stack key={index} direction={"row"}>
-            <Typography sx={style1}>{item}</Typography>
-            <ArrowOutwardIcon sx={{ color: "#F2FFC2" }} />
-          </Stack>
+          <Link key={index} href={`${item}`}>
+            <Stack direction={"row"}>
+              <Typography sx={style1}>{item}</Typography>
+              <ArrowOutwardIcon sx={{ color: "#F2FFC2" }} />
+            </Stack>
+          </Link>
         ))}
       </Stack>
       <Stack direction={"row"}>
