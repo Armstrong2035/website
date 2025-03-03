@@ -1,9 +1,8 @@
 "use client";
 import HeroText from "./HeroText";
-
 import HeroImage from "./HeroImage";
 import HeroNav from "./HeroNav";
-import { Container, Box, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useListingsStore } from "../../../zustand/listingsStore";
 
 export default function HeroPage({ heroImage }) {
@@ -15,9 +14,11 @@ export default function HeroPage({ heroImage }) {
         backgroundColor: "#005244",
       }}
     >
-      <Box sx={{ height: "70vh" }}>
-        {" "}
-        {/* Add explicit height here */}
+      <Box
+        sx={{
+          height: { xs: "50vh", sm: "60vh", md: "70vh" },
+        }}
+      >
         <HeroImage heroImage={heroImage} />
       </Box>
 
@@ -25,6 +26,7 @@ export default function HeroPage({ heroImage }) {
         sx={{
           width: "100%",
           backgroundColor: "#005244",
+          pb: { xs: 4, sm: 4, md: 5 },
         }}
       >
         <HeroNav />

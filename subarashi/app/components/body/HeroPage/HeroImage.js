@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import Image from "next/image";
-import HeroText from "./HeroText";
 
 export default function HeroImage({ heroImage }) {
   return (
@@ -19,6 +18,7 @@ export default function HeroImage({ heroImage }) {
           fill
           priority
           quality={100}
+          sizes="100vw"
           style={{
             objectFit: "cover",
             objectPosition: "center",
