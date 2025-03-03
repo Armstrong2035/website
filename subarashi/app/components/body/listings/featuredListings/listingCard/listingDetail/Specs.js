@@ -9,6 +9,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import typographyStyles from "../../../../../../styles";
 
 export default function Specs({ listing }) {
   return (
@@ -21,11 +22,16 @@ export default function Specs({ listing }) {
           alignItems: "center",
         }}
       >
-        <Typography variant="p" sx={{ color: "black" }}>
+        <Typography
+          variant="p"
+          sx={{ ...typographyStyles.cardTitle, color: "#181D1E" }}
+        >
           {listing.specs.size.value}
         </Typography>
 
-        <Typography sx={{ color: "black" }}>sqft</Typography>
+        <Typography sx={{ ...typographyStyles.bodyMedium, color: "#181D1E" }}>
+          sqft
+        </Typography>
       </Box>
 
       <Box
@@ -38,7 +44,9 @@ export default function Specs({ listing }) {
         <Typography variant="p" sx={{ color: "black" }}>
           {listing.specs.bedrooms}
         </Typography>
-        <Typography sx={{ color: "black" }}>Beds</Typography>
+        <Typography x={{ ...typographyStyles.bodyMedium, color: "#181D1E" }}>
+          Beds
+        </Typography>
       </Box>
 
       <Box
@@ -51,7 +59,9 @@ export default function Specs({ listing }) {
         <Typography variant="p" sx={{ color: "black" }}>
           {listing.specs.bathrooms}
         </Typography>
-        <Typography sx={{ color: "black" }}>Baths</Typography>
+        <Typography x={{ ...typographyStyles.bodyMedium, color: "#181D1E" }}>
+          Baths
+        </Typography>
       </Box>
     </Stack>
   );

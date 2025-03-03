@@ -21,18 +21,18 @@ export default function ListingActions({ listing }) {
         <Grid item>
           <Grid container spacing={1}>
             <Grid item>
-              <IconButton size="small" sx={{ bgcolor: "white" }}>
-                <FavoriteIcon />
+              <IconButton size="small" sx={{}}>
+                <FavoriteIcon sx={{ color: "#F2FFC2" }} />
               </IconButton>
             </Grid>
             <Grid item>
-              <IconButton size="small" sx={{ bgcolor: "white" }}>
-                <AddIcon />
+              <IconButton size="small" sx={{ backgroundColor: "#F2FFC2" }}>
+                <AddIcon sx={{ color: "#005244" }} />
               </IconButton>
             </Grid>
             <Grid item>
-              <IconButton size="small" sx={{ bgcolor: "white" }}>
-                <BookmarkIcon />
+              <IconButton size="small" sx={{}}>
+                <BookmarkIcon sx={{ color: "#F2FFC2" }} />
               </IconButton>
             </Grid>
           </Grid>

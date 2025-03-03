@@ -18,12 +18,7 @@ export default function DetailBody({ listing }) {
   return (
     <Stack spacing={7}>
       <Specs listing={listing} />
-      <Stack
-        direction={"row"}
-        justifySelf={"flex-end"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
+      <Stack alignItems={"center"} alignSelf={"flex-start"} spacing={3}>
         <Price listing={listing} />
 
         <CTA listing={listing} />

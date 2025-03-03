@@ -12,6 +12,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import DetailBody from "./DetailBody";
+import typographyStyles from "../../../../../../styles";
 
 export default function ListingDetails({ listing }) {
   return (
@@ -23,11 +24,16 @@ export default function ListingDetails({ listing }) {
         direction={"column"}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <Typography variant="p" sx={{ color: "white" }}>
+          <Typography
+            sx={{ ...typographyStyles.sectionTitle, color: "#FFFFFF" }}
+          >
             {listing.title}
           </Typography>
 
-          <Typography variant="p" sx={{ color: "white" }}>
+          <Typography
+            variant="p"
+            sx={{ ...typographyStyles.bodyLarge, color: "#F2FFC2" }}
+          >
             {`${listing.location.area}, ${listing.location.city}`}
           </Typography>
         </Box>

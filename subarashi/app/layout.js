@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Red_Hat_Display } from "next/font/google";
 export const metadata = {
   title: "Subarashi",
   description: "The official website for Subarashi",
@@ -28,6 +29,14 @@ const degular = localFont({
     },
   ],
   variable: "--font-degular",
+});
+
+const redHatDisplay = Red_Hat_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-red-hat",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 });
 
 export default function RootLayout({ children }) {
