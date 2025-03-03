@@ -24,7 +24,7 @@ export default function ListingsPage() {
         {/* Grid of listing cards */}
         <Grid container spacing={4}>
           {filteredListings.map((listing) => (
-            <Grid item xs={12} sm={6} md={4} key={listing.id}>
+            <Grid item xs={12} sm={6} md={6} key={listing.id}>
               <ListingCard listing={listing} />
             </Grid>
           ))}
@@ -49,8 +49,6 @@ export default function ListingsPage() {
           </Box>
         )}
       </Container>
-
-      <Footer />
     </>
   );
 }

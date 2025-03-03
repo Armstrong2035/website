@@ -6,61 +6,30 @@ import HeroNav from "./HeroNav";
 import { Container, Box, Stack } from "@mui/material";
 import { useListingsStore } from "../../../zustand/listingsStore";
 
-const styles = {
-  heroTitle: {
-    fontFamily: "Degular",
-    fontWeight: "300",
-    fontSize: "64px", // Reduced from 130px
-    lineHeight: "72px", // Reduced from 140px proportionally
-    letterSpacing: "0%",
-    color: "#F2FFC2",
-  },
-  heroText: {
-    fontFamily: "Degular",
-    fontWeight: 400,
-    fontSize: "24px", // Reduced from 30px
-    lineHeight: "40px", // Reduced from 80px proportionally
-    letterSpacing: "0%",
-    textAlign: "center",
-    color: "#F2FFC2",
-  },
-  heroSubtext: {
-    fontFamily: "Poppins",
-    fontWeight: 400,
-    fontSize: "24px", // Reduced from 30px
-    lineHeight: "40px", // Reduced from 80px proportionally
-    letterSpacing: "0%",
-    textAlign: "center",
-    color: "#F2FFC2",
-  },
-};
-
 export default function HeroPage({ heroImage }) {
   const listings = useListingsStore((state) => state.listings);
 
-  // console.log(listings);
   return (
     <div
       style={{
-        height: "100vh",
-
         backgroundColor: "#005244",
       }}
     >
-      <Box sx={{ height: "70%" }}>
+      <Box sx={{ height: "70vh" }}>
+        {" "}
+        {/* Add explicit height here */}
         <HeroImage heroImage={heroImage} />
       </Box>
 
       <Stack
         sx={{
-          height: "30%",
           width: "100%",
           backgroundColor: "#005244",
         }}
       >
-        <HeroNav style1={styles.heroText} style2={styles.heroSubtext} />
+        <HeroNav />
         <Box>
-          <HeroText style={styles.heroTitle} />
+          <HeroText />
         </Box>
       </Stack>
     </div>
