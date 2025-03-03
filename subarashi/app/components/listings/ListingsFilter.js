@@ -1,432 +1,291 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
-  Typography,
-  Paper,
-  FormControl,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-  Slider,
+  Select,
+  MenuItem,
   TextField,
   Button,
-  Divider,
-  Checkbox,
-  FormGroup,
+  InputLabel,
+  FormControl,
+  Stack,
+  Typography,
   InputAdornment,
+  IconButton,
 } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import TuneIcon from "@mui/icons-material/Tune";
 
 export default function ListingsFilter() {
-  // Filter states
-  const [propertyType, setPropertyType] = React.useState("all");
-  const [priceRange, setPriceRange] = React.useState([0, 1000000]);
-  const [bedrooms, setBedrooms] = React.useState([0, 5]);
-  const [bathrooms, setBathrooms] = React.useState([0, 5]);
-  const [areaRange, setAreaRange] = React.useState([0, 5000]);
-  const [purpose, setPurpose] = React.useState("all");
-  const [features, setFeatures] = React.useState({
-    parking: false,
-    pool: false,
-    balcony: false,
-    gym: false,
-    furnished: false,
-    pets: false,
-  });
-
-  // Handle checkbox changes
-  const handleFeatureChange = (event) => {
-    setFeatures({
-      ...features,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
-  // Handle price range changes
-  const handlePriceChange = (event, newValue) => {
-    setPriceRange(newValue);
-  };
-
-  // Format currency
-  const formatCurrency = (value) => {
-    return `AED ${value.toLocaleString()}`;
-  };
-
-  // Handle reset filters
-  const handleReset = () => {
-    setPropertyType("all");
-    setPriceRange([0, 1000000]);
-    setBedrooms([0, 5]);
-    setBathrooms([0, 5]);
-    setAreaRange([0, 5000]);
-    setPurpose("all");
-    setFeatures({
-      parking: false,
-      pool: false,
-      balcony: false,
-      gym: false,
-      furnished: false,
-      pets: false,
-    });
-  };
+  const [propertyType, setPropertyType] = useState("Buy Apartments");
+  const [location, setLocation] = useState("Dhanmondi, Dhaka");
+  const [priceRange, setPriceRange] = useState("$10,000 - $200,000");
+  const [bedroom, setBedroom] = useState("Any");
+  const [bath, setBath] = useState("2+");
 
   return (
-    <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
-        Filter Properties
-      </Typography>
-
-      {/* Search by location */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Search by Location
-        </Typography>
-        <TextField
-          fullWidth
-          placeholder="Search for area, community, city..."
-          size="small"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <LocationOnIcon fontSize="small" />
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Property Type */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Property Type
-        </Typography>
-        <FormControl component="fieldset">
-          <RadioGroup
-            value={propertyType}
-            onChange={(e) => setPropertyType(e.target.value)}
-          >
-            <FormControlLabel
-              value="all"
-              control={<Radio size="small" />}
-              label="All Types"
-            />
-            <FormControlLabel
-              value="apartment"
-              control={<Radio size="small" />}
-              label="Apartment"
-            />
-            <FormControlLabel
-              value="villa"
-              control={<Radio size="small" />}
-              label="Villa"
-            />
-            <FormControlLabel
-              value="townhouse"
-              control={<Radio size="small" />}
-              label="Townhouse"
-            />
-            <FormControlLabel
-              value="penthouse"
-              control={<Radio size="small" />}
-              label="Penthouse"
-            />
-          </RadioGroup>
-        </FormControl>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Price Range */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Price Range
-        </Typography>
-        <Box sx={{ px: 1 }}>
-          <Slider
-            value={priceRange}
-            onChange={handlePriceChange}
-            valueLabelDisplay="auto"
-            min={0}
-            max={1000000}
-            step={10000}
-            valueLabelFormat={formatCurrency}
-            sx={{
-              color: "#005244",
-              "& .MuiSlider-thumb": {
-                "&:hover, &.Mui-focusVisible": {
-                  boxShadow: "0px 0px 0px 8px rgba(0, 82, 68, 0.16)",
-                },
-              },
-            }}
-          />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mt: 1 }}>
-          <Typography variant="caption">
-            {formatCurrency(priceRange[0])}
-          </Typography>
-          <Typography variant="caption">
-            {formatCurrency(priceRange[1])}
-          </Typography>
-        </Box>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Bedrooms */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Bedrooms
-        </Typography>
-        <FormControl component="fieldset" fullWidth>
-          <RadioGroup
-            row
-            value={bedrooms[1].toString()}
-            onChange={(e) => setBedrooms([0, parseInt(e.target.value)])}
-          >
-            <FormControlLabel
-              value="1"
-              control={<Radio size="small" />}
-              label="1+"
-            />
-            <FormControlLabel
-              value="2"
-              control={<Radio size="small" />}
-              label="2+"
-            />
-            <FormControlLabel
-              value="3"
-              control={<Radio size="small" />}
-              label="3+"
-            />
-            <FormControlLabel
-              value="4"
-              control={<Radio size="small" />}
-              label="4+"
-            />
-            <FormControlLabel
-              value="5"
-              control={<Radio size="small" />}
-              label="5+"
-            />
-          </RadioGroup>
-        </FormControl>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Bathrooms */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Bathrooms
-        </Typography>
-        <FormControl component="fieldset" fullWidth>
-          <RadioGroup
-            row
-            value={bathrooms[1].toString()}
-            onChange={(e) => setBathrooms([0, parseInt(e.target.value)])}
-          >
-            <FormControlLabel
-              value="1"
-              control={<Radio size="small" />}
-              label="1+"
-            />
-            <FormControlLabel
-              value="2"
-              control={<Radio size="small" />}
-              label="2+"
-            />
-            <FormControlLabel
-              value="3"
-              control={<Radio size="small" />}
-              label="3+"
-            />
-            <FormControlLabel
-              value="4"
-              control={<Radio size="small" />}
-              label="4+"
-            />
-            <FormControlLabel
-              value="5"
-              control={<Radio size="small" />}
-              label="5+"
-            />
-          </RadioGroup>
-        </FormControl>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Area Range */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Area (sqft)
-        </Typography>
-        <Box sx={{ px: 1 }}>
-          <Slider
-            value={areaRange}
-            onChange={(e, newValue) => setAreaRange(newValue)}
-            valueLabelDisplay="auto"
-            min={0}
-            max={5000}
-            step={100}
-            sx={{
-              color: "#005244",
-              "& .MuiSlider-thumb": {
-                "&:hover, &.Mui-focusVisible": {
-                  boxShadow: "0px 0px 0px 8px rgba(0, 82, 68, 0.16)",
-                },
-              },
-            }}
-          />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mt: 1 }}>
-          <Typography variant="caption">{areaRange[0]} sqft</Typography>
-          <Typography variant="caption">{areaRange[1]} sqft</Typography>
-        </Box>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Property Purpose */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Purpose
-        </Typography>
-        <FormControl component="fieldset">
-          <RadioGroup
-            value={purpose}
-            onChange={(e) => setPurpose(e.target.value)}
-          >
-            <FormControlLabel
-              value="all"
-              control={<Radio size="small" />}
-              label="All"
-            />
-            <FormControlLabel
-              value="buy"
-              control={<Radio size="small" />}
-              label="For Sale"
-            />
-            <FormControlLabel
-              value="rent"
-              control={<Radio size="small" />}
-              label="For Rent"
-            />
-          </RadioGroup>
-        </FormControl>
-      </Box>
-
-      <Divider sx={{ my: 2 }} />
-
-      {/* Features */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="subtitle2" gutterBottom>
-          Features
-        </Typography>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.parking}
-                onChange={handleFeatureChange}
-                name="parking"
-              />
-            }
-            label="Parking"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.pool}
-                onChange={handleFeatureChange}
-                name="pool"
-              />
-            }
-            label="Swimming Pool"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.balcony}
-                onChange={handleFeatureChange}
-                name="balcony"
-              />
-            }
-            label="Balcony"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.gym}
-                onChange={handleFeatureChange}
-                name="gym"
-              />
-            }
-            label="Gym"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.furnished}
-                onChange={handleFeatureChange}
-                name="furnished"
-              />
-            }
-            label="Furnished"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                size="small"
-                checked={features.pets}
-                onChange={handleFeatureChange}
-                name="pets"
-              />
-            }
-            label="Pet Friendly"
-          />
-        </FormGroup>
-      </Box>
-
-      {/* Action buttons */}
-      <Box sx={{ display: "flex", gap: 2, mt: 4 }}>
-        <Button
-          variant="contained"
-          fullWidth
+    <Box
+      sx={{
+        backgroundColor: "#005244",
+        width: "100%",
+        py: 2,
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Stack
+        direction="row"
+        spacing={0}
+        sx={{
+          width: "100%",
+          maxWidth: "1400px",
+          alignItems: "center",
+        }}
+      >
+        {/* I'm looking to... */}
+        <Box
           sx={{
-            backgroundColor: "#005244",
-            "&:hover": {
-              backgroundColor: "#003d33",
-            },
+            flex: 1,
+            p: 2,
+            borderRight: "1px solid rgba(255, 255, 255, 0.1)",
           }}
         >
-          Apply Filters
-        </Button>
+          <Typography
+            variant="caption"
+            sx={{ color: "#aaa", display: "block", mb: 0.5 }}
+          >
+            I'm looking to...
+          </Typography>
+          <FormControl fullWidth variant="standard" sx={{ border: "none" }}>
+            <Select
+              value={propertyType}
+              onChange={(e) => setPropertyType(e.target.value)}
+              sx={{
+                color: "white",
+                "& .MuiSelect-select": {
+                  border: "none",
+                  p: 0,
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "&::before, &::after": {
+                  display: "none",
+                },
+              }}
+              IconComponent={KeyboardArrowDownIcon}
+              disableUnderline
+            >
+              <MenuItem value="Buy Apartments">Buy Apartments</MenuItem>
+              <MenuItem value="Rent Apartments">Rent Apartments</MenuItem>
+              <MenuItem value="Buy Villas">Buy Villas</MenuItem>
+              <MenuItem value="Rent Villas">Rent Villas</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
 
-        <Button
-          variant="outlined"
-          fullWidth
-          onClick={handleReset}
+        {/* Location */}
+        <Box
           sx={{
-            borderColor: "#005244",
-            color: "#005244",
-            "&:hover": {
-              borderColor: "#003d33",
-              backgroundColor: "rgba(0, 82, 68, 0.04)",
-            },
+            flex: 1.5,
+            p: 2,
+            borderRight: "1px solid rgba(255, 255, 255, 0.1)",
           }}
         >
-          Reset
-        </Button>
-      </Box>
-    </Paper>
+          <Typography
+            variant="caption"
+            sx={{ color: "#aaa", display: "block", mb: 0.5 }}
+          >
+            Location
+          </Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <TextField
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              variant="standard"
+              fullWidth
+              sx={{
+                input: { color: "white", p: 0 },
+                "&::before, &::after": {
+                  display: "none",
+                },
+              }}
+              InputProps={{
+                disableUnderline: true,
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton edge="end" sx={{ color: "white" }}>
+                      <LocationOnIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+        </Box>
+
+        {/* Price Range */}
+        <Box
+          sx={{
+            flex: 1,
+            p: 2,
+            borderRight: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{ color: "#aaa", display: "block", mb: 0.5 }}
+          >
+            Price Range
+          </Typography>
+          <FormControl fullWidth variant="standard">
+            <Select
+              value={priceRange}
+              onChange={(e) => setPriceRange(e.target.value)}
+              sx={{
+                color: "white",
+                "& .MuiSelect-select": {
+                  border: "none",
+                  p: 0,
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "&::before, &::after": {
+                  display: "none",
+                },
+              }}
+              IconComponent={KeyboardArrowDownIcon}
+              disableUnderline
+            >
+              <MenuItem value="$10,000 - $200,000">$10,000 - $200,000</MenuItem>
+              <MenuItem value="$200,000 - $500,000">
+                $200,000 - $500,000
+              </MenuItem>
+              <MenuItem value="$500,000 - $1,000,000">
+                $500,000 - $1,000,000
+              </MenuItem>
+              <MenuItem value="$1,000,000+">$1,000,000+</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        {/* Bedroom */}
+        <Box
+          sx={{
+            flex: 1,
+            p: 2,
+            borderRight: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{ color: "#aaa", display: "block", mb: 0.5 }}
+          >
+            Bedroom
+          </Typography>
+          <FormControl fullWidth variant="standard">
+            <Select
+              value={bedroom}
+              onChange={(e) => setBedroom(e.target.value)}
+              sx={{
+                color: "white",
+                "& .MuiSelect-select": {
+                  border: "none",
+                  p: 0,
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "&::before, &::after": {
+                  display: "none",
+                },
+              }}
+              IconComponent={KeyboardArrowDownIcon}
+              disableUnderline
+            >
+              <MenuItem value="Any">Any</MenuItem>
+              <MenuItem value="1+">1+</MenuItem>
+              <MenuItem value="2+">2+</MenuItem>
+              <MenuItem value="3+">3+</MenuItem>
+              <MenuItem value="4+">4+</MenuItem>
+              <MenuItem value="5+">5+</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        {/* Bath */}
+        <Box
+          sx={{
+            flex: 1,
+            p: 2,
+            borderRight: "1px solid rgba(255, 255, 255, 0.1)",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{ color: "#aaa", display: "block", mb: 0.5 }}
+          >
+            Bath
+          </Typography>
+          <FormControl fullWidth variant="standard">
+            <Select
+              value={bath}
+              onChange={(e) => setBath(e.target.value)}
+              sx={{
+                color: "white",
+                "& .MuiSelect-select": {
+                  border: "none",
+                  p: 0,
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "&::before, &::after": {
+                  display: "none",
+                },
+              }}
+              IconComponent={KeyboardArrowDownIcon}
+              disableUnderline
+            >
+              <MenuItem value="Any">Any</MenuItem>
+              <MenuItem value="1+">1+</MenuItem>
+              <MenuItem value="2+">2+</MenuItem>
+              <MenuItem value="3+">3+</MenuItem>
+              <MenuItem value="4+">4+</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        {/* Advanced Search Button */}
+        <Box
+          sx={{
+            flex: 1,
+            p: 2,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Button
+            variant="outlined"
+            sx={{
+              border: "1px solid white",
+              color: "white",
+              borderRadius: 0,
+              py: 1.5,
+              px: 3,
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                border: "1px solid white",
+              },
+            }}
+            endIcon={<TuneIcon />}
+          >
+            ADVANCE SEARCH
+          </Button>
+        </Box>
+      </Stack>
+    </Box>
   );
 }
