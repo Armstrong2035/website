@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { Gorditas } from "next/font/google";
 export const metadata = {
   title: "Subarashi",
   description: "The official website for Subarashi",
@@ -10,6 +11,32 @@ const degular = localFont({
   src: [
     {
       path: "../public/fonts/jugular.otf", // Regular
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/jugular2.otf", // Light
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/jugular3.otf", // Semibold
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/jugular4.otf", // Bold
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-degular",
+});
+
+const Gordita = localFont({
+  src: [
+    {
+      path: "subarashipublic\fontsGordita-Black.otf", // Regular
       weight: "400",
       style: "normal",
     },
@@ -46,6 +73,14 @@ const beVietnamPro = Be_Vietnam_Pro({
   variable: "--font-be-vietnam-pro",
   weight: ["300", "400", "500", "600", "700"],
   // Include italic if needed
+  style: ["normal"],
+});
+
+const gorditas = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-be-vietnam-pro",
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal"],
 });
 

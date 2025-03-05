@@ -4,17 +4,17 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
 import Footer from "../footer/Footer";
 import ListingHero from "./ListingHero";
+import ListingHeader from "./ListingHeader";
 import ListingDetails from "./ListingDetails";
 import ListingAmenities from "./ListingAmenities";
 import ListingFeatures from "./ListingFeatures";
 import ListingContactForm from "./ListingContactForm";
 import ListingLocation from "./ListingLocation";
 import ListingGallery from "./ListingGallery";
-import ListingMortgage from "./ListingMortgage";
 import ListingSimilarHomes from "./ListingSimilarHomes";
 import ListingNearby from "./ListingNearby";
 import ListingReviews from "./ListingReviews";
-import ListingShare from "./ListingShare";
+import typographyStyles from "../../styles";
 
 export default function ListingDetailView({ listing }) {
   if (!listing) {
@@ -36,24 +36,31 @@ export default function ListingDetailView({ listing }) {
 
   return (
     <>
-      {/* Hero Section with Main Image and Title */}
+      {/* Hero Section - Image only */}
       <ListingHero listing={listing} />
+
+      {/* Listing Header - Title, Location, Price */}
+      <ListingHeader listing={listing} />
 
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Grid container spacing={4}>
           {/* Left Column (Main Content) */}
           <Grid item xs={12} md={8}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              sx={{ ...typographyStyles.listingOverview }}
+            >
               Overview
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography sx={{ ...typographyStyles.listingTitle }}>
               {listing.description}
             </Typography>
 
-            {/* Property Details Section */}
-
-            {/* Video Tour section now uses the enhanced carousel component */}
+            {/* Gallery/Images */}
             <ListingGallery listing={listing} />
+
+            {/* Property Details */}
             <ListingDetails listing={listing} />
 
             {/* Property Features */}
@@ -61,27 +68,6 @@ export default function ListingDetailView({ listing }) {
 
             {/* Amenities */}
             <ListingAmenities listing={listing} />
-
-            {/* Floor Plans */}
-            {/* <Box sx={{ my: 5 }}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
-                Floor Plans
-              </Typography>
-              <Box
-                sx={{
-                  height: 350,
-                  backgroundColor: "#f5f5f5",
-                  borderRadius: 2,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography variant="body2" color="text.secondary">
-                  Contact agent for floor plans
-                </Typography>
-              </Box>
-            </Box> */}
 
             {/* What's Nearby */}
             <ListingNearby listing={listing} />
@@ -95,12 +81,6 @@ export default function ListingDetailView({ listing }) {
             {/* Agent Contact */}
             <ListingContactForm listing={listing} />
 
-            {/* Mortgage Calculator */}
-            {/* <ListingMortgage listing={listing} /> */}
-
-            {/* Walk Score */}
-            {/* <ListingWalkScore listing={listing} /> */}
-
             {/* Location Map */}
             <ListingLocation listing={listing} />
           </Grid>
@@ -110,12 +90,8 @@ export default function ListingDetailView({ listing }) {
         <Box sx={{ my: 8 }}>
           <ListingReviews listing={listing} />
         </Box>
-
-        {/* Share Listing */}
-        <Box sx={{ my: 5 }}>
-          <ListingShare listing={listing} />
-        </Box>
       </Container>
+
       <Footer />
     </>
   );

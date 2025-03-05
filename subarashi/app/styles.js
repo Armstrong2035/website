@@ -196,6 +196,14 @@ const typographyStyles = {
     letterSpacing: "0px",
   },
 
+  listingOverview: {
+    fontFamily: "Gordita, Arial, sans-serif",
+    fontWeight: 500,
+    fontSize: "36px",
+    lineHeight: "50px",
+    letterSpacing: "0px",
+  },
+
   listingDetail: {
     fontFamily: "Gordita, Arial, sans-serif",
     fontWeight: 400,
@@ -217,6 +225,15 @@ const typographyStyles = {
     fontWeight: 500,
     fontSize: "24px",
     lineHeight: "33px",
+    letterSpacing: "0px",
+    textAlign: "center",
+  },
+
+  button2: {
+    fontFamily: "Gordita, Arial, sans-serif",
+    fontWeight: 500,
+    fontSize: "12px",
+    lineHeight: "20px",
     letterSpacing: "0px",
     textAlign: "center",
   },
