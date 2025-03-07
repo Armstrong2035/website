@@ -12,6 +12,7 @@ import AcUnitIcon from "@mui/icons-material/AcUnit";
 import YardIcon from "@mui/icons-material/Yard";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import HeightIcon from "@mui/icons-material/Height";
+import typographyStyles from "../../styles";
 
 export default function ListingFeatures({ listing }) {
   // Define features to display with icons
@@ -48,7 +49,7 @@ export default function ListingFeatures({ listing }) {
 
   return (
     <Box sx={{ my: 5 }}>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography sx={{ ...typographyStyles.cardHeader }}>
         Property Features
       </Typography>
 
@@ -64,7 +65,9 @@ export default function ListingFeatures({ listing }) {
               }}
             >
               {feature.icon}
-              <Typography variant="body2">{feature.name}</Typography>
+              <Typography sx={{ ...typographyStyles.priceRight }}>
+                {feature.name}
+              </Typography>
             </Box>
           </Grid>
         ))}

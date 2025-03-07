@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid, Divider } from "@mui/material";
+import typographyStyles from "../../styles";
 
 export default function ListingDetails({ listing }) {
   // Define property details to display
@@ -21,18 +22,21 @@ export default function ListingDetails({ listing }) {
 
   return (
     <Box sx={{ my: 5 }}>
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography gutterBottom sx={{ ...typographyStyles.cardHeader }}>
         Property Details
       </Typography>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{}}>
         {propertyDetails.map((detail, index) => (
-          <Grid item xs={6} md={4} key={index}>
+          <Grid item xs={6} md={6} key={index}>
             <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                sx={{ ...typographyStyles.priceRight }}
+                color="text.secondary"
+              >
                 {detail.label}
               </Typography>
-              <Typography variant="body1" sx={{ fontWeight: "medium" }}>
+              <Typography sx={{ ...typographyStyles.priceRight }}>
                 {detail.value}
               </Typography>
             </Box>

@@ -35,28 +35,63 @@ const degular = localFont({
 
 const Gordita = localFont({
   src: [
+    // Regular weights
     {
-      path: "subarashipublic\fontsGordita-Black.otf", // Regular
+      path: "../public/fonts/Gordita-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/jugular2.otf", // Light
+      path: "../public/fonts/Gordita-RegularItalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    // Light weights
+    {
+      path: "../public/fonts/Gordita-Light.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../public/fonts/jugular3.otf", // Semibold
-      weight: "600",
+      path: "../public/fonts/Gordita-LightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    // Medium weights
+    {
+      path: "../public/fonts/Gordita-Medium.otf",
+      weight: "500",
       style: "normal",
     },
     {
-      path: "../public/fonts/jugular4.otf", // Bold
+      path: "../public/fonts/Gordita-MediumItalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    // Bold weights
+    {
+      path: "../public/fonts/Gordita-Bold.otf",
       weight: "700",
       style: "normal",
     },
+    {
+      path: "../public/fonts/Gordita-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    // Black weights
+    {
+      path: "../public/fonts/Gordita-Black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Gordita-BlackItalic.otf",
+      weight: "900",
+      style: "italic",
+    },
   ],
-  variable: "--font-degular",
+  variable: "--font-gordita",
 });
 
 const redHatDisplay = Red_Hat_Display({

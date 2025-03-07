@@ -252,7 +252,7 @@ const typographyStyles = {
     fontSize: "18px",
     lineHeight: "40px",
     letterSpacing: "0px",
-    textAlign: "right",
+    // textAlign: "right",
   },
 
   cardHeader: {
