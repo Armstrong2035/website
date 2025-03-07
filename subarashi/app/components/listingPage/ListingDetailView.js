@@ -70,7 +70,7 @@ export default function ListingDetailView({ listing }) {
             <ListingAmenities listing={listing} />
 
             {/* What's Nearby */}
-            <ListingNearby listing={listing} />
+            {/* <ListingNearby listing={listing} /> */}
 
             {/* Similar Homes */}
             <ListingSimilarHomes listing={listing} />

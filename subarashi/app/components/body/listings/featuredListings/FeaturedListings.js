@@ -14,8 +14,8 @@ export default function FeaturedListings() {
       }}
     >
       <Grid2 container spacing={4}>
-        {mockListings.map((listing) => (
-          <Grid2 item size={{ lg: 6 }}>
+        {mockListings.map((listing, index) => (
+          <Grid2 item key={index} size={{ lg: 6 }}>
             <ListingCard listing={listing} />
           </Grid2>
         ))}

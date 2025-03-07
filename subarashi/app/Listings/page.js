@@ -5,10 +5,14 @@ import { Container, Typography, Box } from "@mui/material";
 import { mockListings } from "../../public/mockListings";
 import ListingsGrid from "../components/listings/ListingsGrid";
 import Footer from "../components/footer/Footer";
+import NavBar from "../components/appBar/AppBar";
+import HeroNav from "../components/body/HeroPage/HeroNav";
 
 export default function ListingsPage() {
   return (
     <>
+      <NavBar />
+
       <Box
         sx={{
           backgroundColor: "#005244",
@@ -17,7 +21,7 @@ export default function ListingsPage() {
           mb: 4,
         }}
       >
-        <Container maxWidth="lg">
+        {/* <Container maxWidth="lg">
           <Typography variant="h3" component="h1" gutterBottom>
             All Properties
           </Typography>
@@ -25,7 +29,7 @@ export default function ListingsPage() {
             Browse our exclusive collection of properties for sale and rent in
             Dubai
           </Typography>
-        </Container>
+        </Container> */}
       </Box>
 
       {/* ListingsGrid now contains the filter component */}

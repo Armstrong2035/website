@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
+import typographyStyles from "../../styles";
 
 export default function ListingAmenities({ listing }) {
   // Get amenities from the listing data
@@ -17,7 +18,7 @@ export default function ListingAmenities({ listing }) {
         Amenities
       </Typography>
 
-      <Typography variant="body1" paragraph>
+      <Typography sx={{ ...typographyStyles.priceRight }}>
         {displayText}
       </Typography>
 

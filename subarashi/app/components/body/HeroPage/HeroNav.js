@@ -14,8 +14,8 @@ import typographyStyles from "../../../styles";
 import { useState } from "react";
 
 export default function HeroNav() {
-  const navItems = ["Rentals", "Sales", "Holiday Homes", "Property Management"];
-  const item = "Resources";
+  const navItems = ["Listings", "Holiday Homes", "About us"];
+  const item = "Area guides";
   const isMobile = useMediaQuery("(max-width:768px)");
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
