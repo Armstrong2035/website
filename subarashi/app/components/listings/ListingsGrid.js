@@ -1,49 +1,79 @@
-"use client";
+import React from "react";
+import { Grid, Typography, Box, CircularProgress } from "@mui/material";
+import ListingItem from "./ListingItem";
 
-import { useState } from "react";
-import { Container, Typography, Box, Grid } from "@mui/material";
-import { mockListings } from "../../../public/mockListings";
-import ListingsFilter from "./ListingsFilter";
-import ListingCard from "../body/listings/featuredListings/listingCard/ListingCard";
-import Footer from "../footer/Footer";
-export default function ListingsPage() {
-  // State for the filtered listings
-  const [filteredListings, setFilteredListings] = useState(mockListings);
+const ListingsGrid = ({ listings, isLoading = false }) => {
+  // If loading is in progress
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          py: 8,
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+      >
+        <CircularProgress size={40} sx={{ color: "#005244" }} />
+        <Typography variant="body1" color="text.secondary">
+          Finding properties that match your criteria...
+        </Typography>
+      </Box>
+    );
+  }
+
+  // If no listings match the filter criteria
+  if (listings.length === 0) {
+    return (
+      <Box
+        sx={{
+          py: 8,
+          textAlign: "center",
+          backgroundColor: "#f5f5f5",
+          borderRadius: 2,
+          my: 4,
+        }}
+      >
+        <Typography variant="h5" gutterBottom color="text.secondary">
+          No properties match your search criteria
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Try adjusting your filters to see more results
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <>
-      {/* Grid of listing cards */}
-      <Grid
-        container
-        spacing={4}
-        alignItems={"center"}
-        justifyContent={"center"}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
       >
-        {filteredListings.map((listing) => (
-          <Grid item xs={12} sm={6} md={6} key={listing.id}>
-            <ListingCard listing={listing} />
+        <Typography variant="h5" component="h2">
+          Properties ({listings.length})
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Showing {listings.length} properties
+        </Typography>
+      </Box>
+
+      <Grid container spacing={3}>
+        {listings.map((listing) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={listing.id}>
+            <ListingItem listing={listing} />
           </Grid>
         ))}
       </Grid>
-
-      {/* No results message */}
-      {filteredListings.length === 0 && (
-        <Box
-          sx={{
-            height: 200,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "1px dashed #ccc",
-            borderRadius: 2,
-            mt: 3,
-          }}
-        >
-          <Typography variant="body1" color="text.secondary">
-            No properties match the selected filters
-          </Typography>
-        </Box>
-      )}
     </>
   );
-}
+};
+
+export default ListingsGrid;

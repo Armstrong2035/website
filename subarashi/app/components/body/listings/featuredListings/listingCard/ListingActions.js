@@ -2,6 +2,7 @@ import { Typography, Grid, Chip, IconButton, Box } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddIcon from "@mui/icons-material/Add";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import typographyStyles from "../../../../../styles";
 
 export default function ListingActions({ listing }) {
   return (
@@ -9,7 +10,11 @@ export default function ListingActions({ listing }) {
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item>
           <Chip
-            label={listing.purpose}
+            label={
+              <Typography sx={{ ...typographyStyles.caption }}>
+                {listing.purpose}{" "}
+              </Typography>
+            }
             size="small"
             sx={{
               borderRadius: "16px",
