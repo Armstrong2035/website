@@ -38,7 +38,6 @@ export default function NavBar() {
         zIndex: 1000,
         background: "transparent",
         top: 0,
-        py: 2,
       }}
     >
       <Container maxWidth="xl">
@@ -58,6 +57,7 @@ export default function NavBar() {
                 height: 60,
                 display: "flex",
                 alignItems: "center",
+                borderRadius: "50px",
               }}
             >
               <Image
@@ -120,7 +120,7 @@ export default function NavBar() {
                     <Typography textAlign="center">Resources</Typography>
                   </Link>
                 </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleCloseNavMenu} style={{}}>
                   <Link
                     href="/contact"
                     passHref
@@ -179,7 +179,7 @@ export default function NavBar() {
                     ml: 3,
                     color: "#F2FFC2",
                     borderColor: "#F2FFC2",
-                    borderRadius: "4px",
+                    borderRadius: "20px",
                     "&:hover": {
                       borderColor: "#FFFFFF",
                       color: "#FFFFFF",

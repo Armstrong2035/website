@@ -16,11 +16,10 @@ import Specs from "./Specs";
 
 export default function DetailBody({ listing }) {
   return (
-    <Stack spacing={7}>
+    <Stack spacing={4}>
       <Specs listing={listing} />
       <Stack alignItems={"center"} alignSelf={"flex-start"} spacing={3}>
         <Price listing={listing} />
-
         <CTA listing={listing} />
       </Stack>
     </Stack>

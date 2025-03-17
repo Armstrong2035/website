@@ -20,7 +20,7 @@ export default function ListingCard({ listing }) {
   return (
     <Card sx={{ display: "flex", flexDirection: "column" }}>
       {/* Image Container */}
-      <Link href={`/listings/${listing.id}`} style={{ textDecoration: "none" }}>
+      <Link href={`/listing/${listing.id}`} style={{ textDecoration: "none" }}>
         <Box
           sx={{
             height: 300, // Adjust image height

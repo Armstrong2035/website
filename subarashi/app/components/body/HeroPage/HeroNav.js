@@ -14,7 +14,11 @@ import typographyStyles from "../../../styles";
 import { useState } from "react";
 
 export default function HeroNav() {
-  const navItems = ["Listings", "Holiday Homes", "About us"];
+  const navItems = [
+    { title: "Listings", href: "/listings" },
+    { title: "Holiday Homes", href: "/holiday-homes" },
+    { title: "About us", href: "/about" },
+  ];
   const item = "Area guides";
   const isMobile = useMediaQuery("(max-width:768px)");
   const [anchorEl, setAnchorEl] = useState(null);
@@ -35,6 +39,7 @@ export default function HeroNav() {
         justifyContent={"space-between"}
         direction={"row"}
         sx={{
+          // border: "1px solid red",
           mt: { xs: 2, sm: 3, md: 5 },
           mr: { xs: 2, sm: 5, md: 10 },
           ml: { xs: 2, sm: 5, md: 10 },
@@ -48,7 +53,7 @@ export default function HeroNav() {
           {navItems.map((item, index) => (
             <Link
               key={index}
-              href={`${item}`}
+              href={`${item.href}`}
               style={{ textDecoration: "none" }}
             >
               <Stack direction={"row"}>
@@ -60,7 +65,7 @@ export default function HeroNav() {
                     lineHeight: { xs: "30px", sm: "35px", md: "40px" },
                   }}
                 >
-                  {item}
+                  {item.title}
                 </Typography>
               </Stack>
             </Link>
@@ -70,7 +75,8 @@ export default function HeroNav() {
           <Stack
             direction={"row"}
             alignItems={"center"}
-            spacing={{ xs: 1, sm: 2, md: 3 }}
+            justifyContent={"center"}
+            spacing={{ xs: 1, sm: 1, md: 1 }}
           >
             <Typography
               sx={{
@@ -82,7 +88,13 @@ export default function HeroNav() {
             >
               {item}
             </Typography>
-            <ArrowForwardIcon sx={{ color: "#F2FFC2" }} />
+            <ArrowForwardIcon
+              sx={{
+                color: "#F2FFC2",
+                fontSize: { xs: "18px", sm: "20px", md: "24px" },
+                lineHeight: { xs: "30px", sm: "35px", md: "40px" },
+              }}
+            />
           </Stack>
         </Link>
       </Stack>

@@ -5,10 +5,13 @@ export default function HeroText() {
   return (
     <Box
       sx={{
-        mt: { xs: 1, sm: 1.5, md: 2 },
-        ml: { xs: 2, sm: 5, md: 10 },
+        display: "flex",
+        alignItems: "center",
+
+        //  border: "1px solid red",
         mr: { xs: 2, sm: 5, md: 10 },
-        mb: { xs: 3, sm: 4, md: 5 },
+        ml: { xs: 2, sm: 5, md: 10 },
+        mb: 10,
       }}
     >
       <Typography
@@ -19,7 +22,6 @@ export default function HeroText() {
             xs: "40px",
             sm: "70px",
             md: "100px",
-            lg: "130px",
           },
           lineHeight: {
             xs: "48px",

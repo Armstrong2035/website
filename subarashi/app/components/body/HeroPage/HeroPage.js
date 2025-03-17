@@ -12,27 +12,28 @@ export default function HeroPage({ heroImage }) {
     <div
       style={{
         backgroundColor: "#005244",
+        height: "100vh",
+        overflow: "hidden",
       }}
     >
       <Box
         sx={{
-          height: { xs: "50vh", sm: "60vh", md: "70vh" },
+          height: { xs: "70%", sm: "70%", md: "70%" },
         }}
       >
         <HeroImage heroImage={heroImage} />
       </Box>
 
       <Stack
+        justifyContent={"center"}
         sx={{
           width: "100%",
           backgroundColor: "#005244",
-          pb: { xs: 4, sm: 4, md: 5 },
+          // pb: { xs: 4, sm: 4, md: 5 },
         }}
       >
         <HeroNav />
-        <Box>
-          <HeroText />
-        </Box>
+        <HeroText />
       </Stack>
     </div>
   );

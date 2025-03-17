@@ -8,14 +8,22 @@ export default function FeaturedListings() {
   return (
     <Box
       sx={{
-        mr: { xs: 2, sm: 5, md: 8, lg: 10 },
-        ml: { xs: 2, sm: 5, md: 8, lg: 10 },
-        mt: { xs: 5, sm: 7, md: 10 },
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        mt: 5,
       }}
     >
-      <Grid2 container spacing={4}>
+      <Grid2
+        container
+        spacing={4}
+        alignItems={"center"}
+        justifyContent={"center"}
+        sx={{ mr: 5, ml: 5 }}
+      >
         {mockListings.map((listing, index) => (
-          <Grid2 item key={index} size={{ lg: 6 }}>
+          <Grid2 item key={index} size={{ lg: 6, sm: 12 }}>
             <ListingCard listing={listing} />
           </Grid2>
         ))}

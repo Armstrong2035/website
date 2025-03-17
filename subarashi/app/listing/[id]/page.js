@@ -3,6 +3,7 @@
 import { use } from "react";
 import ListingDetailView from "../../components/listingPage/ListingDetailView";
 import { mockListings } from "../../../public/mockListings";
+import NavBar from "../../components/appBar/AppBar";
 
 export default function Page({ params }) {
   // Unwrap the params promise using React.use()
@@ -14,5 +15,10 @@ export default function Page({ params }) {
   // Find the matching listing from mock data
   const listing = mockListings.find((item) => item.id === listingId);
 
-  return <ListingDetailView listing={listing} />;
+  return (
+    <>
+      <NavBar />
+      <ListingDetailView listing={listing} />
+    </>
+  );
 }

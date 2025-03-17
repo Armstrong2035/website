@@ -6,7 +6,7 @@ export default function CTA({ listing }) {
   return (
     <Box>
       <Link
-        href={`/listings/${listing.id}`}
+        href={`/listing/${listing.id}`}
         passHref
         style={{ textDecoration: "none" }}
       >

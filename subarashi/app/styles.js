@@ -16,6 +16,14 @@ const typographyStyles = {
     letterSpacing: "0%",
     textAlign: "center",
   },
+  subheading2: {
+    fontFamily: "Degular, Arial, sans-serif",
+    fontWeight: 500,
+    fontSize: "70px",
+    lineHeight: "100px",
+    letterSpacing: "0%",
+    textAlign: "center",
+  },
 
   caption: {
     fontFamily: "Degular, Arial, sans-serif",
