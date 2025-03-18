@@ -1,12 +1,13 @@
+"use client";
+
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import icon from "../../../public/logos/icon.png";
 
-const backgroundImageUrl = "/SubaPattern.png"; // Direct reference to public folder image
-
-export default function Introduction() {
+export default function Introduction({ logoIcon, backgroundImage }) {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQue;
+  ry(theme.breakpoints.down("sm"));
 
   return (
     <Box
@@ -19,7 +20,7 @@ export default function Introduction() {
         alignItems: "center",
         pt: 10,
         pb: 10,
-        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -37,7 +38,13 @@ export default function Introduction() {
       }}
     >
       <Box sx={{ position: "relative", zIndex: 2 }}>
-        <Image src={icon} alt="Subarashi real estate" />
+        <Image
+          src={logoIcon}
+          alt="Subarashi real estate"
+          layout="responsive"
+          width={isMobile ? 50 : 10}
+          height={isMobile ? 50 : 10}
+        />
       </Box>
       <Typography
         sx={{

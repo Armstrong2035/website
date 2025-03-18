@@ -1,9 +1,9 @@
+"use client";
+
 import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import typographyStyles from "../../styles";
 
-const backgroundImageUrl = "/grantLemons.jpg"; // ✅ Make sure this exists in /public
-
-export default function OurMission() {
+export default function OurVision({ image }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -17,7 +17,7 @@ export default function OurMission() {
         position: "relative", // Needed for overlay effect
         width: "100%",
         height: "100vh",
-        backgroundImage: `url(${backgroundImageUrl})`, // ✅ Background image
+        backgroundImage: `url(${image})`, // ✅ Background image
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

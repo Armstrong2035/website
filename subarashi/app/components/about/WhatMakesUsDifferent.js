@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Typography, useMediaQuery, useTheme, Stack } from "@mui/material";
 import typographyStyles from "../../styles";
 

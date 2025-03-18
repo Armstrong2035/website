@@ -1,3 +1,4 @@
+"use client";
 import { Box, Container, Divider, Grid2 } from "@mui/material";
 import FooterTitle from "./FooterTitle";
 import Address from "./Address";
