@@ -7,6 +7,7 @@ import { Divider } from "@mui/material";
 import WhatWeDo from "../components/about/WhatWeDo";
 import WhatMakesUsDifferent from "../components/about/WhatMakesUsDifferent";
 import Footer from "../components/footer/Footer";
+import Introduction from "../components/about/Introduction";
 
 export default function AboutUs() {
   return (
@@ -14,22 +15,18 @@ export default function AboutUs() {
       <NavBar />
 
       <Hero />
-      <Divider />
+
+      <Introduction />
 
       <OurMission />
 
-      <Divider />
-
-      <OurVision />
-      <Divider />
-
       <WhatWeDo />
 
-      <Divider />
-
-      <WhatMakesUsDifferent />
+      <OurVision />
 
       <Divider />
+
+      {/* <WhatMakesUsDifferent /> */}
 
       {/*}
       

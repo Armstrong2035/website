@@ -1,4 +1,11 @@
-import { Box, Typography, useMediaQuery, useTheme, Stack } from "@mui/material";
+import {
+  Box,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Stack,
+  Divider,
+} from "@mui/material";
 import typographyStyles from "../../styles";
 
 export default function WhatWeDo() {
@@ -6,68 +13,67 @@ export default function WhatWeDo() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const services = [
-    {
-      icon: "🏡",
-      title: "Property Sales",
-      description: "Helping you find your dream home or investment.",
-    },
-    {
-      icon: "🏢",
-      title: "Property Management",
-      description: "Taking care of your assets with top-tier service.",
-    },
-    {
-      icon: "🔑",
-      title: "Leasing & Rentals",
-      description: "Connecting landlords with quality tenants effortlessly.",
-    },
-    {
-      icon: "📈",
-      title: "Real Estate Investments",
-      description: "Expert strategies to maximize your returns.",
-    },
-    {
-      icon: "🌴",
-      title: "Holiday Homes",
-      description:
-        "Exclusive short-term rental options for tourists and business travelers.",
-    },
+    { title: "PROPERTY SALES" },
+    { icon: "🔑", title: "LEASING & RENTALS" },
+    { title: "HOLIDAY HOMES" },
+    { title: "PROPERTY MANAGEMENT" },
+    { title: "INVESTMENT ADVISORY" },
   ];
+
   return (
     <Box
       sx={{
-        // backgroundColor: "#DEEAA0",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        mt: 10,
-        mb: 10,
+        backgroundColor: "#005244",
+        pl: isMobile ? 2 : 20,
+        pt: 10,
+        pb: 10,
+        pr: 20,
+
+        width: "100%",
       }}
     >
       <Typography
         sx={{
           ...typographyStyles.subheading2,
           fontSize: isMobile ? "50px" : "70px",
+          color: "#F2FFC2",
+          fontWeight: 500,
+          mb: 5,
         }}
       >
         What We Do
       </Typography>
 
-      <Stack spacing={2} justifyContent={"center"} alignItems={"center"}>
+      <Stack
+        spacing={1}
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        sx={{ width: "80%" }}
+      >
         {services.map((service, index) => (
-          <Stack direction={"row"} key={index}>
+          <Box key={index} sx={{ width: "100%" }}>
             <Typography
               sx={{
-                ...typographyStyles.bodyLarge,
-                textAlign: "center",
+                ...typographyStyles.subheading2,
+                textAlign: "left",
+                fontSize: isMobile ? "30px" : "70px",
 
-                fontSize: isMobile ? "12px" : "18px",
+                color: "#F2FFC2",
+                fontWeight: 10,
               }}
             >
-              {`${service.icon} ${service.title}: ${service.description}`}
+              {service.title}
             </Typography>
-          </Stack>
+
+            {/* Full Width Divider */}
+            <Divider
+              sx={{
+                backgroundColor: "#F2FFC2", // Set divider color
+                width: "100%", // Full width of the viewport
+                marginBottom: 3, // Spacing below the divider
+              }}
+            />
+          </Box>
         ))}
       </Stack>
     </Box>

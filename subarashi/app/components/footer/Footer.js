@@ -71,7 +71,7 @@ export default function Footer() {
         sx={{ backgroundColor: "#E5E5FF", mt: 5, mb: 5 }}
       />
 
-      <Grid2 container>
+      <Grid2 container spacing={3}>
         <Grid2 item size={{ lg: 8 }}>
           <Address address={footerItems.address} />
         </Grid2>

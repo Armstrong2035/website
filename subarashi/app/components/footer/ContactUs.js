@@ -3,7 +3,7 @@ import typographyStyles from "../../styles";
 
 export default function ContactUs({ details }) {
   return (
-    <Stack>
+    <Stack spacing={3}>
       <Typography
         sx={{ ...typographyStyles.sloganText, color: "white", mb: 3 }}
       >
@@ -16,6 +16,7 @@ export default function ContactUs({ details }) {
           borderRadius: 10,
           p: 2,
           mb: 5,
+          textAlign: "left",
         }}
       >
         Speak with an agent

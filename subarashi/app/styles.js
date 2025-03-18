@@ -22,7 +22,7 @@ const typographyStyles = {
     fontSize: "70px",
     lineHeight: "100px",
     letterSpacing: "0%",
-    textAlign: "center",
+    // textAlign: "center",
   },
 
   caption: {

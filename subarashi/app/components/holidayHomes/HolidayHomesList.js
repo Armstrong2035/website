@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Grid, Typography } from "@mui/material";
-import HolidayHomeCard from "./HolidayHomesCard";
+import HolidayHomeCard from "./HolidayHomeCard";
 
 export default function HolidayHomesList({ listings }) {
   if (!listings || listings.length === 0) {
