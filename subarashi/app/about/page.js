@@ -33,15 +33,15 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Iuri",
-      Title: "Broker",
+      Name: "Jauad",
+      Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Luri_gwnrvk.png",
     },
 
     {
       Name: "Kamaal",
-      Title: "Broker",
+      Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Kamaal-Profile-Photo-Subarashi_fe3gde.png",
     },
@@ -54,14 +54,14 @@ export default function AboutUs() {
     },
     {
       Name: "Taher",
-      Title: "Broker",
+      Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Taher_qjpy1n.png",
     },
 
     {
       Name: "Oliver",
-      Title: "Broker",
+      Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Oliver-Profile-Photo-Subarashi-1_czgx1x.png",
     },

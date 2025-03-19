@@ -10,7 +10,7 @@ import SearchFilters from "../components/listings/SearchFilters";
 import { useListingsFilter } from "../hooks/useListingFilter";
 import { filterStyles } from "../styles/filterStyles";
 
-export default function ListingsPage() {
+export default function page() {
   const heroImage =
     "https://res.cloudinary.com/dulafqaoq/image/upload/f_auto,q_auto,w_auto,fl_progressive/v1739812368/Image_17_uijjge.png";
 
