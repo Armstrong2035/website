@@ -128,6 +128,7 @@ export default function RootLayout({ children }) {
           padding: 0,
           width: "100%", // Changed from 100vw to 100%
           overflowX: "hidden", // Add this to prevent horizontal scroll
+          overflowY: "hidden",
         }}
       >
         {children}
