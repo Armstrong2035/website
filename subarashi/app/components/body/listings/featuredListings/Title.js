@@ -1,10 +1,22 @@
-import { Description } from "@mui/icons-material";
-import { Button, Typography, Box, Stack, Grid2 } from "@mui/material";
+"use client";
+
+import { Description, InstallMobile } from "@mui/icons-material";
+import {
+  Button,
+  Typography,
+  Box,
+  Stack,
+  Grid2,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
 import Link from "next/link";
 
 export default function Title() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const titleItems = {
     title: "Featured Listings",
     description:
@@ -19,10 +31,17 @@ export default function Title() {
       alignItems={"center"}
       justifyContent={"center"}
       sx={{ pr: 10, pl: 10, mt: 7, mb: 7 }}
+      spacing={7}
     >
       <Grid2 item size={{ lg: 6 }}>
         <Typography
-          sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#005244" }}
+          sx={{
+            ...typographyStyles.displayLarge,
+            mb: 2,
+            color: "#005244",
+            lineHeight: isMobile ? "70px" : "140px",
+            mb: isMobile ? 5 : 1,
+          }}
         >
           {titleItems.title}
         </Typography>
@@ -45,7 +64,12 @@ export default function Title() {
           <Button
             variant={"text"}
             endIcon={<ArrowForwardIcon />}
-            sx={{ ...typographyStyles.pageTitle, color: "#005244" }}
+            sx={{
+              ...typographyStyles.pageTitle,
+              color: "#005244",
+              lineHeight: isMobile ? "40px" : "140px",
+              alignText: "left",
+            }}
           >
             View all listings
           </Button>

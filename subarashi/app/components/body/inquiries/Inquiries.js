@@ -1,8 +1,18 @@
-import { Typography, Box, Button } from "@mui/material";
+"use client";
+
+import {
+  Typography,
+  Box,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import typographyStyles from "../../../styles";
 import ButtonModal from "../../CTA/ButtonModal";
 
 export default function Inquiries() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const buttonStyle = {
     ...typographyStyles.button,
     backgroundColor: "#005244",
@@ -12,15 +22,23 @@ export default function Inquiries() {
     <Box
       sx={{
         backgroundColor: "#F2FFC2",
-        height: "40vh",
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        gap: 2,
+        gap: 5,
+        pb: 5,
+        pt: 5,
       }}
     >
-      <Typography sx={{ ...typographyStyles.displayMedium, color: "#005244" }}>
+      <Typography
+        sx={{
+          ...typographyStyles.displayMedium,
+          color: "#005244",
+          lineHeight: isMobile ? "60px" : "95px",
+        }}
+      >
         Any Inquiries? Please contact us
       </Typography>
 

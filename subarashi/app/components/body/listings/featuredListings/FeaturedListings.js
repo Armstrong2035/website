@@ -1,10 +1,20 @@
+"use client";
 import { mockListings } from "../../../../../public/mockListings";
-import { Container, Card, Grid2, Box } from "@mui/material";
+import {
+  Container,
+  Card,
+  Grid2,
+  Box,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import ListingCard from "./listingCard/ListingCard";
 import Title from "./Title";
 
 export default function FeaturedListings() {
   //   console.log(mockListings);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
       sx={{
