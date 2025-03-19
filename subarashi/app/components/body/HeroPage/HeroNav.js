@@ -71,7 +71,7 @@ export default function HeroNav() {
             </Link>
           ))}
         </Stack>
-        <Link href={"/none"} style={{ textDecoration: "none" }}>
+        <Link href={"/underConstruction"} style={{ textDecoration: "none" }}>
           <Stack
             direction={"row"}
             alignItems={"center"}

@@ -1,7 +1,13 @@
 import { Typography, Box, Button } from "@mui/material";
 import typographyStyles from "../../../styles";
+import ButtonModal from "../../CTA/ButtonModal";
 
 export default function Inquiries() {
+  const buttonStyle = {
+    ...typographyStyles.button,
+    backgroundColor: "#005244",
+    color: "#F2FFC2",
+  };
   return (
     <Box
       sx={{
@@ -18,7 +24,12 @@ export default function Inquiries() {
         Any Inquiries? Please contact us
       </Typography>
 
-      <Button
+      <ButtonModal
+        buttonText={"Send a message"}
+        buttonStyle={buttonStyle}
+        outlined={false}
+      />
+      {/* <Button
         variant={"contained"}
         sx={{
           ...typographyStyles.button,
@@ -27,7 +38,7 @@ export default function Inquiries() {
         }}
       >
         Send a message
-      </Button>
+      </Button> */}
     </Box>
   );
 }

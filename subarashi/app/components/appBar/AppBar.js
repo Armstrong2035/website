@@ -15,11 +15,26 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logos/logo.png";
+import logoGreen from "../../../public/logos/logoGreen.png";
+import ButtonModal from "../CTA/ButtonModal";
 
-export default function NavBar() {
+export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorElNav, setAnchorElNav] = useState(null);
+
+  const buttonStyle = {
+    ml: 3,
+    color: "#005244",
+    borderColor: "#F2FFC2",
+    borderRadius: "20px",
+    backgroundColor: "#F2FFC2",
+    "&:hover": {
+      borderColor: "#FFFFFF",
+      color: "#005244",
+      backgroundColor: "#FFFFFF",
+    },
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -61,7 +76,7 @@ export default function NavBar() {
               }}
             >
               <Image
-                src={logo}
+                src={hoverColor === "#FFFFFF" ? logo : logoGreen}
                 alt="Subarashi Real Estate"
                 fill
                 style={{
@@ -113,7 +128,7 @@ export default function NavBar() {
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link
-                    href="/resources"
+                    href="/underConstruction"
                     passHref
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
@@ -142,10 +157,10 @@ export default function NavBar() {
                 <Typography
                   sx={{
                     mx: 2,
-                    color: "#F2FFC2",
+                    color: color,
                     fontWeight: 500,
                     "&:hover": {
-                      color: "#FFFFFF",
+                      color: hoverColor,
                     },
                   }}
                 >
@@ -154,17 +169,17 @@ export default function NavBar() {
               </Link>
 
               <Link
-                href="/resources"
+                href="/underConstruction"
                 passHref
                 style={{ textDecoration: "none" }}
               >
                 <Typography
                   sx={{
                     mx: 2,
-                    color: "#F2FFC2",
+                    color: color,
                     fontWeight: 500,
                     "&:hover": {
-                      color: "#FFFFFF",
+                      color: hoverColor,
                     },
                   }}
                 >
@@ -172,8 +187,7 @@ export default function NavBar() {
                 </Typography>
               </Link>
 
-              <Link href="/contact" passHref>
-                <Button
+              {/* <Button
                   variant="outlined"
                   sx={{
                     ml: 3,
@@ -188,8 +202,12 @@ export default function NavBar() {
                   }}
                 >
                   Contact Us
-                </Button>
-              </Link>
+                </Button> */}
+              <ButtonModal
+                buttonText={"Contact Us"}
+                outlined={true}
+                buttonStyle={buttonStyle}
+              />
             </Box>
           )}
         </Box>
