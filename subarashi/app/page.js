@@ -27,9 +27,7 @@ export default async function Home() {
   return (
     <div
       style={{
-        width: "100%",
-        margin: 0,
-        padding: 0,
+        overflowX: "hidden",
       }}
     >
       <ListingsProvider listings={listings} />

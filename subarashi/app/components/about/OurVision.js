@@ -31,10 +31,10 @@ export default function OurVision({ image }) {
         <Typography
           sx={{
             ...typographyStyles.subheading2,
-            fontSize: isMobile ? "50px" : "70px",
+            fontSize: isMobile ? "40px" : "70px",
             position: "relative", // Ensures it appears above overlay
             zIndex: 2,
-            textAlign: "right",
+            textAlign: isMobile ? "left" : "right",
             color: "#043D32",
           }}
         >
@@ -49,7 +49,7 @@ export default function OurVision({ image }) {
             fontSize: isMobile ? "18px" : "18px",
             position: "relative",
             zIndex: 2,
-            textAlign: "right",
+            textAlign: isMobile ? "left" : "right",
             color: "#043D32",
           }}
         >

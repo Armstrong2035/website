@@ -2,6 +2,7 @@ import { Description } from "@mui/icons-material";
 import { Button, Typography, Box, Stack, Grid2 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
+import Link from "next/link";
 
 export default function Title() {
   const titleItems = {
@@ -40,13 +41,15 @@ export default function Title() {
           justifyContent: "flex-end",
         }}
       >
-        <Button
-          variant={"text"}
-          endIcon={<ArrowForwardIcon />}
-          sx={{ ...typographyStyles.pageTitle, color: "#005244" }}
-        >
-          View all listings
-        </Button>
+        <Link href={"/listings"}>
+          <Button
+            variant={"text"}
+            endIcon={<ArrowForwardIcon />}
+            sx={{ ...typographyStyles.pageTitle, color: "#005244" }}
+          >
+            View all listings
+          </Button>
+        </Link>
       </Grid2>
     </Grid2>
   );

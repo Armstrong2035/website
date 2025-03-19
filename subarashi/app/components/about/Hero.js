@@ -28,7 +28,8 @@ export default function Hero() {
       <Stack
         sx={{ width: "80%" }}
         direction={"row"}
-        justifyContent={"space-between"}
+        justifyContent={isMobile ? "center" : "space-between"}
+        alignItems={"center"}
       >
         {!isMobile ? (
           <Typography sx={{ ...typographyStyles.heroTitle, color: "#F2FFC2" }}>
@@ -36,7 +37,16 @@ export default function Hero() {
           </Typography>
         ) : null}
 
-        <Box sx={{ alignSelf: isMobile ? "center" : null }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            // border: "1px solid red",
+          }}
+        >
+          ,
           <Typography
             sx={{
               ...typographyStyles.displayLarge,

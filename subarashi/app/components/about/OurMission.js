@@ -27,7 +27,7 @@ export default function OurMission({ image }) {
       <Stack
         justifyContent={"flex-start"}
         alignItems={"flexStart"}
-        sx={{ pl: 20 }}
+        sx={{ pl: isMobile ? 5 : 20 }}
       >
         <Typography
           sx={{

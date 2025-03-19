@@ -13,6 +13,8 @@ export default function FeaturedListings() {
         justifyContent: "center",
         flexDirection: "column",
         mt: 5,
+        pr: 1,
+        pl: 1,
       }}
     >
       <Grid2

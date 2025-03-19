@@ -1,11 +1,20 @@
 "use client";
-import { Box, Container, Divider, Grid2 } from "@mui/material";
+import {
+  Box,
+  Container,
+  Divider,
+  Grid2,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import FooterTitle from "./FooterTitle";
 import Address from "./Address";
 import ContactUs from "./ContactUs";
 import Socials from "./Socials";
 
 export default function Footer() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const footerItems = {
     title: ["Timeless", "Future", "Awaits", "Subarashi"],
     address: {
@@ -65,7 +74,15 @@ export default function Footer() {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#005244", pl: 10, pr: 10, pb: 10, pt: 10 }}>
+    <Box
+      sx={{
+        backgroundColor: "#005244",
+        pl: isMobile ? 5 : 10,
+        pr: isMobile ? 5 : 10,
+        pb: 10,
+        pt: 10,
+      }}
+    >
       <FooterTitle title={footerItems.title} />
       <Divider
         variant="middle"

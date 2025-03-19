@@ -113,7 +113,7 @@ export default function HeroNav() {
         pb: 1,
       }}
     >
-      <IconButton
+      {/* <IconButton
         id="mobile-menu-button"
         aria-controls={open ? "mobile-menu" : undefined}
         aria-haspopup="true"
@@ -122,9 +122,9 @@ export default function HeroNav() {
         sx={{ color: "#F2FFC2" }}
       >
         <MenuIcon />
-      </IconButton>
+      </IconButton> */}
 
-      <Link href={"/none"} style={{ textDecoration: "none" }}>
+      <Link href={"/underConstruction"} style={{ textDecoration: "none" }}>
         <Stack direction={"row"} alignItems={"center"} spacing={1}>
           <Typography
             sx={{
@@ -140,7 +140,7 @@ export default function HeroNav() {
         </Stack>
       </Link>
 
-      <Menu
+      {/* <Menu
         id="mobile-menu"
         anchorEl={anchorEl}
         open={open}
@@ -175,7 +175,7 @@ export default function HeroNav() {
             </Typography>
           </MenuItem>
         ))}
-      </Menu>
+      </Menu> */}
     </Stack>
   );
 }
