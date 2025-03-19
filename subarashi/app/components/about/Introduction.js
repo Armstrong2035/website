@@ -6,8 +6,7 @@ import icon from "../../../public/logos/icon.png";
 
 export default function Introduction({ logoIcon, backgroundImage }) {
   const theme = useTheme();
-  const isMobile = useMediaQue;
-  ry(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box
