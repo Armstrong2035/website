@@ -31,30 +31,68 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742373850/Aje_peoac1.png",
     },
-    {
-      Name: "Taher",
-      Title: "Broker",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Taher_qjpy1n.png",
-    },
+
     {
       Name: "Iuri",
       Title: "Broker",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Luri_gwnrvk.png",
     },
+
     {
       Name: "Kamaal",
       Title: "Broker",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Kamaal-Profile-Photo-Subarashi_fe3gde.png",
     },
+
+    {
+      Name: "Heidi",
+      Title: "Off Plan Investment Advisor",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Heidi-Profile-Photo-Subarashi-1_wc3ccg.png",
+    },
+    {
+      Name: "Taher",
+      Title: "Broker",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Taher_qjpy1n.png",
+    },
+
     {
       Name: "Oliver",
       Title: "Broker",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Oliver-Profile-Photo-Subarashi-1_czgx1x.png",
     },
+    {
+      Name: "Yahia",
+      Title: "Investment Adviser Off-plan",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
+    },
+
+    {
+      Name: "Zamin",
+      Title: "Off Plan Investment Advisor",
+      ImageUrl:
+        "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Zamin-Profile-Photo-Subarashi-1_fbvkjb.png",
+    },
+
+    {
+      Name: "Farah",
+      Title: "Investment Adviser Off-plan",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Farah-Profile-Photo-Subarashi-1_mulx0f.png",
+    },
+
+    {
+      Name: "Hamza",
+      Title: "Sales Agent / Off-Plan",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Hamza-Profile-Photo-Subarashi_tukdpw.png",
+    },
+
     {
       Name: "Sofia",
       Title: "Administrative Coordinator",
@@ -75,7 +113,7 @@ export default function AboutUs() {
     },
     {
       Name: "Dafne",
-      Title: "Recruiter and Personal Assistant",
+      Title: "Recruiter",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Dafne-Profile-Photo-Subarashi_teot1x.png",
     },
@@ -109,59 +147,33 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Erica-Profile-Photo-Subarashi_vs25qr.png",
     },
-    {
-      Name: "Farah",
-      Title: "Investment Adviser Off-plan",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Farah-Profile-Photo-Subarashi-1_mulx0f.png",
-    },
-    {
-      Name: "Yahia",
-      Title: "Investment Adviser Off-plan",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
-    },
+
     {
       Name: "Shahd",
       Title: "Telesales",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Shad-Profile-Photo-Subarashi-1_aozzr1.png",
     },
-    {
-      Name: "Hamza",
-      Title: "Sales Agent / Off-Plan",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Hamza-Profile-Photo-Subarashi_tukdpw.png",
-    },
-    {
-      Name: "Aasma",
-      Title: "Videographer & Photographer",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742375575/Aasma-Profile-Photo-Subarashi-1_t4hrsa.png",
-    },
+
     {
       Name: "Leo",
       Title: "Marketing",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742375800/Profile-Photo-Subarashi_xrqxwf.png",
     },
+
     {
-      Name: "Zamin",
-      Title: "Off Plan Investment Advisor",
+      Name: "Aasma",
+      Title: "Videographer & Photographer",
       ImageUrl:
-        "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Zamin-Profile-Photo-Subarashi-1_fbvkjb.png",
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742375575/Aasma-Profile-Photo-Subarashi-1_t4hrsa.png",
     },
+
     {
       Name: "Gideon",
       Title: "Guest Relations Officer",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374960/Gideon-Profile-Photo-Subarashi-1_uhkwdq.png",
-    },
-    {
-      Name: "Heidi",
-      Title: "Off Plan Investment Advisor",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Heidi-Profile-Photo-Subarashi-1_wc3ccg.png",
     },
   ];
 
