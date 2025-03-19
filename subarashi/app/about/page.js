@@ -9,7 +9,7 @@ import Footer from "../components/footer/Footer";
 import Introduction from "../components/about/Introduction";
 import TeamSection from "../components/about/OurTeam/TeamSection";
 
-export const revalidate = 3600;
+export const revalidate = 2592000;
 
 export default function AboutUs() {
   const logoIcon =
