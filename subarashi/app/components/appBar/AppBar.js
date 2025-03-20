@@ -119,7 +119,16 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
               >
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link
-                    href="/listings"
+                    href="/about"
+                    passHref
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <Typography textAlign="center">About us</Typography>
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link
+                    href="/Listings"
                     passHref
                     style={{ textDecoration: "none", color: "inherit" }}
                   >

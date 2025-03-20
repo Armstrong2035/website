@@ -15,7 +15,7 @@ import { useState } from "react";
 
 export default function HeroNav() {
   const navItems = [
-    { title: "Listings", href: "/listings" },
+    { title: "Listings", href: "/Listings" },
     { title: "Holiday Homes", href: "/holiday-homes" },
     { title: "About us", href: "/about" },
   ];

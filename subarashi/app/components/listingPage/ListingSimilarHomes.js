@@ -46,7 +46,7 @@ export default function ListingSimilarHomes({ listing }) {
         {similarListings.map((similarListing) => (
           <Grid item xs={12} sm={6} key={similarListing.id}>
             <Link
-              href={`/listings/${similarListing.id}`}
+              href={`/Listings/${similarListing.id}`}
               style={{ textDecoration: "none" }}
             >
               <Card
