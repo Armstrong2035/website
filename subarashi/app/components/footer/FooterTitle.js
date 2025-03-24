@@ -10,7 +10,7 @@ export default function FooterTitle({ title }) {
         sx={{
           ...typographyStyles.heroLarge,
           color: "#E5E5FF",
-          fontSize: isMobile ? "70px" : "130px",
+          fontSize: isMobile ? "40px" : "70px",
           lineHeight: isMobile ? "70px" : "104px",
         }}
       >

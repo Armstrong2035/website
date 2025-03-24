@@ -39,10 +39,10 @@ export default function ListingContactForm({ listing }) {
         </Avatar>
         <Box>
           <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-            Rashed Kabir
+            Kamaal Shah
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Property Agent & Broker
+            Investment Advisor
           </Typography>
         </Box>
       </Box>
@@ -51,12 +51,12 @@ export default function ListingContactForm({ listing }) {
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <EmailIcon fontSize="small" color="action" />
           <Typography variant="body2">
-            Email: agent@subarashirealestate.com
+            Email: kamaal@subarashirealestate.com
           </Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <PhoneIcon fontSize="small" color="action" />
-          <Typography variant="body2">Phone: +971 58 123 4567</Typography>
+          <Typography variant="body2">Phone: 045725375</Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <LocationOnIcon fontSize="small" color="action" />

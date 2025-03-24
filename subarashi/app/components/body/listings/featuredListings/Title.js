@@ -60,7 +60,7 @@ export default function Title() {
           justifyContent: "flex-end",
         }}
       >
-        <Link href={"/listings"}>
+        <Link href={"/Listings"}>
           <Button
             variant={"text"}
             endIcon={<ArrowForwardIcon />}

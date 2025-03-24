@@ -87,9 +87,9 @@ export default function ListingDetailView({ listing }) {
         </Grid>
 
         {/* Reviews Section */}
-        <Box sx={{ my: 8 }}>
+        {/* <Box sx={{ my: 8 }}>
           <ListingReviews listing={listing} />
-        </Box>
+        </Box> */}
       </Container>
 
       <Footer />

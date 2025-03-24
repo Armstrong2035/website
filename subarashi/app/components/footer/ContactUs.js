@@ -12,13 +12,13 @@ export default function ContactUs({ details }) {
     textAlign: "left",
   };
   return (
-    <Stack spacing={3}>
+    <Stack spacing={1}>
       <Typography
         sx={{
           ...typographyStyles.sloganText,
           color: "white",
           mb: 3,
-          fontSize: 50,
+          fontSize: "20px",
         }}
       >
         {details.landline}

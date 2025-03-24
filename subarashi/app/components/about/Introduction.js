@@ -57,8 +57,9 @@ export default function Introduction({ logoIcon, backgroundImage }) {
       >
         At Subarashi Real Estate, we embody the essence of excellence,
         innovation, and unmatched service. Inspired by the Japanese word
-        "Subarashi", meaning "wonderful" or "splendid," our mission is to bring
-        these qualities to life in every aspect of real estate.
+        "Subarashi", meaning "wonderful" or in Kanji translation meaning
+        "crystal clear flow" - our mission is to bring these qualities to life
+        in every aspect of real estate.
       </Typography>
     </Box>
   );

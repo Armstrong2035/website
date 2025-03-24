@@ -3,8 +3,10 @@ import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Gorditas } from "next/font/google";
 export const metadata = {
-  title: "Subarashi",
-  description: "The official website for Subarashi",
+  title:
+    "Subarashi real estate | Luxury Real Estate Brokers, and Investment Managers",
+  description: "Providing tailored service to real estate investors",
+  keywords: ["Subarashi real estate", "Luxury real estate"],
 };
 
 const degular = localFont({
