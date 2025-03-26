@@ -18,13 +18,13 @@ export default function HeroPage({ heroImage }) {
     >
       <Box
         sx={{
-          height: { xs: "70%", sm: "70%", md: "70%" },
+          height: { xs: "100%", sm: "100%", md: "100%" },
         }}
       >
         <HeroImage heroImage={heroImage} />
       </Box>
 
-      <Stack
+      {/* <Stack
         justifyContent={"center"}
         sx={{
           width: "100%",
@@ -34,7 +34,7 @@ export default function HeroPage({ heroImage }) {
       >
         <HeroNav />
         <HeroText />
-      </Stack>
+      </Stack> */}
     </div>
   );
 }

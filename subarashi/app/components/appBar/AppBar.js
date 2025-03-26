@@ -28,11 +28,11 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
     color: "#005244",
     borderColor: "#F2FFC2",
     borderRadius: "20px",
-    backgroundColor: "#F2FFC2",
+    //backgroundColor: "#F2FFC2",
     "&:hover": {
       borderColor: "#FFFFFF",
       color: "#005244",
-      backgroundColor: "#FFFFFF",
+      //backgroundColor: "#FFFFFF",
     },
   };
 
@@ -168,6 +168,44 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
             /* Desktop menu */
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Link
+                href="/Listings"
+                passHref
+                style={{ textDecoration: "none" }}
+              >
+                <Typography
+                  sx={{
+                    mx: 2,
+                    color: color,
+                    fontWeight: 500,
+                    "&:hover": {
+                      color: hoverColor,
+                    },
+                  }}
+                >
+                  Sales
+                </Typography>
+              </Link>
+
+              <Link
+                href="/Listings"
+                passHref
+                style={{ textDecoration: "none" }}
+              >
+                <Typography
+                  sx={{
+                    mx: 2,
+                    color: color,
+                    fontWeight: 500,
+                    "&:hover": {
+                      color: hoverColor,
+                    },
+                  }}
+                >
+                  Lease
+                </Typography>
+              </Link>
+
+              <Link
                 href="/holiday-homes"
                 passHref
                 style={{ textDecoration: "none" }}
@@ -202,6 +240,21 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
                   }}
                 >
                   Resources
+                </Typography>
+              </Link>
+
+              <Link href="/about" passHref style={{ textDecoration: "none" }}>
+                <Typography
+                  sx={{
+                    mx: 2,
+                    color: color,
+                    fontWeight: 500,
+                    "&:hover": {
+                      color: hoverColor,
+                    },
+                  }}
+                >
+                  Team
                 </Typography>
               </Link>
 
