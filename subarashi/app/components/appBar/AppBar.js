@@ -17,6 +17,7 @@ import Link from "next/link";
 import logo from "../../../public/logos/logo.png";
 import logoGreen from "../../../public/logos/logoGreen.png";
 import ButtonModal from "../CTA/ButtonModal";
+import typographyStyles from "../../styles";
 
 export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
   const theme = useTheme();
@@ -24,16 +25,14 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const buttonStyle = {
+    ...typographyStyles.bodyMedium,
+    fontSize: "16px",
+    fontWeight: 500,
+    lineHeight: "107.7%",
     ml: 3,
-    color: "#005244",
+    color: "#F2FFC2",
     borderColor: "#F2FFC2",
     borderRadius: "20px",
-    //backgroundColor: "#F2FFC2",
-    "&:hover": {
-      borderColor: "#FFFFFF",
-      color: "#005244",
-      //backgroundColor: "#FFFFFF",
-    },
   };
 
   const handleOpenNavMenu = (event) => {
@@ -61,6 +60,11 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
         zIndex: 1000,
         background: "transparent",
         top: 0,
+        "&:hover": {
+          backgroundColor: "#005244",
+          pt: 1,
+          pb: 1,
+        },
       }}
     >
       <Container maxWidth="xl">
@@ -174,7 +178,7 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
             </Box>
           ) : (
             /* Desktop menu */
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: "30px" }}>
               {navItems.map((item, index) => (
                 <Link
                   href={`${item.route}`}
@@ -184,12 +188,11 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
                 >
                   <Typography
                     sx={{
-                      mx: 2,
+                      ...typographyStyles.bodyMedium,
+                      fontSize: "16px",
                       color: color,
                       fontWeight: 500,
-                      "&:hover": {
-                        color: hoverColor,
-                      },
+                      lineHeight: "107.7%",
                     }}
                   >
                     {item.title}
