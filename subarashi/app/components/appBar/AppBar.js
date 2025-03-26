@@ -44,6 +44,14 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
     setAnchorElNav(null);
   };
 
+  const navItems = [
+    { title: "Sales", route: "/Listings" },
+    { title: "Lease", route: "/Listings" },
+    { title: "Holiday Homes", route: "/holiday-homes" },
+    { title: "Resources", route: "/under-construction" },
+    { title: "Team", route: "/about" },
+  ];
+
   return (
     <Box
       component="header"
@@ -167,116 +175,31 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
           ) : (
             /* Desktop menu */
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Link
-                href="/Listings"
-                passHref
-                style={{ textDecoration: "none" }}
-              >
-                <Typography
-                  sx={{
-                    mx: 2,
-                    color: color,
-                    fontWeight: 500,
-                    "&:hover": {
-                      color: hoverColor,
-                    },
-                  }}
+              {navItems.map((item, index) => (
+                <Link
+                  href={`${item.route}`}
+                  passHref
+                  style={{ textDecoration: "none" }}
+                  key={index}
                 >
-                  Sales
-                </Typography>
-              </Link>
+                  <Typography
+                    sx={{
+                      mx: 2,
+                      color: color,
+                      fontWeight: 500,
+                      "&:hover": {
+                        color: hoverColor,
+                      },
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                </Link>
+              ))}
 
-              <Link
-                href="/Listings"
-                passHref
-                style={{ textDecoration: "none" }}
-              >
-                <Typography
-                  sx={{
-                    mx: 2,
-                    color: color,
-                    fontWeight: 500,
-                    "&:hover": {
-                      color: hoverColor,
-                    },
-                  }}
-                >
-                  Lease
-                </Typography>
-              </Link>
-
-              <Link
-                href="/holiday-homes"
-                passHref
-                style={{ textDecoration: "none" }}
-              >
-                <Typography
-                  sx={{
-                    mx: 2,
-                    color: color,
-                    fontWeight: 500,
-                    "&:hover": {
-                      color: hoverColor,
-                    },
-                  }}
-                >
-                  Holiday Homes
-                </Typography>
-              </Link>
-
-              <Link
-                href="/underConstruction"
-                passHref
-                style={{ textDecoration: "none" }}
-              >
-                <Typography
-                  sx={{
-                    mx: 2,
-                    color: color,
-                    fontWeight: 500,
-                    "&:hover": {
-                      color: hoverColor,
-                    },
-                  }}
-                >
-                  Resources
-                </Typography>
-              </Link>
-
-              <Link href="/about" passHref style={{ textDecoration: "none" }}>
-                <Typography
-                  sx={{
-                    mx: 2,
-                    color: color,
-                    fontWeight: 500,
-                    "&:hover": {
-                      color: hoverColor,
-                    },
-                  }}
-                >
-                  Team
-                </Typography>
-              </Link>
-
-              {/* <Button
-                  variant="outlined"
-                  sx={{
-                    ml: 3,
-                    color: "#F2FFC2",
-                    borderColor: "#F2FFC2",
-                    borderRadius: "20px",
-                    "&:hover": {
-                      borderColor: "#FFFFFF",
-                      color: "#FFFFFF",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  Contact Us
-                </Button> */}
               <ButtonModal
                 buttonText={"Contact Us"}
-                outlined={true}
+                isOutlined={true}
                 buttonStyle={buttonStyle}
               />
             </Box>

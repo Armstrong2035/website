@@ -22,7 +22,7 @@ export default async function Home() {
   }
 
   const heroImage =
-    "https://res.cloudinary.com/dulafqaoq/image/upload/f_auto,q_90,w_auto,fl_progressive/v1741334666/Untitled_design_16_c7gjno.png";
+    "https://res.cloudinary.com/dulafqaoq/video/upload/q_auto:good,vc_auto,w_auto,c_limit,f_auto/v1742972834/Hero-Page_Video_w5dimj.mp4";
 
   return (
     <div

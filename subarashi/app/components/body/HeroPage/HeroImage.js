@@ -12,17 +12,15 @@ export default function HeroImage({ heroImage, additionalStyles = {} }) {
         ...additionalStyles, // Allow passing additional styles from parent components
       }}
     >
-      <Image
-        src={heroImage}
-        alt="Hero background"
-        fill
-        priority
-        quality={100}
-        style={{
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      />
+      <video
+        src="https://res.cloudinary.com/dulafqaoq/video/upload/q_auto:good,vc_auto,w_auto,c_limit,f_auto/v1742972834/Hero-Page_Video_w5dimj.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        width="100%"
+        style={{ objectFit: "cover" }}
+      ></video>
     </Box>
   );
 }
