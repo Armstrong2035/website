@@ -2,6 +2,7 @@ import { Icon, Stack, Typography, Container, Box, Grid2 } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
+import Link from "next/link";
 
 export default function CalculatorCard() {
   return (
@@ -37,21 +38,23 @@ export default function CalculatorCard() {
             Split rental cheques <br /> into 12 easy <br /> installments!
           </Typography>
 
-          <Stack direction={"row"} alignItems={"center"} spacing={1}>
-            <Typography
-              sx={{
-                ...typographyStyles.bodyMedium,
-                fontSize: "23px",
-                lineHeight: "120%",
-                color: "#043D32",
-              }}
-            >
-              Find Out More
-            </Typography>
-            <Icon>
-              <ArrowForwardIcon sx={{ color: "#043D32" }} />
-            </Icon>
-          </Stack>
+          <Link href={"/subarashi-flex"}>
+            <Stack direction={"row"} alignItems={"center"} spacing={1}>
+              <Typography
+                sx={{
+                  ...typographyStyles.bodyMedium,
+                  fontSize: "23px",
+                  lineHeight: "120%",
+                  color: "#043D32",
+                }}
+              >
+                Find Out More
+              </Typography>
+              <Icon>
+                <ArrowForwardIcon sx={{ color: "#043D32" }} />
+              </Icon>
+            </Stack>
+          </Link>
         </Grid2>
       </Grid2>
     </Container>

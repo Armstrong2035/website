@@ -58,7 +58,7 @@ export default function WhatWeDo() {
               sx={{
                 ...typographyStyles.subheading2,
                 textAlign: "left",
-                fontSize: isMobile ? "30px" : "70px",
+                fontSize: isMobile ? "18px" : "30px",
 
                 color: "#F2FFC2",
                 fontWeight: 10,

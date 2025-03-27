@@ -66,7 +66,7 @@ export default function Hero() {
             }}
           >
             {" "}
-            PROFIT AND SUSTAINABILITY
+            SECURITY AND SUSTAINABILITY
           </Typography>
         </Box>
       </Stack>
