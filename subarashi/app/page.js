@@ -7,6 +7,7 @@ import Inquiries from "./components/body/inquiries/Inquiries";
 import Footer from "./components/footer/Footer";
 import NavBar from "./components/appBar/AppBar";
 import { mockListings } from "../public/mockListings";
+import FeaturedResources from "./components/body/featured/FeaturedResources";
 
 export const revalidate = 3600;
 
@@ -33,7 +34,8 @@ export default async function Home() {
       <ListingsProvider listings={listings} />
       <NavBar />
       <HeroPage heroImage={heroImage} />
-      <FeaturedListings />
+      <FeaturedResources />
+      {/* <FeaturedListings /> */}
       <Inquiries />
       <Footer />
     </div>

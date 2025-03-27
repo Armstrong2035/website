@@ -39,7 +39,7 @@ export default function Inquiries() {
           lineHeight: isMobile ? "60px" : "95px",
         }}
       >
-        Any Inquiries? Please contact us
+        For any inquiries
       </Typography>
 
       <ButtonModal
