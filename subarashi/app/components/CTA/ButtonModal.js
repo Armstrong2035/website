@@ -134,11 +134,7 @@ const ButtonModal = ({ buttonText, buttonStyle, isOutlined }) => {
 
   return (
     <>
-      <Button
-        variant={isOutlined ? "outlined" : "contained"}
-        onClick={handleOpen}
-        sx={buttonStyle}
-      >
+      <Button variant={style} onClick={handleOpen} sx={buttonStyle}>
         {buttonText}
       </Button>
 
