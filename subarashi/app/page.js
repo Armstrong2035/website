@@ -4,10 +4,11 @@ import { receiveListingsFromFirestore } from "../firebaseUtils/app";
 import ListingsProvider from "./components/body/listings/ListingsProvider";
 import FeaturedListings from "./components/body/listings/featuredListings/FeaturedListings";
 import Inquiries from "./components/body/inquiries/Inquiries";
-import Footer from "./components/footer/Footer";
+
 import NavBar from "./components/appBar/AppBar";
 import { mockListings } from "../public/mockListings";
 import FeaturedResources from "./components/body/featured/FeaturedResources";
+import Footer from "./components/footer/new-footer";
 
 export const revalidate = 3600;
 
