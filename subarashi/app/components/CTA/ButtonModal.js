@@ -168,7 +168,7 @@ const ButtonModal = ({ buttonText, buttonStyle, isOutlined }) => {
 
             <Typography variant="body1" align="center" sx={{ mt: 2, px: 4 }}>
               Fill in your details below and our property specialist will
-              contact you soon"
+              contact you soon
             </Typography>
 
             <Box component="form" onSubmit={handleSubmit} sx={{ p: 4 }}>
