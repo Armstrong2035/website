@@ -202,7 +202,7 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
 
               <ButtonModal
                 buttonText={"Contact Us"}
-                isOutlined={true}
+                style={"text"}
                 buttonStyle={buttonStyle}
               />
             </Box>
