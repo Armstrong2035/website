@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@notionhq/client": "^2.3.0"
+    "@notionhq/client": "^2.3.0",
+    "claude": "^0.0.6"
   }
 }

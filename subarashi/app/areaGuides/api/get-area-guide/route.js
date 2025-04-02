@@ -1,30 +1,17 @@
-// app/api/notion/page/[id]/route.js
-import { Client } from "@notionhq/client";
-import { NextResponse } from "next/server";
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const pageId = searchParams.get("id");
 
-export async function GET(request, { params }) {
+  if (!pageId) {
+    return NextResponse.json({ error: "Missing id" }, { status: 400 });
+  }
+
   try {
-    const pageId = params.id;
+    const notion = new Client({ auth: process.env.NOTION_API_KEY });
+    const pageContent = await notion.blocks.children.list({ block_id: pageId });
+    const page = await notion.pages.retrieve({ page_id: pageId });
 
-    // Initialize the Notion client
-    const notion = new Client({
-      auth: process.env.NOTION_API_KEY,
-    });
-
-    // Get page content
-    const pageContent = await notion.blocks.children.list({
-      block_id: pageId,
-    });
-
-    // Get page properties
-    const page = await notion.pages.retrieve({
-      page_id: pageId,
-    });
-
-    return NextResponse.json({
-      page,
-      content: pageContent.results,
-    });
+    return NextResponse.json({ page, content: pageContent.results });
   } catch (error) {
     console.error("Error fetching page content:", error);
     return NextResponse.json(

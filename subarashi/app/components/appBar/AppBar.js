@@ -19,7 +19,11 @@ import logoGreen from "../../../public/logos/logoGreen.png";
 import ButtonModal from "../CTA/ButtonModal";
 import typographyStyles from "../../styles";
 
-export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
+export default function NavBar({
+  color = "#F2FFC2",
+  hoverColor = "#FFFFFF",
+  hoverBackground,
+}) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -61,7 +65,7 @@ export default function NavBar({ color = "#F2FFC2", hoverColor = "#FFFFFF" }) {
         background: "transparent",
         top: 0,
         "&:hover": {
-          backgroundColor: "#005244",
+          backgroundColor: hoverBackground,
           pt: 1,
           pb: 1,
         },
