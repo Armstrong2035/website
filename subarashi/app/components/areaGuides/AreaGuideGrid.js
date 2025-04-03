@@ -1,12 +1,21 @@
 // app/components/areaGuides/AreaGuideGrid.js
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import AreaGuideCard from "./AreaGuideCard";
+import { useAreaGuidesStore } from "../../store/areaGuidesStore";
 
 export default function AreaGuideGrid({ guides }) {
   // Add state to track which card is being hovered
   const [hoveredCardId, setHoveredCardId] = useState(null);
+
+  const setGuides = useAreaGuidesStore((state) => state.setGuides);
+
+  useEffect(() => {
+    if (guides && guides.length > 0) {
+      setGuides(guides);
+    }
+  }, []);
 
   // If no guides are provided, use placeholder data for example
   const placeholderGuides = [

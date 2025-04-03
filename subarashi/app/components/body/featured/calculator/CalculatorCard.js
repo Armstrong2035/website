@@ -38,7 +38,7 @@ export default function CalculatorCard() {
             Split rental cheques <br /> into 12 easy <br /> installments!
           </Typography>
 
-          <Link href={"/subarashi-flex"}>
+          <Link href={"/subarashi-flex"} style={{ textDecoration: "none" }}>
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <Typography
                 sx={{
