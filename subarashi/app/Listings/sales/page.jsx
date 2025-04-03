@@ -58,7 +58,7 @@ export default function PropertyListings() {
                       alignItems: "center",
                       mr: 2,
                       pr: 2,
-                      borderRight: "1px solid #e0e0e0",
+                      borderRight: "2px solid #005244",
                       "&:last-child": {
                         borderRight: "none",
                       },
