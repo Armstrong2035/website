@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import NavBar from "../components/appBar/AppBar";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footer/new-footer";
 import HeroImage from "../components/body/HeroPage/HeroImage";
 import AirbnbWidgetGrid from "../components/holidayHomes/AirbnbWidgetGrid";
 

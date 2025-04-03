@@ -40,7 +40,7 @@ const style = {
   },
 };
 
-const ButtonModal = ({ buttonText, buttonStyle, isOutlined }) => {
+const ButtonModal = ({ buttonText, buttonStyle, isOutlined, buttonColor }) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -134,7 +134,7 @@ const ButtonModal = ({ buttonText, buttonStyle, isOutlined }) => {
 
   return (
     <>
-      <Button variant={style} onClick={handleOpen} sx={buttonStyle}>
+      <Button variant={style} onClick={handleOpen} sx={{ buttonStyle }}>
         {buttonText}
       </Button>
 

@@ -9,6 +9,7 @@ import NavBar from "../components/appBar/AppBar";
 import SearchFilters from "../components/listings/SearchFilters";
 import { useListingsFilter } from "../hooks/useListingFilter";
 import { filterStyles } from "../styles/filterStyles";
+import FooterTitle from "../components/footer/FooterTitle";
 
 export default function page() {
   const heroImage =
@@ -40,7 +41,7 @@ export default function page() {
         />
       </ListingsContainer>
 
-      <Footer />
+      <FooterTitle />
     </>
   );
 }

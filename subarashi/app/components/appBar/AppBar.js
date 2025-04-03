@@ -23,6 +23,7 @@ export default function NavBar({
   color = "#F2FFC2",
   hoverColor = "#FFFFFF",
   hoverBackground,
+  buttonColor,
 }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -208,6 +209,7 @@ export default function NavBar({
                 buttonText={"Contact Us"}
                 style={"text"}
                 buttonStyle={buttonStyle}
+                buttonColor={buttonColor}
               />
             </Box>
           )}

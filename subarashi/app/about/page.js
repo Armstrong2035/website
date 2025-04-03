@@ -5,7 +5,7 @@ import OurVision from "../components/about/OurVision";
 import { Divider } from "@mui/material";
 import WhatWeDo from "../components/about/WhatWeDo";
 import WhatMakesUsDifferent from "../components/about/WhatMakesUsDifferent";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footer/new-footer";
 import Introduction from "../components/about/Introduction";
 import TeamSection from "../components/about/OurTeam/TeamSection";
 
