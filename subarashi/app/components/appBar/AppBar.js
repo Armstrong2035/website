@@ -50,7 +50,7 @@ export default function NavBar({
 
   const navItems = [
     { title: "Sales", route: "/Listings/sales" },
-    { title: "Lease", route: "/Listings" },
+    { title: "Lease", route: "/Listings/lease" },
     { title: "Holiday Homes", route: "/holiday-homes" },
     { title: "Resources", route: "/under-construction" },
     { title: "Team", route: "/about" },
