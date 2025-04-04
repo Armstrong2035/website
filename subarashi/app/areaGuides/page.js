@@ -2,7 +2,7 @@
 import { getAllAreaGuides } from "../lib/notion";
 import { Box, Typography, Container, Grid } from "@mui/material";
 import NavBar from "../components/appBar/AppBar";
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footer/new-footer";
 import AreaGuideHeader from "../components/areaGuides/AreaGuideHeaders";
 import AreaGuideGrid from "../components/areaGuides/AreaGuideGrid";
 
