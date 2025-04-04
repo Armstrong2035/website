@@ -9,13 +9,13 @@ import LoadingSpinner from "../../components/loading/loading-spinner";
 
 export default function PropertyListings() {
   const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(true);
 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch("/api/listings/sales-listings");
+        const res = await fetch("/api/listings/lease-listings");
         const data = await res.json();
         setListings(data.listings);
       } catch (error) {
@@ -28,18 +28,15 @@ export default function PropertyListings() {
     fetchListings();
   }, []);
 
-
   return (
     <>
-   <NavBar      color="#005244"
+   <NavBar  color="#005244"
         hoverColor="#005244"
         hoverBackground={"#FFFFFF"} />
     <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
-
-    {loading ? (
-          <LoadingSpinner />
-        ) : (
-
+            {loading ? (
+                  <LoadingSpinner />
+                ) : (
       <Grid2 container spacing={3} justifyContent="center">
         {listings.map((listing) => (
           <Grid2 item xs={12} sm={6} md={4} key={listing.id}>
@@ -141,7 +138,7 @@ export default function PropertyListings() {
           </Grid2>
         ))}
       </Grid2>
-        )}
+                )}
     </Container>
     </>
   )
