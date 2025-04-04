@@ -2,7 +2,7 @@
 import { getAreaGuideById, getPageTitle } from "../../lib/notion";
 import { Box, Typography, Container, Divider } from "@mui/material";
 import NavBar from "../../components/appBar/AppBar";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/new-footer";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
@@ -64,11 +64,22 @@ function renderBlock(block) {
   }
 }
 
+// This is a Server Component
 export default async function AreaGuidePage({ params }) {
-  const { id } = params;
-  const guideData = await getAreaGuideById(id);
+  // Use the params object directly from the component props
+  // Next.js passes the dynamic segment as params.id
+  if (!params || !params.id) {
+    console.error("Missing ID parameter");
+    notFound();
+  }
+
+  // Log the ID to verify what we're receiving
+  console.log("Received guide ID:", params.id);
+
+  const guideData = await getAreaGuideById(params.id);
 
   if (!guideData || !guideData.page) {
+    console.error("Guide data not found for ID:", params.id);
     notFound();
   }
 
@@ -83,7 +94,7 @@ export default async function AreaGuidePage({ params }) {
     <Box>
       <NavBar />
 
-      <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Container maxWidth="lg" sx={{ py: 8, mt: 8 }}>
         <Typography variant="h3" component="h1" gutterBottom>
           {title}
         </Typography>
