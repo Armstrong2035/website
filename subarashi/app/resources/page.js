@@ -1,13 +1,10 @@
-// import { Description } from "@mui/icons-material"
+import { Description } from "@mui/icons-material";
 
-// export default function Resources(){
+export default function Resources() {
+  // const resources = [
+  //     {title: 'Subarashi Flex', description: "Split rentals into easy monthly payments.", CTA: 'Calculate your rent' },
+  //     {title: ''}
+  // ]
 
-//     const resources = [
-//         {title: 'Subarashi Flex', description: "Split rentals into easy monthly payments.", CTA: 'Calculate your rent' },
-//         {title: ''}
-//     ]
-
-//     return (
-
-//     )
-// }
+  return null;
+}
