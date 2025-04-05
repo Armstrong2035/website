@@ -92,7 +92,11 @@ export default async function AreaGuidePage({ params }) {
 
   return (
     <Box>
-      <NavBar />
+      <NavBar
+        color="#005244"
+        hoverColor="#005244"
+        hoverBackground={"#FFFFFF"}
+      />
 
       <Container maxWidth="lg" sx={{ py: 8, mt: 8 }}>
         <Typography variant="h3" component="h1" gutterBottom>

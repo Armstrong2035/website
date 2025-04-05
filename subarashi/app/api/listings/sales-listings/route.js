@@ -1,15 +1,68 @@
-// app/api/listings/route.js
 import { NextResponse } from "next/server";
 
-// API key should be in environment variables
+const LIST_ID = "901805280021";
 const API_KEY = process.env.CLICKUP_API_KEY;
-const LIST_ID = process.env.CLICKUP_SALES_LIST_ID;
+
+const getFieldValue = (fields, fieldName, type = null) => {
+  const field = fields.find(
+    (f) => f.name === fieldName && (!type || f.type === type)
+  );
+  return field && field.value !== null && field.value !== undefined
+    ? field.value
+    : null;
+};
+
+const getFurnishedStatus = (fields) => {
+  const furnishedField = fields.find((f) => f.name === "Furnished");
+  if (!furnishedField || furnishedField.value === null) return "unknown";
+  const options = furnishedField.type_config.options;
+  const option = options.find((opt) => opt.orderindex === furnishedField.value);
+  return option ? option.name.toLowerCase() : "unknown";
+};
+
+const getPropertyType = (fields) => {
+  const typeField = fields.find((f) => f.name === "Property Type");
+  if (!typeField || typeField.value === null) return "unknown";
+  const options = typeField.type_config.options;
+  const option = options.find((opt) => opt.orderindex === typeField.value);
+  return option ? option.name.toLowerCase() : "unknown";
+};
+
+const getRentalFrequency = (fields) => {
+  const freqField = fields.find((f) => f.name === "Rental Frequency");
+  if (!freqField || freqField.value === null) return "unknown";
+  const options = freqField.type_config.options;
+  const option = options.find((opt) => opt.orderindex === freqField.value);
+  return option ? option.name.toLowerCase() : "unknown";
+};
+
+const getMedia = (fields) => {
+  const mediaFields = [
+    "Media 1",
+    "Media 2",
+    "Media 3",
+    "Media 4",
+    "Media 5",
+  ].map((name) => {
+    const field = fields.find((f) => f.name === name);
+    return field ? field.value : null;
+  });
+
+  console.log(`Task media fields (raw):`, mediaFields);
+
+  const mediaUrls = mediaFields.filter(
+    (url) => url && typeof url === "string" && url.trim() !== ""
+  );
+
+  console.log(`Task media URLs (filtered):`, mediaUrls);
+
+  return mediaUrls;
+};
 
 export async function GET() {
   try {
-    // Fetch tasks from ClickUp using native fetch
     const response = await fetch(
-      `https://api.clickup.com/api/v2/list/${LIST_ID}/task`,
+      `https://api.clickup.com/api/v2/list/${LIST_ID}/task?include_closed=false&subtasks=false`,
       {
         method: "GET",
         headers: {
@@ -25,95 +78,67 @@ export async function GET() {
 
     const data = await response.json();
 
-    // Transform the raw data into a simplified format
-    const listings = data.tasks.map((task) => {
-      // Helper function to find custom field value
-      const getFieldValue = (name) => {
-        const field = task.custom_fields.find((f) => f.name === name);
-        return field ? field.value : null;
-      };
+    console.log(
+      "Fetched task IDs:",
+      data.tasks.map((t) => t.id)
+    );
 
-      // Get media fields (up to 5)
-      const media = [];
-      for (let i = 1; i <= 5; i++) {
-        const mediaField = task.custom_fields.find(
-          (f) => f.name === `Media ${i}`
-        );
-        if (mediaField && mediaField.value) {
-          media.push(mediaField.value);
-        }
-      }
+    const parsedListings = data.tasks.map((task) => {
+      const fields = task.custom_fields || [];
 
-      // Find furnished status
-      const furnishedField = task.custom_fields.find(
-        (f) => f.name === "Furnished"
+      console.log(
+        `Task ${task.id} custom fields:`,
+        fields.map((f) => f.name)
       );
-      let furnishedStatus = "No";
-      if (furnishedField && furnishedField.value !== null) {
-        const furnishedOptions = furnishedField.type_config.options;
-        furnishedStatus = furnishedOptions[furnishedField.value]?.name || "No";
-      }
 
-      // Find property type
-      const propertyTypeField = task.custom_fields.find(
-        (f) => f.name === "Property Type"
-      );
-      let propertyType = "Apartment";
-      if (propertyTypeField && propertyTypeField.value !== null) {
-        const propertyOptions = propertyTypeField.type_config.options;
-        propertyType =
-          propertyOptions[propertyTypeField.value]?.name || "Apartment";
-      }
-
-      // Map rental frequency
-      const frequencyField = task.custom_fields.find(
-        (f) => f.name === "Rental Frequency"
-      );
-      let frequency = "Yearly";
-      if (frequencyField && frequencyField.value !== null) {
-        const frequencyOptions = frequencyField.type_config.options;
-        frequency = frequencyOptions[frequencyField.value]?.name || "Yearly";
-      }
-
-      // Create the simplified listing object
       return {
         id: task.id,
-        title: getFieldValue("Property Title") || task.name,
-        titleArabic: getFieldValue("Property title (Arabic)") || "",
-        description: getFieldValue("Property Description") || "",
-        descriptionArabic: getFieldValue("Property Description (Arabic)") || "",
-        bedrooms: getFieldValue("Bedrooms") || 0,
-        bathrooms: getFieldValue("Bathrooms") || 0,
-        area: getFieldValue("Built up area (square feet)") || 0,
-        furnished: furnishedStatus,
-        propertyType: propertyType,
+        title: getFieldValue(fields, "Property Title") || task.name,
+        titleArabic: getFieldValue(fields, "Property title (Arabic)") || "",
+        description: getFieldValue(fields, "Property Description") || "",
+        descriptionArabic:
+          getFieldValue(fields, "Property Description (Arabic)") || "",
+        bedrooms: Number(getFieldValue(fields, "Bedrooms")) || 0,
+        bathrooms: Number(getFieldValue(fields, "Bathrooms")) || 0,
+        area: Number(getFieldValue(fields, "Built up area (square feet)")) || 0,
+        furnished: getFurnishedStatus(fields),
+        propertyType: getPropertyType(fields),
         location: {
-          city: getFieldValue("City") || "Dubai",
-          locality: getFieldValue("Locality") || "",
-          subLocality: getFieldValue("Sub locality") || "",
-          building: getFieldValue("Tower name") || "",
+          city: getFieldValue(fields, "City") || "Dubai",
+          locality: getFieldValue(fields, "Locality") || "",
+          subLocality: getFieldValue(fields, "Sub locality") || "",
+          building: getFieldValue(fields, "Tower name") || "",
         },
         rental: {
-          frequency: frequency,
-          permitNumber: getFieldValue("Permit Number") || "",
+          frequency: getRentalFrequency(fields),
+          permitNumber: getFieldValue(fields, "Permit Number") || "",
         },
         agent: {
-          name: getFieldValue("Agent") || "",
-          email: getFieldValue("Agent Email") || "",
-          phone: getFieldValue("Agent phone number") || "",
+          name: getFieldValue(fields, "Agent") || "",
+          email: getFieldValue(fields, "Agent Email") || "",
+          phone:
+            getFieldValue(fields, "Agent phone number", "phone") ||
+            getFieldValue(fields, "Agent phone number", "number") ||
+            "",
         },
-        media: media,
+        media: getMedia(fields),
         dateCreated: task.date_created,
         dateUpdated: task.date_updated,
       };
     });
 
-    // Return the transformed data
-    return NextResponse.json({ listings, count: listings.length });
-  } catch (error) {
-    console.error("Error fetching listings:", error);
     return NextResponse.json(
-      { error: "Failed to fetch listings", message: error.message },
+      {
+        listings: parsedListings,
+        total: parsedListings.length,
+        lastPage: data.last_page,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching or parsing listings from ClickUp:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch or parse listings", details: error.message },
       { status: 500 }
     );
   }
