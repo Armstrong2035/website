@@ -5,11 +5,14 @@ import NavBar from "../../components/appBar/AppBar"
 import typographyStyles from "../../styles";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/loading/loading-spinner";
+import SalesListingsFilters from "../../components/listings/sales-listings-filters"
 
 
 export default function PropertyListings() {
-  const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [allListings, setAllListings] = useState([])
+  const [filteredListings, setFilteredListings] = useState([])
+  const [loading, setLoading] = useState(true)
+
 
 
   useEffect(() => {
@@ -17,7 +20,9 @@ export default function PropertyListings() {
       try {
         const res = await fetch("/api/listings/sales-listings");
         const data = await res.json();
-        setListings(data.listings);
+        setAllListings(data.listings)
+        setFilteredListings(data.listings)
+        console.log("Sales listings",data.listings)
       } catch (error) {
         console.error("Failed to fetch listings:", error);
       } finally {
@@ -28,20 +33,79 @@ export default function PropertyListings() {
     fetchListings();
   }, []);
 
+  const applyFilters = (filterParams) => {
+    console.log("Applying filters:", filterParams)
+    console.log("All listings count:", allListings.length)
+
+    let filtered = [...allListings]
+
+    // Filter by property type
+/*     if (filterParams.propertyType && filterParams.propertyType.includes("Apartments")) {
+      filtered = filtered.filter((listing) => listing.propertyType === "Apartment")
+    } else if (filterParams.propertyType && filterParams.propertyType.includes("Villas")) {
+      filtered = filtered.filter((listing) => listing.propertyType === "Villa")
+    } */
+
+    // Filter by bedrooms
+    if (filterParams.bedrooms && filterParams.bedrooms !== "Any") {
+      if (filterParams.bedrooms === "5+") {
+        filtered = filtered.filter((listing) => Number.parseInt(listing.bedrooms) >= 5)
+      } else {
+        filtered = filtered.filter((listing) => {
+          return listing.bedrooms === filterParams.bedrooms
+        })
+      }
+    }
+
+    // Filter by price range
+
+/*     if (filterParams.priceRange && (filterParams.priceRange.min > 0 || filterParams.priceRange.max !== null)) {
+      filtered = filtered.filter((listing) => {
+      
+        const price = listing.price || 0
+
+        if (filterParams.priceRange.max === null) {
+          return price >= filterParams.priceRange.min
+        }
+        return price >= filterParams.priceRange.min && price <= filterParams.priceRange.max
+      })
+    } */
+
+    // Filter by location
+ /*    if (filterParams.location) {
+      filtered = filtered.filter((listing) => {
+        const listingLocation = `${listing.location.city}, ${listing.location.building}`
+        return listingLocation.includes(filterParams.location.split(",")[0])
+      })
+    }
+ */
+    setFilteredListings(filtered)
+  }
+
 
   return (
     <>
    <NavBar      color="#005244"
         hoverColor="#005244"
         hoverBackground={"#FFFFFF"} />
+
+<SalesListingsFilters onFilterChange={applyFilters} />
+
     <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
 
     {loading ? (
-          <LoadingSpinner />
-        ) : (
+       <LoadingSpinner />
+      ) : filteredListings.length === 0 ? (
+        <Box sx={{ textAlign: "center", py: 8 }}>
+          <Typography variant="h5" sx={{ color: "#005244", mb: 2 }}>
+            No properties found
+          </Typography>
+          <Typography variant="body1">Try adjusting your filters to see more results.</Typography>
+        </Box>
+      ) : (
 
       <Grid2 container spacing={3} justifyContent="center">
-        {listings.map((listing) => (
+        {filteredListings.map((listing) => (
           <Grid2 item xs={12} sm={6} md={4} key={listing.id}>
             <Card
               sx={{
@@ -75,7 +139,7 @@ export default function PropertyListings() {
                     ...typographyStyles.bodySmall,
                    
                   }}
-                  fontFamily
+               
                 />
               </Box>
               <CardContent sx={{ p: 1, pt: 2 }}>
