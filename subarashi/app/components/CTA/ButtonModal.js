@@ -134,7 +134,12 @@ const ButtonModal = ({ buttonText, buttonStyle, isOutlined, buttonColor }) => {
 
   return (
     <>
-      <Button variant={style} onClick={handleOpen} sx={{ buttonStyle }}>
+      <Button
+        variant={style}
+        onClick={handleOpen}
+        sx={{ ...buttonStyle, color: buttonColor }}
+        className={isOutlined ? "outlined-button" : "contained-button"}
+      >
         {buttonText}
       </Button>
 

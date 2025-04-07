@@ -7,65 +7,65 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 
 // Generate static page with revalidation
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 36000; // Revalidate every hour
 
 // Function to render Notion block content
-function renderBlock(block) {
-  if (!block) return null;
-
-  switch (block.type) {
-    case "paragraph":
-      return (
-        <Typography paragraph>
-          {block.paragraph.rich_text.map((text) => text.plain_text).join("")}
-        </Typography>
-      );
-    case "heading_1":
-      return (
-        <Typography variant="h3" component="h1" gutterBottom>
-          {block.heading_1.rich_text.map((text) => text.plain_text).join("")}
-        </Typography>
-      );
-    case "heading_2":
-      return (
-        <Typography variant="h4" component="h2" gutterBottom>
-          {block.heading_2.rich_text.map((text) => text.plain_text).join("")}
-        </Typography>
-      );
-    case "heading_3":
-      return (
-        <Typography variant="h5" component="h3" gutterBottom>
-          {block.heading_3.rich_text.map((text) => text.plain_text).join("")}
-        </Typography>
-      );
-    case "bulleted_list_item":
-      return (
-        <Typography component="li" sx={{ ml: 4 }}>
-          {block.bulleted_list_item.rich_text
-            .map((text) => text.plain_text)
-            .join("")}
-        </Typography>
-      );
-    case "image":
-      const imageUrl = block.image.file?.url || block.image.external?.url;
-      if (!imageUrl) return null;
-
-      return (
-        <Box sx={{ my: 3 }}>
-          <img
-            src={imageUrl}
-            alt="Content image"
-            style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
-          />
-        </Box>
-      );
-    default:
-      return null;
-  }
-}
 
 // This is a Server Component
 export default async function AreaGuidePage({ params }) {
+  function renderBlock(block) {
+    if (!block) return null;
+
+    switch (block.type) {
+      case "paragraph":
+        return (
+          <Typography paragraph>
+            {block.paragraph.rich_text.map((text) => text.plain_text).join("")}
+          </Typography>
+        );
+      case "heading_1":
+        return (
+          <Typography variant="h3" component="h1" gutterBottom>
+            {block.heading_1.rich_text.map((text) => text.plain_text).join("")}
+          </Typography>
+        );
+      case "heading_2":
+        return (
+          <Typography variant="h4" component="h2" gutterBottom>
+            {block.heading_2.rich_text.map((text) => text.plain_text).join("")}
+          </Typography>
+        );
+      case "heading_3":
+        return (
+          <Typography variant="h5" component="h3" gutterBottom>
+            {block.heading_3.rich_text.map((text) => text.plain_text).join("")}
+          </Typography>
+        );
+      case "bulleted_list_item":
+        return (
+          <Typography component="li" sx={{ ml: 4 }}>
+            {block.bulleted_list_item.rich_text
+              .map((text) => text.plain_text)
+              .join("")}
+          </Typography>
+        );
+      case "image":
+        const imageUrl = block.image.file?.url || block.image.external?.url;
+        if (!imageUrl) return null;
+
+        return (
+          <Box sx={{ my: 3 }}>
+            <img
+              src={imageUrl}
+              alt="Content image"
+              style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
+            />
+          </Box>
+        );
+      default:
+        return null;
+    }
+  }
   // Use the params object directly from the component props
   // Next.js passes the dynamic segment as params.id
   if (!params || !params.id) {

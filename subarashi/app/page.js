@@ -36,7 +36,7 @@ export default async function Home() {
       }}
     >
       <ListingsProvider listings={listings} />
-      <NavBar />
+      <NavBar buttonColor={"#F2FFC2"} />
       <HeroPage heroImage={heroImage} />
       <FeaturedResources guides={guides} />
       {/* <FeaturedListings /> */}

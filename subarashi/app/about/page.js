@@ -179,7 +179,7 @@ export default function AboutUs() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar buttonColor={"#F2EF9A"} />
 
       <Hero />
 
