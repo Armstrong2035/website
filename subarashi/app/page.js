@@ -9,6 +9,7 @@ import NavBar from "./components/appBar/AppBar";
 import { mockListings } from "../public/mockListings";
 import FeaturedResources from "./components/body/featured/FeaturedResources";
 import Footer from "./components/footer/new-footer";
+import { getAllAreaGuides } from "./lib/notion";
 
 export const revalidate = 3600;
 
@@ -23,6 +24,8 @@ export default async function Home() {
     listings = mockListings;
   }
 
+  const guides = await getAllAreaGuides();
+
   const heroImage =
     "https://res.cloudinary.com/dulafqaoq/video/upload/q_auto:good,vc_auto,w_auto,c_limit,f_auto/v1742972834/Hero-Page_Video_w5dimj.mp4";
 
@@ -35,7 +38,7 @@ export default async function Home() {
       <ListingsProvider listings={listings} />
       <NavBar />
       <HeroPage heroImage={heroImage} />
-      <FeaturedResources />
+      <FeaturedResources guides={guides} />
       {/* <FeaturedListings /> */}
       <Inquiries />
       <Footer />

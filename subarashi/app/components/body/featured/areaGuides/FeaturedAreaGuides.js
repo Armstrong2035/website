@@ -10,8 +10,8 @@ import FeaturedAreaGuideCard from "./FeaturedAreaGuideCard";
 import { getAllAreaGuides } from "../../../../lib/notion";
 import { useAreaGuidesStore } from "../../../../store/areaGuidesStore";
 
-export default function FeaturedAreaGuides() {
-  const guides = useAreaGuidesStore((state) => state.guides);
+export default function FeaturedAreaGuides({ guides }) {
+  // const guides = useAreaGuidesStore((state) => state.guides);
 
   //console.log(guides);
   const featuredGuides = guides.slice(0, 4);
