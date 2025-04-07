@@ -107,6 +107,7 @@ export default function SalesListings() {
         color="#005244"
         hoverColor="#005244"
         hoverBackground={"#FFFFFF"}
+        buttonColor={"#005244"}
       />
 
       <SalesListingsFilters onFilterChange={applyFilters} />

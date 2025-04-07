@@ -46,6 +46,7 @@ export default function Inquiries() {
         buttonText={"Send a message"}
         buttonStyle={buttonStyle}
         outlined={false}
+        buttonColor={"#F2FFC2"}
       />
       {/* <Button
         variant={"contained"}
