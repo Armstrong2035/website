@@ -56,7 +56,7 @@ border: "0px solid rgb(41, 33, 33)",
   },
 }
 
-export default function SalesListingsFilters({ onFilterChange }) {
+export default function LeaseListingsFilters({ onFilterChange }) {
   const [filters, setFilters] = useState({
     propertyType: "Buy Apartments",
     bedrooms: "Any",
