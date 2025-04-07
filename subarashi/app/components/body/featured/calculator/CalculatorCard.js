@@ -15,6 +15,10 @@ export default function CalculatorCard() {
             }
             width={400}
             height={400}
+            alt="calculator"
+            style={{
+            width: "100%",
+            }}
           />
         </Grid2>
 

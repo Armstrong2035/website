@@ -12,7 +12,11 @@ export default function HeroPage({ heroImage }) {
     <div
       style={{
         backgroundColor: "#005244",
-        height: "100vh",
+        height: {
+          xs: "70vh",
+          sm: "80vh",
+          md: "100vh",
+        },
         overflow: "hidden",
       }}
     >
