@@ -18,7 +18,7 @@ import { BorderBottom } from "@mui/icons-material"
 
 
 const propertyTypes = ["Buy Apartments", "Buy Villas", "Buy Townhouses", "Buy Penthouses"]
-const bedroomOptions = ["Any", "1", "2", "3", "4", "5+"]
+const bedroomOptions = ["Any", 1, 2, 3, 4, 5]
 const priceRangeOptions = [
   { min: 0, max: 500000, label: "Up to 500,000" },
   { min: 500000, max: 1000000, label: "500,000 - 1,000,000" },

@@ -28,7 +28,7 @@ export default function PropertyListings() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const res = await fetch("/api/listings/sale-listings");
+        const res = await fetch("/api/listings/sales-listings");
         const data = await res.json();
         setAllListings(data.listings)
         setFilteredListings(data.listings)
@@ -67,8 +67,10 @@ export default function PropertyListings() {
 
     // Filter by bedrooms
     if (filterParams.bedrooms && filterParams.bedrooms !== "Any") {
-      if (filterParams.bedrooms === "5+") {
-        filtered = filtered.filter((listing) => Number.parseInt(listing.bedrooms) >= 5)
+
+      console.log("Filtering by bedrooms:", filterParams.bedrooms)
+      if (filterParams.bedrooms > 5) {
+        filtered = filtered.filter((listing) =>listing.bedrooms >= 5)
       } else {
         filtered = filtered.filter((listing) => {
           return listing.bedrooms === filterParams.bedrooms
