@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const LIST_ID = "901805280021";
+const LIST_ID = "901804898004";
 const API_KEY = process.env.CLICKUP_API_KEY;
 
 const getFieldValue = (fields, fieldName, type = null) => {

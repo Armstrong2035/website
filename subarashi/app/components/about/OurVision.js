@@ -53,9 +53,11 @@ export default function OurVision({ image }) {
             color: "#043D32",
           }}
         >
-          To be the leading name in real estate, offering tailor-made solutions
-          that put our clients first. We strive to build lasting relationships
-          based on trust, quality service, and remarkable results.
+          Our vision is to be the most approachable and trusted real estate
+          partner, making home-buying seamless with warmth, hospitality, and
+          expert guidance. We aim to lead Dubai’s real estate market by
+          delivering tailor-made solutions and building lasting relationships
+          based on trust, quality service, and remarkable outcomes.
         </Typography>
       </Stack>
     </Box>

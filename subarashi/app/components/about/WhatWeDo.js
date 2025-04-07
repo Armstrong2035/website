@@ -40,14 +40,13 @@ export default function WhatWeDo() {
           fontSize: isMobile ? "50px" : "70px",
           color: "#F2FFC2",
           fontWeight: 500,
-          mb: 5,
+          mb: 1,
         }}
       >
         What We Do
       </Typography>
 
       <Stack
-        spacing={1}
         justifyContent="flex-start"
         alignItems="flex-start"
         sx={{ width: "80%" }}
@@ -72,7 +71,6 @@ export default function WhatWeDo() {
               sx={{
                 backgroundColor: "#F2FFC2", // Set divider color
                 width: "100%", // Full width of the viewport
-                marginBottom: 3, // Spacing below the divider
               }}
             />
           </Box>
