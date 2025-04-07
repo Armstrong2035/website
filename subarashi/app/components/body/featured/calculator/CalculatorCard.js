@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function CalculatorCard() {
   return (
-    <Container>
+    <Container sx={{ pl: 0, pr: 0 }}>
       <Grid2 container direction={"row"} spacing={10} justifyContent={"center"}>
         <Grid2 item>
           <Image
@@ -30,6 +30,8 @@ export default function CalculatorCard() {
             justifyContent: "space-between",
             flexDirection: "column",
             pt: 2,
+            pl: 2,
+            pr: 2,
           }}
         >
           <Typography
