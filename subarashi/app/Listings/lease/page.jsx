@@ -123,7 +123,12 @@ export default function PropertyListings() {
           <Typography variant="body1">Try adjusting your filters to see more results.</Typography>
         </Box>
       ) : (
-          <Grid2 container spacing={3} justifyContent="space-between">
+          <Grid2 container spacing={3}      sx={{
+            justifyContent: {
+              xs: "center",
+              md: "flex-start",
+            },
+          }}>
             {filteredListings.map((listing, index) => (
               <Grid2
                 item
