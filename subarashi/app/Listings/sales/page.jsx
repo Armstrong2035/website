@@ -17,7 +17,7 @@ import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
 import SalesListingsFilters from "../../components/listings/sales-listings-filters";
 
-export default function PropertyListings() {
+export default function SalesListings() {
   const [allListings, setAllListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -160,6 +160,11 @@ export default function PropertyListings() {
                       height="225"
                       image={`${listing.media[0]}`}
                       alt={listing.location.building}
+                      sx={{
+                        objectFit: "cover",
+                        borderRadius: "0px",
+                        aspectRatio: "16/10",
+                      }}
                     />
                     {/* <Chip
                       label={"For sale"}
@@ -264,6 +269,8 @@ export default function PropertyListings() {
           </Grid2>
         )}
       </Container>
+
+      <Footer />
     </>
   );
 }
