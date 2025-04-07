@@ -239,16 +239,28 @@ const Footer = () => {
             <Box
               sx={{ display: "flex", justifyContent: "end", flexWrap: "wrap" }}
             >
-              <SocialLink href="#" target="_blank" rel="noopener">
+              {/* <SocialLink href="#" target="_blank" rel="noopener">
                 Twitter
-              </SocialLink>
-              <SocialLink href="#" target="_blank" rel="noopener">
+              </SocialLink> */}
+              <SocialLink
+                href="https://www.facebook.com/subarashirealestate"
+                target="_blank"
+                rel="noopener"
+              >
                 Facebook
               </SocialLink>
-              <SocialLink href="#" target="_blank" rel="noopener">
+              <SocialLink
+                href="https://www.linkedin.com/company/subarashirealestate/"
+                target="_blank"
+                rel="noopener"
+              >
                 LinkedIn
               </SocialLink>
-              <SocialLink href="#" target="_blank" rel="noopener">
+              <SocialLink
+                href="https://www.instagram.com/subarashirealestate"
+                target="_blank"
+                rel="noopener"
+              >
                 Instagram
               </SocialLink>
             </Box>
@@ -266,9 +278,6 @@ const Footer = () => {
               </SocialLink>
               <SocialLink href="#" sx={{ mr: 2 }}>
                 Terms & Conditions
-              </SocialLink>
-              <SocialLink href="#" sx={{ mr: 0 }}>
-                Design by Atollon
               </SocialLink>
             </Box>
           </Grid2>
