@@ -162,7 +162,7 @@ export default function PropertyListings() {
                       image={`${listing.media[0]}`}
                       alt={listing.location.building}
                     />
-                    <Chip
+                    {/* <Chip
                       label={"For sale"}
                       size="small"
                       sx={{
@@ -176,8 +176,8 @@ export default function PropertyListings() {
                         borderRadius: "0 0 0 0",
                         ...typographyStyles.bodySmall,
                       }}
-                   
-                    />
+                      fontFamily
+                    /> */}
                   </Box>
                   <CardContent sx={{ p: 1, pt: 2 }}>
                     <Typography

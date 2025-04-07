@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <Box
       sx={{
-        height: "60vh",
+        height: "40vh",
         backgroundColor: "#005244",
         // border: "1px solid red",
         display: "flex",
@@ -28,47 +28,20 @@ export default function Hero() {
       <Stack
         sx={{ width: "80%" }}
         direction={"row"}
-        justifyContent={isMobile ? "center" : "space-between"}
+        justifyContent={"center"}
         alignItems={"center"}
       >
         {!isMobile ? (
-          <Typography sx={{ ...typographyStyles.heroTitle, color: "#F2FFC2" }}>
+          <Typography
+            sx={{
+              ...typographyStyles.heroTitle,
+              color: "#F2FFC2",
+              fontSize: "70px",
+            }}
+          >
             About Us
           </Typography>
         ) : null}
-
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            // border: "1px solid red",
-          }}
-        >
-          ,
-          <Typography
-            sx={{
-              ...typographyStyles.displayLarge,
-              fontSize: "50px",
-              color: "#F2FFC2",
-              lineHeight: "60px",
-            }}
-          >
-            YOUR GATEWAY TO LUXURY,
-          </Typography>
-          <Typography
-            sx={{
-              ...typographyStyles.displayLarge,
-              fontSize: "50px",
-              color: "#F2FFC2",
-              lineHeight: "60px",
-            }}
-          >
-            {" "}
-            SECURITY AND SUSTAINABILITY
-          </Typography>
-        </Box>
       </Stack>
     </Box>
   );

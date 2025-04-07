@@ -54,10 +54,11 @@ export default function OurMission({ image }) {
             color: "#043D32",
           }}
         >
-          We’re here to make real estate seamless, transparent, and rewarding
-          for you. Whether you're buying, selling, or investing, our goal is to
-          guide you with honesty, expertise, and attention to detail—ensuring
-          that every decision you make is the right one.
+          To provide a seamless, transparent, and <strong>wonderful</strong>{" "}
+          real estate experience, empowering our clients to achieve their
+          property dreams and investment goals. We aim to set new standards in
+          the market by focusing on client satisfaction, attention to detail,
+          and ethical practices.
         </Typography>
       </Stack>
     </Box>
