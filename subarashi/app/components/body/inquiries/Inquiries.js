@@ -22,7 +22,6 @@ export default function Inquiries() {
     <Box
       sx={{
         backgroundColor: "#F2FFC2",
-
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

@@ -122,12 +122,16 @@ export default function PropertyListings() {
             </Typography>
           </Box>
         ) : (
-          <Grid2 container spacing={3}      sx={{
-            justifyContent: {
-              xs: "center",
-              md: "flex-start",
-            },
-          }}>
+          <Grid2
+            container
+            spacing={3}
+            sx={{
+              justifyContent: {
+                xs: "center",
+                md: "flex-start",
+              },
+            }}
+          >
             {filteredListings.map((listing, index) => (
               <Grid2
                 item
@@ -240,7 +244,7 @@ export default function PropertyListings() {
                           beds
                         </Typography>
                       </Box>
-                      <Box>
+                      {/* <Box>
                         <Typography
                           variant="body2"
                           color="text.secondary"
@@ -251,7 +255,7 @@ export default function PropertyListings() {
                         <Typography variant="caption" color="text.secondary">
                           kitchen
                         </Typography>
-                      </Box>
+                      </Box> */}
                       <Box>
                         <Typography
                           variant="body2"

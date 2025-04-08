@@ -114,24 +114,27 @@ export default function SalesListings() {
 
       <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
         {loading ? (
-       <LoadingSpinner />
-      ) : filteredListings.length === 0 ? (
-        <Box sx={{ textAlign: "center", py: 8 }}>
-          <Typography variant="h5" sx={{ color: "#005244", mb: 2 }}>
-            No properties found
-          </Typography>
-          <Typography variant="body1">
-            Try adjusting your filters to see more results.
+          <LoadingSpinner />
+        ) : filteredListings.length === 0 ? (
+          <Box sx={{ textAlign: "center", py: 8 }}>
+            <Typography variant="h5" sx={{ color: "#005244", mb: 2 }}>
+              No properties found
             </Typography>
-        </Box>
-      ) : (
-          <Grid2 container spacing={3} 
-          sx={{
-            justifyContent: {
-              xs: "center",
-              md: "flex-start",
-            },
-          }} >
+            <Typography variant="body1">
+              Try adjusting your filters to see more results.
+            </Typography>
+          </Box>
+        ) : (
+          <Grid2
+            container
+            spacing={3}
+            sx={{
+              justifyContent: {
+                xs: "center",
+                md: "flex-start",
+              },
+            }}
+          >
             {filteredListings.map((listing, index) => (
               <Grid2
                 item
@@ -244,7 +247,7 @@ export default function SalesListings() {
                           beds
                         </Typography>
                       </Box>
-                      <Box>
+                      {/* <Box>
                         <Typography
                           variant="body2"
                           color="text.secondary"
@@ -255,7 +258,7 @@ export default function SalesListings() {
                         <Typography variant="caption" color="text.secondary">
                           kitchen
                         </Typography>
-                      </Box>
+                      </Box> */}
                       <Box>
                         <Typography
                           variant="body2"
