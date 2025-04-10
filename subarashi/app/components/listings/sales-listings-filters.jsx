@@ -99,7 +99,7 @@ export default function SalesListingsFilters({ onFilterChange }) {
       <Container maxWidth="lg">
         <Grid container spacing={2} alignItems="flex-end">
           <Grid item xs={12} sm={6} md={3}>
-            <Box sx={{ mb: 1 }}>
+          {/*   <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"
                 sx={{
@@ -132,7 +132,7 @@ export default function SalesListingsFilters({ onFilterChange }) {
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
+            </FormControl> */}
           </Grid>
           <Grid item xs={12} sm={6} md={3}/>
 
