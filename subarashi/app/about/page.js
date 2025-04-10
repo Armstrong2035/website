@@ -48,7 +48,7 @@ export default function AboutUs() {
 
     {
       Name: "Heidi",
-      Title: "Off Plan Investment Advisor",
+      Title: "Investment Advisor",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Heidi-Profile-Photo-Subarashi-1_wc3ccg.png",
     },
@@ -67,30 +67,23 @@ export default function AboutUs() {
     },
     {
       Name: "Yahia",
-      Title: "Investment Adviser Off-plan",
+      Title: "Investment Adviser",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
     },
 
     {
       Name: "Zamin",
-      Title: "Off Plan Investment Advisor",
+      Title: "Investment Advisor",
       ImageUrl:
         "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Zamin-Profile-Photo-Subarashi-1_fbvkjb.png",
     },
 
     {
       Name: "Farah",
-      Title: "Investment Adviser Off-plan",
+      Title: "Investment Adviser",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Farah-Profile-Photo-Subarashi-1_mulx0f.png",
-    },
-
-    {
-      Name: "Hamza",
-      Title: "Sales Agent / Off-Plan",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Hamza-Profile-Photo-Subarashi_tukdpw.png",
     },
 
     {
