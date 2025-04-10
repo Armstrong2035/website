@@ -73,7 +73,7 @@ const LineIndicator = styled(Box)(({ theme }) => ({
   marginRight: theme.spacing(2),
 }));
 
-const EmailInput = styled(TextField)(({ theme }) => ({
+export const EmailInput = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: theme.palette.divider,
