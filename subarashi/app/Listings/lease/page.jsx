@@ -201,7 +201,7 @@ export default function PropertyListings() {
                       component="div"
                       gutterBottom
                     >
-                      {`${listing.location.building}, ${listing.location.city}`}
+                      {`${listing.location.building},${listing.location.city}, ${listing.location.city} `}
                     </Typography>
                     <Box
                       sx={{

@@ -39,6 +39,8 @@ export default function SalesListings() {
       }
     };
 
+    // console.log(allListings);
+
     fetchListings();
   }, []);
 
@@ -204,7 +206,7 @@ export default function SalesListings() {
                       component="div"
                       gutterBottom
                     >
-                      {`${listing.location.building}, ${listing.location.city}`}
+                      {`${listing.location.building}, ${listing.location.locality}, ${listing.location.city}`}
                     </Typography>
                     <Box
                       sx={{
@@ -229,7 +231,7 @@ export default function SalesListings() {
                           color="text.secondary"
                           sx={{ fontWeight: 400 }}
                         >
-                          {listing.area}
+                          {`${listing.area} `}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
                           sqft
