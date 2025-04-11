@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useParams } from "next/navigation"
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import {
   Box,
   Container,
@@ -46,62 +46,63 @@ const SideBarTypography = styled(Typography)(({ theme }) => ({
 }));
 
 export default function ListingDetail() {
-  const params = useParams()
-  const { id } = params
-  const { listings } = useListingStore()
-  const [listing, setListing] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const params = useParams();
+  const { id } = params;
+  const { listings } = useListingStore();
+  const [listing, setListing] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (listings && listings.length > 0) {
-      const foundListing = listings.find((item) => item.id === id)
+      const foundListing = listings.find((item) => item.id === id);
       if (foundListing) {
-        setListing(foundListing)
+        setListing(foundListing);
       }
     } else {
-
-      fetchListing()
+      fetchListing();
     }
-    setLoading(false)
-  }, [id, listings])
+    setLoading(false);
+  }, [id, listings]);
 
   const fetchListing = async () => {
     try {
-      const res = await fetch("/api/listings/sales-listings")
-      const data = await res.json()
-      const foundListing = data.listings.find((item) => item.id === id)
+      const res = await fetch("/api/listings/sales-listings");
+      const data = await res.json();
+      const foundListing = data.listings.find((item) => item.id === id);
       if (foundListing) {
-        setListing(foundListing)
+        setListing(foundListing);
       }
     } catch (error) {
-      console.error("Failed to fetch listing:", error)
+      console.error("Failed to fetch listing:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleNextImage = () => {
-    if (!listing || !listing.media) return
-    setCurrentImageIndex((prevIndex) => (prevIndex === listing.media.length - 1 ? 0 : prevIndex + 1))
-  }
+    if (!listing || !listing.media) return;
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === listing.media.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   const handlePrevImage = () => {
-    if (!listing || !listing.media) return
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? listing.media.length - 1 : prevIndex - 1))
-  }
+    if (!listing || !listing.media) return;
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? listing.media.length - 1 : prevIndex - 1
+    );
+  };
 
   const handleThumbnailClick = (index) => {
-    setCurrentImageIndex(index)
-  }
+    setCurrentImageIndex(index);
+  };
 
   if (loading) {
-    return (
-      <LoadingSpinner />
-    )
+    return <LoadingSpinner />;
   }
 
-/*   if (!listing) {
+  /*   if (!listing) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
         Listing not found
@@ -114,8 +115,14 @@ export default function ListingDetail() {
       <NavBar />
 
       {/* Hero Section */}
-      <Box sx={{ position: "relative", width: "100%", height: { xs: "50vh", md: "100vh" } }}>
-        {listing?.media?.length > 0 && (
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "50vh", md: "100vh" },
+        }}
+      >
+        {listing.media && listing.media.length > 0 && (
           <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
             <Box
               component="img"
@@ -164,7 +171,8 @@ export default function ListingDetail() {
                 bottom: 0,
                 left: 0,
                 width: "100%",
-                background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                 color: "white",
                 p: "10px",
                 boxSizing: "border-box",
@@ -185,8 +193,6 @@ export default function ListingDetail() {
             </Box>
           </Box>
         )}
-
-  
       </Box>
 
         {/* Thumbnail Gallery */}
@@ -276,53 +282,65 @@ export default function ListingDetail() {
   {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
                 <Box
                   component="img"
-                  src="/images/agent-img.png"         alt={listing.agent.name}
+                  src="/images/agent-img.png"
+                  alt={listing.agent.name}
                   sx={{
                     width: 216,
                     height: 260,
                     mb: 2,
                   }}
                 />
-                <Typography variant="h6" 
-                 sx={{ 
-                  fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 400,
-                  color: "#005244",
-                  fontSize: "24px",
-                  }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontFamily: "Degular, Arial, sans-serif",
+                    fontWeight: 400,
+                    color: "#005244",
+                    fontSize: "24px",
+                  }}
+                >
                   {listing.agent.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2, textTransform: "uppercase",
-                  fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                 }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    mb: 2,
+                    textTransform: "uppercase",
+                    fontFamily: "Degular, Arial, sans-serif",
+                    fontWeight: 300,
+                    color: "#005244",
+                    fontSize: "16px",
+                  }}
+                >
                   Investment Consultant
                 </Typography>
 
                 <Divider sx={{ mb: 2 }} />
-                <Button variant="text"
-                component="div"
-                sx={{
-                  width: "100%",
-                  height: "50px",
-                  fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  }}>
-                 <Typography variant="body2" component={"h6"}
-                  sx={{ textTransform: "uppercase",}}>  
-                  Contact
+                <Button
+                  variant="text"
+                  component="div"
+                  sx={{
+                    width: "100%",
+                    height: "50px",
+                    fontFamily: "Degular, Arial, sans-serif",
+                    fontWeight: 300,
+                    color: "#005244",
+                    fontSize: "16px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography
+                    variant="body2"
+                    component={"h6"}
+                    sx={{ textTransform: "uppercase" }}
+                  >
+                    Contact
                   </Typography>
 
-                 <ArrowForwardIcon />
-
-
+                  <ArrowForwardIcon />
                 </Button>
               </Box> */}
             </Paper>
@@ -331,23 +349,29 @@ export default function ListingDetail() {
           {/* Main Content */}
           <Grid item xs={12} md={9}>
             {/* Property Description */}
-            <Accordion defaultExpanded sx={{ mb: 3,
-            boxShadow: "none",
-            borderBottom: "1px solid #8E8E93",
-             }}>
+            <Accordion
+              defaultExpanded
+              sx={{
+                mb: 3,
+                boxShadow: "none",
+                borderBottom: "1px solid #8E8E93",
+              }}
+            >
               <AccordionSummary
                 expandIcon={<AddIcon />}
                 aria-controls="property-description-content"
                 id="property-description-header"
               >
-                <Typography variant="h5" component="h2"
-                 sx={{
-                  fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "42px",
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  sx={{
+                    fontFamily: "Degular, Arial, sans-serif",
+                    fontWeight: 300,
+                    color: "#005244",
+                    fontSize: "42px",
                   }}
-                  >
+                >
                   Property Description
                 </Typography>
               </AccordionSummary>
@@ -451,7 +475,8 @@ export default function ListingDetail() {
                   }}
                 >
                   <Typography variant="body1" color="text.secondary">
-                    {listing.location.building}, {listing.location.locality}, {listing.location.city}
+                    {listing.location.building}, {listing.location.locality},{" "}
+                    {listing.location.city}
                   </Typography>
                 </Box>
               </AccordionDetails>
@@ -471,95 +496,118 @@ export default function ListingDetail() {
                     fontWeight: 300,
                     color: "#005244",
                     fontSize: "42px",
-                 }}>
+                  }}
+                >
                   Luxury Amenities
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <List component="ul"
+                <List
+                  component="ul"
                   sx={{
                     pl: 2,
                     listStyleType: "disc",
-                  }}>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  }}
+                >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="24/7 Security"
                       sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Swimming Pool."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Fully Equipped Gym."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Children's Play Area."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Landscaped Gardens."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Covered Parking."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
-                  <ListItem component="li" sx={{ display: "list-item", color: "#005244"}} >
+                  <ListItem
+                    component="li"
+                    sx={{ display: "list-item", color: "#005244" }}
+                  >
                     <ListItemText
                       primary="Proximity to Schools and Shopping."
-                     sx={{
+                      sx={{
                         fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "16px",
-                     }}
+                        fontWeight: 300,
+                        color: "#005244",
+                        fontSize: "16px",
+                      }}
                     />
                   </ListItem>
                 </List>
-  
               </AccordionDetails>
             </Accordion> */}
           </Grid>
@@ -568,5 +616,5 @@ export default function ListingDetail() {
 
       <Footer />
     </>
-  )
+  );
 }

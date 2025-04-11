@@ -24,6 +24,7 @@ import typographyStyles from "../../styles";
 import { EmailInput } from "../footer/new-footer";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import NavBar from "../appBar/AppBar";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
@@ -183,10 +184,15 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
         aria-describedby="modal-description"
         sx={{
           height: "100vh",
-          width: "100vw",
         }}
       >
         <Box sx={{ width: "100%", height: "100%" }}>
+          <NavBar
+            color="#005244"
+            hoverColor="#005244"
+            hoverBackground={"#FFFFFF"}
+            buttonColor={"#005244"}
+          />
           <Grid2
             container
             sx={{
@@ -374,6 +380,7 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
                   type="submit"
                   variant="contained"
                   disabled={isSubmitting}
+                  onClick={handleSubmit}
                   sx={{
                     backgroundColor: "#005244",
                     color: "#F2FFC2",
