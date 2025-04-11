@@ -18,6 +18,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   IconButton,
+  styled,
 } from "@mui/material"
 import AddIcon from "@mui/icons-material/Add"
 import BedIcon from "@mui/icons-material/Bed"
@@ -32,6 +33,17 @@ import Footer from "../../../components/footer/new-footer"
 import { useListingStore } from "../../../store/listingsStore"
 import LoadingSpinner from "../../../components/loading/loading-spinner"
 import AgentImage from "../../../../public/images/agent-img.png"
+import typographyStyles from "../../../styles"
+import ButtonModal from "../../../components/CTA/ButtonModal"
+
+
+const SideBarTypography = styled(Typography)(({ theme }) => ({
+
+
+  ...typographyStyles.bodySmall,
+
+
+}));
 
 export default function ListingDetail() {
   const params = useParams()
@@ -102,8 +114,8 @@ export default function ListingDetail() {
       <NavBar />
 
       {/* Hero Section */}
-      <Box sx={{ position: "relative", width: "100%", height: { xs: "50vh", md: "70vh" } }}>
-        {listing.media && listing.media.length > 0 && (
+      <Box sx={{ position: "relative", width: "100%", height: { xs: "50vh", md: "100vh" } }}>
+        {listing?.media?.length > 0 && (
           <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
             <Box
               component="img"
@@ -112,7 +124,7 @@ export default function ListingDetail() {
               sx={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: "fill",
               }}
             />
 
@@ -161,18 +173,15 @@ export default function ListingDetail() {
               }}
             >
               <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                
-              <Typography variant="h4" component="h1" sx={{ fontWeight: "bold", mb: 1 }}>
-                {listing.title}
-              </Typography>
-              <Typography variant="h6" component="p" sx={{ mb: 2 }}>
+
+              <Typography sx={{ ...typographyStyles.bannerText, fontSize: "55px", fontWeight: 300, width: "100%" }} >
                 {listing.location.building}, {listing.location.locality}, {listing.location.city}
               </Typography>
               </Box>
 
-              <Typography variant="h4" component="p" sx={{ fontWeight: "bold" }}>
+{/*               <Typography sx={{ ...typographyStyles.bannerText, fontSize: "55px", fontWeight: 300, }} >
                 Price: AED {(listing.area * 1000).toLocaleString()}
-              </Typography>
+              </Typography> */}
             </Box>
           </Box>
         )}
@@ -181,7 +190,7 @@ export default function ListingDetail() {
       </Box>
 
         {/* Thumbnail Gallery */}
-      <Box
+  {/*     <Box
           sx={{
 
             bottom: 0,
@@ -192,7 +201,7 @@ export default function ListingDetail() {
     
           }}
         >
-          {listing.media &&
+          {listing?.media &&
             listing.media.map((image, index) => (
               <Box
                 key={index}
@@ -218,7 +227,7 @@ export default function ListingDetail() {
                 />
               </Box>
             ))}
-        </Box>
+        </Box> */}
 
       {/* Property Details Section */}
       <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -226,66 +235,45 @@ export default function ListingDetail() {
           {/* Left Sidebar */}
           <Grid item xs={12} md={3}>
             <Paper elevation={0} sx={{ p: 2,  }}>
-              <List disablePadding>
-                <ListItem disableGutters>
+              <List disablePadding sx={{ ...typographyStyles.bodySmall }}>
+                <ListItem disableGutters
+                >
                   
-                  <ListItemText
-                    primary={`Bed - ${listing.bedrooms}`}
-                    primaryTypographyProps={{ fontWeight: "medium" }}
-                  />
+                  <SideBarTypography>
+                    {`Bed - ${listing?.bedrooms}`}
+                  </SideBarTypography>
+   
                 </ListItem>
+
                 <ListItem disableGutters>
-      
-                  <ListItemText
-                    primary={`Baths - ${listing.bathrooms}`}
-                    primaryTypographyProps={{ fontWeight: "medium" }}
-                  />
+                  <SideBarTypography>
+                  {`Baths - ${listing?.bathrooms}`}
+                  </SideBarTypography>
                 </ListItem>
-                <ListItem disableGutters>
-          
-                  <ListItemText primary="Cars - 1" primaryTypographyProps={{ fontWeight: "medium" }} />
-                </ListItem>
-                <ListItem disableGutters>
-             
-                  <ListItemText
-                    primary={`SQ Feet - ${listing.area.toFixed(2)}ft²`}
-                    primaryTypographyProps={{ fontWeight: "medium" }}
-                  />
+
+                <ListItem disableGutters>  
+                  <SideBarTypography>
+                    {`SQ feet - ${listing?.area}ft`}
+                  </SideBarTypography>
                 </ListItem>
               </List>
 
               <Divider sx={{ my: 3 }} />
 
               <List disablePadding>
-                <ListItem disableGutters>
-                  
-                  <ListItemText
-                    primary={"Sales Method"}
-                    
-                  />
-                </ListItem>
+            
 
-                <ListItem disableGutters>
+  
                   
-                  <ListItemText
-                    primary={"Enquire"}
-                 
-                  />
-                </ListItem>
+                  <ButtonModal buttonText={"Enquiry"} variantStyle={"outlined"} />
+    
+                
 
-                <ListItem disableGutters>
-                  
-                  <ListItemText
-                    primary={"Floor Plan"}
-                   
-                  />
-                </ListItem>
               </List>        
 
-              <Divider sx={{ my: 3 }} />
 
               {/* Agent Information */}
-              <Box sx={{ textAlign: "left", mb: 2 }}>
+  {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
                 <Box
                   component="img"
                   src="/images/agent-img.png"         alt={listing.agent.name}
@@ -336,7 +324,7 @@ export default function ListingDetail() {
 
 
                 </Button>
-              </Box>
+              </Box> */}
             </Paper>
           </Grid>
 
@@ -364,12 +352,17 @@ export default function ListingDetail() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography variant="body1">{listing.description}</Typography>
+                <Typography sx={{
+                  fontFamily: "Degular, Arial, sans-serif",
+                  fontWeight: 300,
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                }}>{listing?.description}</Typography>
               </AccordionDetails>
             </Accordion>
 
             {/* Key Features */}
-            <Accordion defaultExpanded sx={{ mb: 3,
+         {/*    <Accordion defaultExpanded sx={{ mb: 3,
             boxShadow: "none",
             borderTop: "0px solid #8E8E93",
             borderBottom: "1px solid #8E8E93"
@@ -429,10 +422,10 @@ export default function ListingDetail() {
                   </ListItem>
                 </List>
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
 
             {/* Location */}
-            <Accordion defaultExpanded sx={{ mb: 3,
+{/*             <Accordion defaultExpanded sx={{ mb: 3,
              boxShadow: "none",
              borderTop: "0px solid #8E8E93",
              borderBottom: "1px solid #8E8E93"}}>
@@ -462,10 +455,10 @@ export default function ListingDetail() {
                   </Typography>
                 </Box>
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
 
  {/* Luxury Amenities */}
-            <Accordion defaultExpanded sx={{
+   {/*          <Accordion defaultExpanded sx={{
               mb: 3,
              boxShadow: "none",
              borderTop: "0px solid #8E8E93",
@@ -568,7 +561,7 @@ export default function ListingDetail() {
                 </List>
   
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
           </Grid>
         </Grid>
       </Container>

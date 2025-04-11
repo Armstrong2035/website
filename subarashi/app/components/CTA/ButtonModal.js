@@ -28,7 +28,7 @@ import Checkbox from "@mui/material/Checkbox";
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
 
-const ButtonModal = ({ buttonText, buttonStyle, isOutlined, buttonColor }) => {
+const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -169,8 +169,9 @@ const ButtonModal = ({ buttonText, buttonStyle, isOutlined, buttonColor }) => {
     <>
       <Button
         onClick={handleOpen}
+        variant={variantStyle}
         sx={{ ...buttonStyle, color: buttonColor }}
-        className={isOutlined ? "outlined-button" : "contained-button"}
+        className={`${variantStyle}-button`}
       >
         {buttonText}
       </Button>
