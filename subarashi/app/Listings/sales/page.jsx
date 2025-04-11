@@ -45,8 +45,6 @@ export default function SalesListings() {
       }
     };
 
-    // console.log(allListings);
-
     fetchListings();
   }, []);
 

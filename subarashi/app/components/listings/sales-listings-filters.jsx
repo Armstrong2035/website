@@ -20,11 +20,11 @@ import { BorderBottom } from "@mui/icons-material"
 const propertyTypes = ["Buy Apartments", "Buy Villas", "Buy Townhouses", "Buy Penthouses"]
 const bedroomOptions = ["Any", 1, 2, 3, 4, 5]
 const priceRangeOptions = [
-  { min: 0, max: 500000, label: "Up to 500,000" },
-  { min: 500000, max: 1000000, label: "500,000 - 1,000,000" },
-  { min: 1000000, max: 2000000, label: "1,000,000 - 2,000,000" },
-  { min: 2000000, max: 5000000, label: "2,000,000 - 5,000,000" },
-  { min: 5000000, max: null, label: "5,000,000+" },
+  { min: 1000000, max: 5000000, label: "1,000,000 - 3,000,000" },
+  { min: 3000000, max: 6000000, label: "3,000,000 - 6,000,000" },
+  { min: 6000000, max: 9000000, label: "6,000,000 - 9,000,000" },
+  { min: 9000000, max: 18000000, label: "9,000,000 - 18,000,000" },
+  { min: 18000000, max: null, label: "18,000,000+" },
 ]
 const locationOptions = [
   "Dhanmondi, Dhaka",

@@ -3,14 +3,14 @@
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
-export const useListingStore = create(
+export const useLeastListingStore = create(
   persist(
     (set) => ({
       listings: [],
       setListings: (listings) => set({ listings }),
     }),
     {
-      name: "listing-storage",
+      name: "lease-listing-storage",
       storage: createJSONStorage(() => localStorage),
     }
   )
