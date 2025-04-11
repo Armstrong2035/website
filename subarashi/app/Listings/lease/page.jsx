@@ -16,12 +16,17 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
 import LeaseListingsFilters from "../../components/listings/lease-listings-filters";
+import Link from "next/link";
+import { useLeastListingStore } from "../../store/leaseListingStore";
+import { useRouter } from "next/navigation";
 
 export default function PropertyListings() {
   const [allListings, setAllListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hoveredCardId, setHoveredCardId] = useState(null);
+    const router = useRouter();
+  const { setListings } = useLeastListingStore();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -30,6 +35,7 @@ export default function PropertyListings() {
         const data = await res.json();
         setAllListings(data.listings);
         setFilteredListings(data.listings);
+        setListings(data.listings);
       } catch (error) {
         console.error("Failed to fetch listings:", error);
       } finally {
@@ -132,7 +138,11 @@ export default function PropertyListings() {
               },
             }}
           >
-            {filteredListings.map((listing, index) => (
+            {filteredListings?.map((listing, index) => (
+                  <Link
+                  href={`/Listings/lease/${listing.id}`}
+                  style={{ textDecoration: "none" }}
+                >
               <Grid2
                 item
                 xs={12}
@@ -272,6 +282,7 @@ export default function PropertyListings() {
                   </CardContent>
                 </Card>
               </Grid2>
+              </Link>
             ))}
           </Grid2>
         )}
