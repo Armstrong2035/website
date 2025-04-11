@@ -5,6 +5,7 @@ import NavBar from "../../components/appBar/AppBar";
 import Footer from "../../components/footer/new-footer";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import typographyStyles from "../../styles";
 
 // Generate static page with revalidation
 export const revalidate = 36000; // Revalidate every hour
@@ -19,31 +20,41 @@ export default async function AreaGuidePage({ params }) {
     switch (block.type) {
       case "paragraph":
         return (
-          <Typography paragraph>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#005244" }}>
             {block.paragraph.rich_text.map((text) => text.plain_text).join("")}
           </Typography>
         );
       case "heading_1":
         return (
-          <Typography variant="h3" component="h1" gutterBottom>
+          <Typography sx={{ ...typographyStyles.bodyLarge, color: "#005244" }}>
             {block.heading_1.rich_text.map((text) => text.plain_text).join("")}
           </Typography>
         );
       case "heading_2":
         return (
-          <Typography variant="h4" component="h2" gutterBottom>
+          <Typography sx={{ ...typographyStyles.Card, color: "#005244" }}>
             {block.heading_2.rich_text.map((text) => text.plain_text).join("")}
           </Typography>
         );
       case "heading_3":
         return (
-          <Typography variant="h5" component="h3" gutterBottom>
+          <Typography
+            sx={{
+              ...typographyStyles.cardTitle,
+              color: "#005244",
+              mt: 5,
+              mb: 1,
+            }}
+          >
             {block.heading_3.rich_text.map((text) => text.plain_text).join("")}
           </Typography>
         );
       case "bulleted_list_item":
         return (
-          <Typography component="li" sx={{ ml: 4 }}>
+          <Typography
+            component="li"
+            sx={{ ...typographyStyles.bodyLarge, color: "#005244", ml: 4 }}
+          >
             {block.bulleted_list_item.rich_text
               .map((text) => text.plain_text)
               .join("")}
@@ -99,7 +110,13 @@ export default async function AreaGuidePage({ params }) {
       />
 
       <Container maxWidth="lg" sx={{ py: 8, mt: 8 }}>
-        <Typography variant="h3" component="h1" gutterBottom>
+        <Typography
+          sx={{
+            ...typographyStyles.bannerText,
+            fontSize: "50px",
+            color: "#005244",
+          }}
+        >
           {title}
         </Typography>
 

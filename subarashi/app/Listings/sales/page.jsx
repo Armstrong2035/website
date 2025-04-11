@@ -16,9 +16,9 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
 import SalesListingsFilters from "../../components/listings/sales-listings-filters";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 import { useListingStore } from "../../store/listingsStore";
-
+import Link from "next/link";
 
 export default function SalesListings() {
   const [allListings, setAllListings] = useState([]);
@@ -26,8 +26,8 @@ export default function SalesListings() {
   const [loading, setLoading] = useState(true);
 
   const [hoveredCardId, setHoveredCardId] = useState(null);
-  const router = useRouter()
-  const { setListings } = useListingStore()
+  const router = useRouter();
+  const { setListings } = useListingStore();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -36,7 +36,7 @@ export default function SalesListings() {
         const data = await res.json();
         setAllListings(data.listings);
         setFilteredListings(data.listings);
-        setListings(data.listings)
+        setListings(data.listings);
         console.log("Sales listings", data.listings);
       } catch (error) {
         console.error("Failed to fetch listings:", error);
@@ -58,9 +58,9 @@ export default function SalesListings() {
     setHoveredCardId(null);
   };
 
-  const handleListingClick = (id) => {
-    router.push(`/Listings/sales/${id}`)
-  }
+  // const handleListingClick = (id) => {
+  //   router.push(`/Listings/sales/${id}`);
+  // };
 
   //console.log(listings);
   const applyFilters = (filterParams) => {
@@ -148,48 +148,52 @@ export default function SalesListings() {
             }}
           >
             {filteredListings.map((listing, index) => (
-              <Grid2
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                key={index}
-                sx={{
-                  transition: "filter 0.3s ease, transform 0.3s ease",
-                  filter:
-                    hoveredCardId && hoveredCardId !== index
-                      ? "blur(3px)"
-                      : "none",
-                  transform:
-                    hoveredCardId === index ? "scale(1.02)" : "scale(1)",
-                  zIndex: hoveredCardId === index ? 2 : 1,
-                }}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleListingClick(listing.id)}
+              <Link
+                href={`/Listings/sales/${listing.id}`}
+                style={{ textDecoration: "none" }}
               >
-                <Card
+                <Grid2
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  key={index}
                   sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    boxShadow: "none",
-                    border: "1px solid transparent",
+                    transition: "filter 0.3s ease, transform 0.3s ease",
+                    filter:
+                      hoveredCardId && hoveredCardId !== index
+                        ? "blur(3px)"
+                        : "none",
+                    transform:
+                      hoveredCardId === index ? "scale(1.02)" : "scale(1)",
+                    zIndex: hoveredCardId === index ? 2 : 1,
                   }}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                  // onClick={() => handleListingClick(listing.id)}
                 >
-                  <Box sx={{ position: "relative" }}>
-                    <CardMedia
-                      component="img"
-                      height="225"
-                      image={`${listing.media[0]}`}
-                      alt={listing.location.building}
-                      sx={{
-                        objectFit: "cover",
-                        borderRadius: "0px",
-                        aspectRatio: "16/10",
-                      }}
-                    />
-                    {/* <Chip
+                  <Card
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      boxShadow: "none",
+                      border: "1px solid transparent",
+                    }}
+                  >
+                    <Box sx={{ position: "relative" }}>
+                      <CardMedia
+                        component="img"
+                        height="225"
+                        image={`${listing.media[0]}`}
+                        alt={listing.location.building}
+                        sx={{
+                          objectFit: "cover",
+                          borderRadius: "0px",
+                          aspectRatio: "16/10",
+                        }}
+                      />
+                      {/* <Chip
                       label={"For sale"}
                       size="small"
                       sx={{
@@ -205,62 +209,62 @@ export default function SalesListings() {
                       }}
                       fontFamily
                     /> */}
-                  </Box>
-                  <CardContent sx={{ p: 1, pt: 2 }}>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        ...typographyStyles.bodyLarge,
-                        color: "#333",
-                        fontWeight: 500,
-                      }}
-                      component="div"
-                      gutterBottom
-                    >
-                      {`${listing.location.building}, ${listing.location.locality}, ${listing.location.city}`}
-                    </Typography>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        mt: 1,
-                        "& > div": {
+                    </Box>
+                    <CardContent sx={{ p: 1, pt: 2 }}>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          ...typographyStyles.bodyLarge,
+                          color: "#333",
+                          fontWeight: 500,
+                        }}
+                        component="div"
+                        gutterBottom
+                      >
+                        {`${listing.location.building}, ${listing.location.locality}, ${listing.location.city}`}
+                      </Typography>
+                      <Box
+                        sx={{
                           display: "flex",
-                          flexDirection: "column",
                           alignItems: "center",
-                          justifyContent: "space-between",
-                          mr: 2,
-                          pr: 2,
-                          borderRight: "2px solid #005244",
-                          minHeight: "40px",
-                        },
-                      }}
-                    >
-                      <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontWeight: 400 }}
-                        >
-                          {`${listing.area} `}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          sqft
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontWeight: 400 }}
-                        >
-                          0{listing.bedrooms}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          beds
-                        </Typography>
-                      </Box>
-                      {/* <Box>
+                          mt: 1,
+                          "& > div": {
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            mr: 2,
+                            pr: 2,
+                            borderRight: "2px solid #005244",
+                            minHeight: "40px",
+                          },
+                        }}
+                      >
+                        <Box>
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            sx={{ fontWeight: 400 }}
+                          >
+                            {`${listing.area} `}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            sqft
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            sx={{ fontWeight: 400 }}
+                          >
+                            0{listing.bedrooms}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            beds
+                          </Typography>
+                        </Box>
+                        {/* <Box>
                         <Typography
                           variant="body2"
                           color="text.secondary"
@@ -272,22 +276,23 @@ export default function SalesListings() {
                           kitchen
                         </Typography>
                       </Box> */}
-                      <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontWeight: 400 }}
-                        >
-                          0{listing.bathrooms}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          baths
-                        </Typography>
+                        <Box>
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            sx={{ fontWeight: 400 }}
+                          >
+                            0{listing.bathrooms}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            baths
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid2>
+                    </CardContent>
+                  </Card>
+                </Grid2>
+              </Link>
             ))}
           </Grid2>
         )}
