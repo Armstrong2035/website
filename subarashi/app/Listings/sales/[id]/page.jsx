@@ -38,11 +38,7 @@ import ButtonModal from "../../../components/CTA/ButtonModal"
 
 
 const SideBarTypography = styled(Typography)(({ theme }) => ({
-
-
   ...typographyStyles.bodySmall,
-
-
 }));
 
 export default function ListingDetail() {
@@ -122,7 +118,7 @@ export default function ListingDetail() {
           height: { xs: "50vh", md: "100vh" },
         }}
       >
-        {listing.media && listing.media.length > 0 && (
+        {listing?.media?.length > 0 && (
           <Box sx={{ position: "relative", width: "100%", height: "100%" }}>
             <Box
               component="img"
@@ -349,7 +345,7 @@ export default function ListingDetail() {
           {/* Main Content */}
           <Grid item xs={12} md={9}>
             {/* Property Description */}
-            <Accordion
+            <Accordion 
               defaultExpanded
               sx={{
                 mb: 3,
@@ -357,8 +353,13 @@ export default function ListingDetail() {
                 borderBottom: "1px solid #8E8E93",
               }}
             >
-              <AccordionSummary
-                expandIcon={<AddIcon />}
+              <Box
+              
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
                 aria-controls="property-description-content"
                 id="property-description-header"
               >
@@ -374,242 +375,21 @@ export default function ListingDetail() {
                 >
                   Property Description
                 </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
+
+                <AddIcon />
+              </Box>
+              <Box sx={{ mt: 2 }} >
                 <Typography sx={{
                   fontFamily: "Degular, Arial, sans-serif",
                   fontWeight: 300,
                   fontSize: "16px",
                   lineHeight: "150%",
+                  p: 0,
                 }}>{listing?.description}</Typography>
-              </AccordionDetails>
+              </Box>
             </Accordion>
 
-            {/* Key Features */}
-         {/*    <Accordion defaultExpanded sx={{ mb: 3,
-            boxShadow: "none",
-            borderTop: "0px solid #8E8E93",
-            borderBottom: "1px solid #8E8E93"
-             }}>
-              <AccordionSummary expandIcon={<AddIcon />} aria-controls="key-features-content" id="key-features-header">
-                <Typography variant="h5" component="h2" color="primary" sx={{ fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "42px"
-                  }}>
-                  Key Features
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  <ListItem>
-                    <ListItemText
-                      primary="Elegant Bedroom Retreat"
-                      secondary="A spacious haven with a built-in wardrobe featuring LED lighting for a touch of sophistication and practicality."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Gourmet Kitchen"
-                      secondary="Marble finishes, an integrated fridge, and top-of-the-line Miele appliances, including an electric induction stove, oven, range hood, and dishwasher."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Spa-Inspired Bathroom"
-                      secondary="Carrara marble detailing, heated floors, heated towel rails, and a rain shower head for a truly indulgent experience."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Sophisticated Interiors"
-                      secondary="Stunning herringbone flooring throughout, enhancing the apartment's timeless charm, with ample storage to suit your needs."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Modern Conveniences"
-                      secondary="Fully equipped with a washer, dryer, two TVs, ducted air-conditioning, and electric blinds for effortless living."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText
-                      primary="Resort-Style Amenities"
-                      secondary="Access to premium facilities, including an outdoor pool, spa, sauna, fully equipped gym and onsite concierge service."
-                      primaryTypographyProps={{ fontWeight: "bold" }}
-                    />
-                  </ListItem>
-                </List>
-              </AccordionDetails>
-            </Accordion> */}
-
-            {/* Location */}
-{/*             <Accordion defaultExpanded sx={{ mb: 3,
-             boxShadow: "none",
-             borderTop: "0px solid #8E8E93",
-             borderBottom: "1px solid #8E8E93"}}>
-              <AccordionSummary expandIcon={<AddIcon />} aria-controls="location-content" id="location-header">
-                <Typography variant="h5" component="h2"  sx={{
-                  fontFamily: "Degular, Arial, sans-serif",
-                  fontWeight: 300,
-                  color: "#005244",
-                  fontSize: "42px",
-                }}>
-                  Location
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: 300,
-                    bgcolor: "#f5f5f5",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Typography variant="body1" color="text.secondary">
-                    {listing.location.building}, {listing.location.locality},{" "}
-                    {listing.location.city}
-                  </Typography>
-                </Box>
-              </AccordionDetails>
-            </Accordion> */}
-
- {/* Luxury Amenities */}
-   {/*          <Accordion defaultExpanded sx={{
-              mb: 3,
-             boxShadow: "none",
-             borderTop: "0px solid #8E8E93",
-             borderBottom: "1px solid #8E8E93"
-             }}>
-              <AccordionSummary expandIcon={<AddIcon />} aria-controls="amenities-content" id="amenities-header">
-                <Typography variant="h5" component="h2" 
-                sx={{ 
-                    fontFamily: "Degular, Arial, sans-serif",
-                    fontWeight: 300,
-                    color: "#005244",
-                    fontSize: "42px",
-                  }}
-                >
-                  Luxury Amenities
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List
-                  component="ul"
-                  sx={{
-                    pl: 2,
-                    listStyleType: "disc",
-                  }}
-                >
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="24/7 Security"
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Swimming Pool."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Fully Equipped Gym."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Children's Play Area."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Landscaped Gardens."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Covered Parking."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                  <ListItem
-                    component="li"
-                    sx={{ display: "list-item", color: "#005244" }}
-                  >
-                    <ListItemText
-                      primary="Proximity to Schools and Shopping."
-                      sx={{
-                        fontFamily: "Degular, Arial, sans-serif",
-                        fontWeight: 300,
-                        color: "#005244",
-                        fontSize: "16px",
-                      }}
-                    />
-                  </ListItem>
-                </List>
-              </AccordionDetails>
-            </Accordion> */}
+  
           </Grid>
         </Grid>
       </Container>
