@@ -16,6 +16,9 @@ import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
 import SalesListingsFilters from "../../components/listings/sales-listings-filters";
+import { useRouter } from "next/navigation"
+import { useListingStore } from "../../store/listingsStore";
+
 
 export default function SalesListings() {
   const [allListings, setAllListings] = useState([]);
@@ -23,6 +26,8 @@ export default function SalesListings() {
   const [loading, setLoading] = useState(true);
 
   const [hoveredCardId, setHoveredCardId] = useState(null);
+  const router = useRouter()
+  const { setListings } = useListingStore()
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -31,6 +36,7 @@ export default function SalesListings() {
         const data = await res.json();
         setAllListings(data.listings);
         setFilteredListings(data.listings);
+        setListings(data.listings)
         console.log("Sales listings", data.listings);
       } catch (error) {
         console.error("Failed to fetch listings:", error);
@@ -51,6 +57,10 @@ export default function SalesListings() {
   const handleMouseLeave = () => {
     setHoveredCardId(null);
   };
+
+  const handleListingClick = (id) => {
+    router.push(`/Listings/sales/${id}`)
+  }
 
   //console.log(listings);
   const applyFilters = (filterParams) => {
@@ -156,6 +166,7 @@ export default function SalesListings() {
                 }}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => handleListingClick(listing.id)}
               >
                 <Card
                   sx={{
