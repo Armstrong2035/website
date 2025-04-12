@@ -63,7 +63,7 @@ export default function ListingDetail() {
 
   const fetchListing = async () => {
     try {
-      const res = await fetch("/api/listings/sales-listings");
+      const res = await fetch("/api/listings/lease-listings");
       const data = await res.json();
       const foundListing = data.listings.find((item) => item.id === id);
       if (foundListing) {

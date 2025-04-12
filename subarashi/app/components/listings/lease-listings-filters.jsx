@@ -24,11 +24,11 @@ const propertyTypes = [
 ];
 const bedroomOptions = ["Any", 1, 2, 3, 4, 5];
 const priceRangeOptions = [
-  { min: 0, max: 500000, label: "Up to 500,000" },
-  { min: 500000, max: 1000000, label: "500,000 - 1,000,000" },
-  { min: 1000000, max: 2000000, label: "1,000,000 - 2,000,000" },
-  { min: 2000000, max: 5000000, label: "2,000,000 - 5,000,000" },
-  { min: 5000000, max: null, label: "5,000,000+" },
+  { min: 100000, max: 300000, label: "100,000 to 300,000" },
+  { min: 300000, max: 500000, label: "300,000 - 500,000" },
+  { min: 800000, max: 1000000, label: "800,000 - 1,000,000" },
+  { min: 1000000, max: 1500000, label: "1,000,000 - 1,500,000" },
+  { min: 1500000, max: null, label: "1,500,000+" },
 ];
 const locationOptions = [
   "Dhanmondi, Dhaka",
@@ -103,7 +103,7 @@ export default function LeaseListingsFilters({ onFilterChange }) {
       <Container maxWidth="lg">
         <Grid container spacing={2} alignItems="flex-end">
           <Grid item xs={12} sm={6} md={3}>
-            <Box sx={{ mb: 1 }}>
+       {/*      <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"
                 sx={{
@@ -138,7 +138,7 @@ export default function LeaseListingsFilters({ onFilterChange }) {
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
+            </FormControl> */}
           </Grid>
           <Grid item xs={12} sm={6} md={3} />
 
