@@ -30,7 +30,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 import NavBar from "../../../components/appBar/AppBar"
 import Footer from "../../../components/footer/new-footer"
-import { useListingStore } from "../../../store/leaseListingStore"
+import { useLeastListingStore } from "../../../store/leaseListingStore"
 import LoadingSpinner from "../../../components/loading/loading-spinner"
 import AgentImage from "../../../../public/images/agent-img.png"
 import typographyStyles from "../../../styles"
@@ -44,7 +44,7 @@ const SideBarTypography = styled(Typography)(({ theme }) => ({
 export default function ListingDetail() {
   const params = useParams();
   const { id } = params;
-  const { listings } = useListingStore();
+  const { listings } = useLeastListingStore();
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
