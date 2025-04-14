@@ -21,13 +21,15 @@ import typographyStyles from "../../styles";
 
 export default function NavBar({
   color = "#F2FFC2",
-  hoverColor = "#FFFFFF",
+  hoverColor = "#F2FFC2",
   hoverBackground,
   buttonColor,
 }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorElNav, setAnchorElNav] = useState(null);
+
+  const [hover, setHover] = useState(false);
 
   const buttonStyle = {
     ...typographyStyles.bodyMedium,
@@ -52,21 +54,26 @@ export default function NavBar({
     { title: "Sales", route: "/Listings/sales" },
     { title: "Lease", route: "/Listings/lease" },
     { title: "Holiday Homes", route: "/holiday-homes" },
-    // { title: "Resources", route: "/under-construction" },
+    { title: "Area Guides", route: "/areaGuides" },
     { title: "Team", route: "/about" },
   ];
 
   return (
     <Box
       component="header"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       sx={{
         position: "absolute",
         width: "100%",
         zIndex: 1000,
         background: "transparent",
         top: 0,
+        pt: 1,
+        pb: 1,
+
         "&:hover": {
-          backgroundColor: hoverBackground,
+          backgroundColor: "#005244",
           pt: 1,
           pb: 1,
         },
@@ -93,7 +100,7 @@ export default function NavBar({
               }}
             >
               <Image
-                src={hoverColor === "#FFFFFF" ? logo : logoGreen}
+                src={hover ? logo : logoGreen}
                 alt="Subarashi Real Estate"
                 fill
                 style={{
@@ -145,11 +152,20 @@ export default function NavBar({
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link
-                    href="/Listings"
+                    href="/Listings/sales"
                     passHref
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <Typography textAlign="center">Listings</Typography>
+                    <Typography textAlign="center">Sales</Typography>
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link
+                    href="/Listings/lease"
+                    passHref
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <Typography textAlign="center">Lease</Typography>
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
@@ -163,11 +179,11 @@ export default function NavBar({
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link
-                    href="/underConstruction"
+                    href="/areaGuides"
                     passHref
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <Typography textAlign="center">Resources</Typography>
+                    <Typography textAlign="center">Area Guides</Typography>
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu} style={{}}>
@@ -195,7 +211,7 @@ export default function NavBar({
                     sx={{
                       ...typographyStyles.bodyMedium,
                       fontSize: "16px",
-                      color: color,
+                      color: hover ? hoverColor : color,
                       fontWeight: 500,
                       lineHeight: "107.7%",
                     }}
@@ -210,6 +226,7 @@ export default function NavBar({
                 style={"text"}
                 buttonStyle={buttonStyle}
                 buttonColor={buttonColor}
+                hover={hover}
               />
             </Box>
           )}

@@ -43,7 +43,12 @@ export default function HolidayHomes() {
   return (
     <>
       <Box sx={{ position: "relative" }}>
-        <NavBar />
+        <NavBar
+          color="#005244"
+          hoverColor="#F2FFC2"
+          hoverBackground={"#005244"}
+          buttonColor={"#005244"}
+        />
         <Box sx={{ height: "70vh", width: "100%", backgroundColor: "#005244" }}>
           <HeroImage heroImage={heroImage} />
         </Box>

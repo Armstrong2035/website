@@ -115,8 +115,8 @@ export default function SalesListings() {
     <>
       <NavBar
         color="#005244"
-        hoverColor="#005244"
-        hoverBackground={"#FFFFFF"}
+        hoverColor="#F2FFC2"
+        hoverBackground={"#005244"}
         buttonColor={"#005244"}
       />
 

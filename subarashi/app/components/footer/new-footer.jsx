@@ -172,7 +172,9 @@ const Footer = () => {
                   >
                     <ProjectLine>
                       <LineIndicator />
-                      <Typography variant="body2">{property.name}</Typography>
+                      <Typography sx={{ color: "#005244" }}>
+                        {property.name}
+                      </Typography>
                     </ProjectLine>
                   </Link>
                 ))}

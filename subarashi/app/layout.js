@@ -7,6 +7,17 @@ export const metadata = {
     "Subarashi real estate | Luxury Real Estate Brokers, and Investment Managers",
   description: "Providing tailored service to real estate investors",
   keywords: ["Subarashi real estate", "Luxury real estate"],
+  icons: {
+    icon: "https://res.cloudinary.com/dulafqaoq/image/upload/v1742301025/GreenMarkpng_1_gon5vd.png",
+    shortcut:
+      "https://res.cloudinary.com/dulafqaoq/image/upload/v1742301025/GreenMarkpng_1_gon5vd.png",
+    apple:
+      "https://res.cloudinary.com/dulafqaoq/image/upload/v1742301025/GreenMarkpng_1_gon5vd.png",
+    other: {
+      rel: "https://res.cloudinary.com/dulafqaoq/image/upload/v1742301025/GreenMarkpng_1_gon5vd.png",
+      url: "https://res.cloudinary.com/dulafqaoq/image/upload/v1742301025/GreenMarkpng_1_gon5vd.png",
+    },
+  },
 };
 
 const degular = localFont({
