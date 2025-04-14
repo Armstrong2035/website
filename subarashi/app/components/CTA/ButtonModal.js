@@ -12,6 +12,7 @@ import {
   FormGroup,
   Grid2,
   Modal,
+  IconButton,
 } from "@mui/material";
 import {
   getFirestore,
@@ -25,11 +26,18 @@ import { EmailInput } from "../footer/new-footer";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import NavBar from "../appBar/AppBar";
+import CloseIcon from "@mui/icons-material/Close";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
 
-const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => {
+const ButtonModal = ({
+  buttonText,
+  buttonStyle,
+  buttonColor,
+  variantStyle,
+  hover,
+}) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -101,7 +109,6 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
       await addDoc(collection(db, "leads"), {
         firstName: formData.firstName,
         lastName: formData.lastName,
-        fullName: `${formData.firstName} ${formData.lastName}`.trim(),
         email: formData.email,
         phone: formData.phone,
         propertyType: formData.propertyType,
@@ -110,7 +117,6 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
         createdAt: serverTimestamp(),
         status: "new",
         source: "website",
-        project: "Subarashi Real Estate",
       });
 
       // Show success message
@@ -171,7 +177,7 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
       <Button
         onClick={handleOpen}
         variant={variantStyle}
-        sx={{ ...buttonStyle, color: buttonColor }}
+        sx={{ ...buttonStyle, color: hover ? "#F2FFC2" : buttonColor }}
         className={`${variantStyle}-button`}
       >
         {buttonText}
@@ -399,11 +405,9 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
             </Grid2>
 
             <Grid2 item size={{ sm: 12, md: 1 }} sx={{}}>
-              <Button
-                variant="text"
+              <IconButton
                 onClick={handleClose}
                 sx={{
-                  ...typographyStyles.bodyMedium,
                   fontSize: "16px",
                   fontWeight: 500,
                   p: 2,
@@ -411,8 +415,8 @@ const ButtonModal = ({ buttonText, buttonStyle, buttonColor, variantStyle }) => 
                   color: "black",
                 }}
               >
-                Close
-              </Button>
+                <CloseIcon />
+              </IconButton>
             </Grid2>
 
             <Snackbar
