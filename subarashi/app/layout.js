@@ -135,10 +135,17 @@ const gorditas = Be_Vietnam_Pro({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          defer
+          src="https://app.futurai.ai/js/widget/fv3w6vf9r2s6kwqp/float.js"
+        ></script>
+      </head>
       <body
         style={{
           margin: 0,
-          overflowX: "hidden", // Add this to prevent horizontal scroll
+          overflowX: "hidden",
         }}
       >
         {children}
