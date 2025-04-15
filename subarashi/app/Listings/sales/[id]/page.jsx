@@ -105,6 +105,84 @@ export default function ListingDetail() {
     )
   } */
 
+
+    const parseDescription = (description) => {
+      const lines = description.split("\n");
+      const elements = [];
+    
+      let currentList = [];
+      let inList = false;
+    
+      lines.forEach((line, idx) => {
+        const trimmedLine = line.trim();
+    
+        if (!trimmedLine) {
+          // When there's an empty line
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+            inList = false;
+          }
+          return;
+        }
+    
+        if (trimmedLine.endsWith(":")) {
+          // Flush current list if any
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+          }
+    
+          // Section Header
+          elements.push(
+            <Typography key={`heading-${idx}`} variant="h6" sx={{ mt: 3, mb: 1 }}>
+              {trimmedLine.replace(":", "")}
+            </Typography>
+          );
+          inList = true;
+        } else if (inList) {
+          currentList.push(trimmedLine);
+        } else {
+          elements.push(
+            <Typography key={`para-${idx}`} variant="body1" sx={{ mb: 2 }}>
+              {trimmedLine}
+            </Typography>
+          );
+        }
+      });
+    
+      // Final list flush
+      if (inList && currentList.length > 0) {
+        elements.push(
+          <List key={`list-final`}>
+            {currentList.map((item, i) => (
+              <ListItem key={i} sx={{ pl: 0 }}>
+                <Typography variant="body1">• {item}</Typography>
+              </ListItem>
+            ))}
+          </List>
+        );
+      }
+    
+      return elements;
+    };
+
   return (
     <>
       <NavBar
@@ -249,7 +327,7 @@ export default function ListingDetail() {
         </Box> */}
 
       {/* Property Details Section */}
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 6, my: 12 }}>
         <Grid container spacing={4}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3}>
@@ -281,11 +359,11 @@ export default function ListingDetail() {
               </List>
 
               {/* Agent Information */}
-              {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
+                         <Box sx={{ textAlign: "left", mb: 2, mt: 6 }}>
                 <Box
                   component="img"
-                  src="/images/agent-img.png"
-                  alt={listing.agent.name}
+                  src={listing?.agent?.image}
+                  alt={listing?.agent?.name}
                   sx={{
                     width: 216,
                     height: 260,
@@ -301,7 +379,7 @@ export default function ListingDetail() {
                     fontSize: "24px",
                   }}
                 >
-                  {listing.agent.name}
+                  {listing?.agent?.name}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -321,7 +399,8 @@ export default function ListingDetail() {
                 <Divider sx={{ mb: 2 }} />
                 <Button
                   variant="text"
-                  component="div"
+                  component="a"
+                  href={`mailto:${listing?.agent?.email}?subject=Inquiry about your listing&body=Hi ${listing?.agent?.name}`}
                   sx={{
                     width: "100%",
                     height: "50px",
@@ -332,6 +411,7 @@ export default function ListingDetail() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    
                   }}
                 >
                   <Typography
@@ -344,9 +424,10 @@ export default function ListingDetail() {
 
                   <ArrowForwardIcon />
                 </Button>
-              </Box> */}
+              </Box>
             </Paper>
           </Grid>
+
 
           {/* Main Content */}
           <Grid item xs={12} md={9}>
@@ -383,18 +464,14 @@ export default function ListingDetail() {
 
                 <AddIcon />
               </Box>
-              <Box sx={{ mt: 2 }}>
-                <Typography
-                  sx={{
-                    fontFamily: "Degular, Arial, sans-serif",
-                    fontWeight: 300,
-                    fontSize: "16px",
-                    lineHeight: "150%",
-                    p: 0,
-                  }}
-                >
-                  {listing?.description}
-                </Typography>
+              <Box sx={{ mt: 2 }} >
+                <Typography sx={{
+                  fontFamily: "Degular, Arial, sans-serif",
+                  fontWeight: 300,
+                  fontSize: "16px",
+                  lineHeight: "150%",
+                  p: 0,
+                }}>{listing?.description && parseDescription(listing.description)}</Typography>
               </Box>
             </Accordion>
           </Grid>
