@@ -117,6 +117,21 @@ const ButtonModal = ({
         createdAt: serverTimestamp(),
         status: "new",
         source: "website",
+        project: "Null", // Added to match FirebaseForm
+      });
+
+      // Add form data to ClickUp - Mirroring the FirebaseForm implementation
+      await fetch("/api/add-task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          unitPreference: formData.propertyType, // Mapping to similar field
+          message: formData.message,
+          interests: formData.interests.join(", "), // Convert array to string for ClickUp
+        }),
       });
 
       // Show success message

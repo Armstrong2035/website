@@ -120,6 +120,7 @@ export async function GET() {
             getFieldValue(fields, "Agent phone number", "phone") ||
             getFieldValue(fields, "Agent phone number", "number") ||
             "",
+          image: getFieldValue(fields, "Agent Image") || "",
         },
         media: getMedia(fields),
         dateCreated: task.date_created,

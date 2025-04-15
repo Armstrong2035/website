@@ -19,23 +19,22 @@ import {
   AccordionDetails,
   IconButton,
   styled,
-} from "@mui/material"
-import AddIcon from "@mui/icons-material/Add"
-import BedIcon from "@mui/icons-material/Bed"
-import BathtubIcon from "@mui/icons-material/Bathtub"
-import SquareFootIcon from "@mui/icons-material/SquareFoot"
-import DirectionsCarIcon from "@mui/icons-material/DirectionsCar"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
-import ChevronRightIcon from "@mui/icons-material/ChevronRight"
-import NavBar from "../../../components/appBar/AppBar"
-import Footer from "../../../components/footer/new-footer"
-import { useLeastListingStore } from "../../../store/leaseListingStore"
-import LoadingSpinner from "../../../components/loading/loading-spinner"
-import AgentImage from "../../../../public/images/agent-img.png"
-import typographyStyles from "../../../styles"
-import ButtonModal from "../../../components/CTA/ButtonModal"
-
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import BedIcon from "@mui/icons-material/Bed";
+import BathtubIcon from "@mui/icons-material/Bathtub";
+import SquareFootIcon from "@mui/icons-material/SquareFoot";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import NavBar from "../../../components/appBar/AppBar";
+import Footer from "../../../components/footer/new-footer";
+import { useLeastListingStore } from "../../../store/leaseListingStore";
+import LoadingSpinner from "../../../components/loading/loading-spinner";
+import AgentImage from "../../../../public/images/agent-img.png";
+import typographyStyles from "../../../styles";
+import ButtonModal from "../../../components/CTA/ButtonModal";
 
 const SideBarTypography = styled(Typography)(({ theme }) => ({
   ...typographyStyles.bodySmall,
@@ -186,7 +185,12 @@ export default function ListingDetail() {
 
   return (
     <>
-      <NavBar />
+      <NavBar
+        color="#005244"
+        hoverColor="#F2FFC2"
+        hoverBackground={"#005244"}
+        buttonColor={"#005244"}
+      />
 
       {/* Hero Section */}
       <Box
@@ -254,14 +258,27 @@ export default function ListingDetail() {
                 justifyContent: "space-between",
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-
-              <Typography sx={{ ...typographyStyles.bannerText, fontSize: "55px", fontWeight: 300, width: "100%" }} >
-                {listing.location.building}, {listing.location.locality}, {listing.location.city}
-              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Typography
+                  sx={{
+                    ...typographyStyles.bannerText,
+                    fontSize: "55px",
+                    fontWeight: 300,
+                    width: "100%",
+                  }}
+                >
+                  {listing.location.building}, {listing.location.locality},{" "}
+                  {listing.location.city}
+                </Typography>
               </Box>
 
-{/*               <Typography sx={{ ...typographyStyles.bannerText, fontSize: "55px", fontWeight: 300, }} >
+              {/*               <Typography sx={{ ...typographyStyles.bannerText, fontSize: "55px", fontWeight: 300, }} >
                 Price: AED {(listing.area * 1000).toLocaleString()}
               </Typography> */}
             </Box>
@@ -269,8 +286,8 @@ export default function ListingDetail() {
         )}
       </Box>
 
-        {/* Thumbnail Gallery */}
-  {/*     <Box
+      {/* Thumbnail Gallery */}
+      {/*     <Box
           sx={{
 
             bottom: 0,
@@ -314,24 +331,21 @@ export default function ListingDetail() {
         <Grid container spacing={4}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3}>
-            <Paper elevation={0} sx={{ p: 2,  }}>
+            <Paper elevation={0} sx={{ p: 2 }}>
               <List disablePadding sx={{ ...typographyStyles.bodySmall }}>
-                <ListItem disableGutters
-                >
-                  
+                <ListItem disableGutters>
                   <SideBarTypography>
                     {`Bed - ${listing?.bedrooms}`}
                   </SideBarTypography>
-   
                 </ListItem>
 
                 <ListItem disableGutters>
                   <SideBarTypography>
-                  {`Baths - ${listing?.bathrooms}`}
+                    {`Baths - ${listing?.bathrooms}`}
                   </SideBarTypography>
                 </ListItem>
 
-                <ListItem disableGutters>  
+                <ListItem disableGutters>
                   <SideBarTypography>
                     {`SQ feet - ${listing?.area}ft`}
                   </SideBarTypography>
@@ -341,19 +355,11 @@ export default function ListingDetail() {
               <Divider sx={{ my: 3 }} />
 
               <List disablePadding>
-            
-
-  
-                  
-                  <ButtonModal buttonText={"Enquiry"} variantStyle={"outlined"} />
-    
-                
-
-              </List>        
-
+                <ButtonModal buttonText={"Enquiry"} variantStyle={"outlined"} />
+              </List>
 
               {/* Agent Information */}
-  {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
+              {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
                 <Box
                   component="img"
                   src="/images/agent-img.png"
@@ -423,7 +429,7 @@ export default function ListingDetail() {
           {/* Main Content */}
           <Grid item xs={12} md={9}>
             {/* Property Description */}
-            <Accordion 
+            <Accordion
               defaultExpanded
               sx={{
                 mb: 3,
@@ -432,12 +438,11 @@ export default function ListingDetail() {
               }}
             >
               <Box
-              
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
                 aria-controls="property-description-content"
                 id="property-description-header"
               >
@@ -466,8 +471,6 @@ export default function ListingDetail() {
                 }}>{listing?.description && parseDescription(listing.description)}</Typography>
               </Box>
             </Accordion>
-
-  
           </Grid>
         </Grid>
       </Container>
