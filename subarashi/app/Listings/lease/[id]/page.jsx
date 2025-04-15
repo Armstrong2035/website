@@ -359,11 +359,11 @@ export default function ListingDetail() {
               </List>
 
               {/* Agent Information */}
-              {/*             <Box sx={{ textAlign: "left", mb: 2 }}>
+             <Box sx={{ textAlign: "left", mb: 2, mt: 12 }}>
                 <Box
                   component="img"
-                  src="/images/agent-img.png"
-                  alt={listing.agent.name}
+                  src={listing?.agent?.image}
+                  alt={listing?.agent?.name}
                   sx={{
                     width: 216,
                     height: 260,
@@ -379,7 +379,7 @@ export default function ListingDetail() {
                     fontSize: "24px",
                   }}
                 >
-                  {listing.agent.name}
+                  {listing?.agent?.name}
                 </Typography>
                 <Typography
                   variant="body2"
@@ -399,7 +399,8 @@ export default function ListingDetail() {
                 <Divider sx={{ mb: 2 }} />
                 <Button
                   variant="text"
-                  component="div"
+                  component="a"
+                  href={`mailto:${listing?.agent?.email}?subject=Inquiry about your listing&body=Hi ${listing?.agent?.name}`}
                   sx={{
                     width: "100%",
                     height: "50px",
@@ -422,7 +423,7 @@ export default function ListingDetail() {
 
                   <ArrowForwardIcon />
                 </Button>
-              </Box> */}
+              </Box> 
             </Paper>
           </Grid>
 
