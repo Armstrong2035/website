@@ -106,6 +106,71 @@ export default function ListingDetail() {
     )
   } */
 
+    function renderBlock(block) {
+      if (!block) return null;
+  
+      switch (block.type) {
+        case "paragraph":
+          return (
+            <Typography sx={{ ...typographyStyles.bodyMedium, color: "#005244" }}>
+              {block.paragraph.rich_text.map((text) => text.plain_text).join("")}
+            </Typography>
+          );
+        case "heading_1":
+          return (
+            <Typography sx={{ ...typographyStyles.bodyLarge, color: "#005244" }}>
+              {block.heading_1.rich_text.map((text) => text.plain_text).join("")}
+            </Typography>
+          );
+        case "heading_2":
+          return (
+            <Typography sx={{ ...typographyStyles.Card, color: "#005244" }}>
+              {block.heading_2.rich_text.map((text) => text.plain_text).join("")}
+            </Typography>
+          );
+        case "heading_3":
+          return (
+            <Typography
+              sx={{
+                ...typographyStyles.cardTitle,
+                color: "#005244",
+                mt: 5,
+                mb: 1,
+              }}
+            >
+              {block.heading_3.rich_text.map((text) => text.plain_text).join("")}
+            </Typography>
+          );
+        case "bulleted_list_item":
+          return (
+            <Typography
+              component="li"
+              sx={{ ...typographyStyles.bodyLarge, color: "#005244", ml: 4 }}
+            >
+              {block.bulleted_list_item.rich_text
+                .map((text) => text.plain_text)
+                .join("")}
+            </Typography>
+          );
+        case "image":
+          const imageUrl = block.image.file?.url || block.image.external?.url;
+          if (!imageUrl) return null;
+  
+          return (
+            <Box sx={{ my: 3 }}>
+              <img
+                src={imageUrl}
+                alt="Content image"
+                style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
+              />
+            </Box>
+          );
+        default:
+          return null;
+      }
+    }
+
+
   return (
     <>
       <NavBar />
