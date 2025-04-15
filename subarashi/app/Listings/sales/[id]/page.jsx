@@ -106,70 +106,83 @@ export default function ListingDetail() {
     )
   } */
 
-    function renderBlock(block) {
-      if (!block) return null;
-  
-      switch (block.type) {
-        case "paragraph":
-          return (
-            <Typography sx={{ ...typographyStyles.bodyMedium, color: "#005244" }}>
-              {block.paragraph.rich_text.map((text) => text.plain_text).join("")}
-            </Typography>
-          );
-        case "heading_1":
-          return (
-            <Typography sx={{ ...typographyStyles.bodyLarge, color: "#005244" }}>
-              {block.heading_1.rich_text.map((text) => text.plain_text).join("")}
-            </Typography>
-          );
-        case "heading_2":
-          return (
-            <Typography sx={{ ...typographyStyles.Card, color: "#005244" }}>
-              {block.heading_2.rich_text.map((text) => text.plain_text).join("")}
-            </Typography>
-          );
-        case "heading_3":
-          return (
-            <Typography
-              sx={{
-                ...typographyStyles.cardTitle,
-                color: "#005244",
-                mt: 5,
-                mb: 1,
-              }}
-            >
-              {block.heading_3.rich_text.map((text) => text.plain_text).join("")}
-            </Typography>
-          );
-        case "bulleted_list_item":
-          return (
-            <Typography
-              component="li"
-              sx={{ ...typographyStyles.bodyLarge, color: "#005244", ml: 4 }}
-            >
-              {block.bulleted_list_item.rich_text
-                .map((text) => text.plain_text)
-                .join("")}
-            </Typography>
-          );
-        case "image":
-          const imageUrl = block.image.file?.url || block.image.external?.url;
-          if (!imageUrl) return null;
-  
-          return (
-            <Box sx={{ my: 3 }}>
-              <img
-                src={imageUrl}
-                alt="Content image"
-                style={{ maxWidth: "100%", height: "auto", borderRadius: "4px" }}
-              />
-            </Box>
-          );
-        default:
-          return null;
-      }
-    }
 
+    const parseDescription = (description) => {
+      const lines = description.split("\n");
+      const elements = [];
+    
+      let currentList = [];
+      let inList = false;
+    
+      lines.forEach((line, idx) => {
+        const trimmedLine = line.trim();
+    
+        if (!trimmedLine) {
+          // When there's an empty line
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+            inList = false;
+          }
+          return;
+        }
+    
+        if (trimmedLine.endsWith(":")) {
+          // Flush current list if any
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+          }
+    
+          // Section Header
+          elements.push(
+            <Typography key={`heading-${idx}`} variant="h6" sx={{ mt: 3, mb: 1 }}>
+              {trimmedLine.replace(":", "")}
+            </Typography>
+          );
+          inList = true;
+        } else if (inList) {
+          currentList.push(trimmedLine);
+        } else {
+          elements.push(
+            <Typography key={`para-${idx}`} variant="body1" sx={{ mb: 2 }}>
+              {trimmedLine}
+            </Typography>
+          );
+        }
+      });
+    
+      // Final list flush
+      if (inList && currentList.length > 0) {
+        elements.push(
+          <List key={`list-final`}>
+            {currentList.map((item, i) => (
+              <ListItem key={i} sx={{ pl: 0 }}>
+                <Typography variant="body1">• {item}</Typography>
+              </ListItem>
+            ))}
+          </List>
+        );
+      }
+    
+      return elements;
+    };
 
   return (
     <>
@@ -297,7 +310,7 @@ export default function ListingDetail() {
         </Box> */}
 
       {/* Property Details Section */}
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 6, my: 12 }}>
         <Grid container spacing={4}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3}>
@@ -450,7 +463,7 @@ export default function ListingDetail() {
                   fontSize: "16px",
                   lineHeight: "150%",
                   p: 0,
-                }}>{listing?.description}</Typography>
+                }}>{listing?.description && parseDescription(listing.description)}</Typography>
               </Box>
             </Accordion>
 

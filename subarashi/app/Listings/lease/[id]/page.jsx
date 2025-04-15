@@ -106,6 +106,84 @@ export default function ListingDetail() {
     )
   } */
 
+    const parseDescription = (description) => {
+      const lines = description.split("\n");
+      const elements = [];
+    
+      let currentList = [];
+      let inList = false;
+    
+      lines.forEach((line, idx) => {
+        const trimmedLine = line.trim();
+    
+        if (!trimmedLine) {
+          // When there's an empty line
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+            inList = false;
+          }
+          return;
+        }
+    
+        if (trimmedLine.endsWith(":")) {
+          // Flush current list if any
+          if (inList && currentList.length > 0) {
+            elements.push(
+              <List key={`list-${idx}`}>
+                {currentList.map((item, i) => (
+                  <ListItem key={i} sx={{ pl: 0 }}>
+                    <Typography variant="body1">• {item}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            );
+            currentList = [];
+          }
+    
+          // Section Header
+          elements.push(
+            <Typography key={`heading-${idx}`} variant="h6" sx={{ mt: 3, mb: 1 }}>
+              {trimmedLine.replace(":", "")}
+            </Typography>
+          );
+          inList = true;
+        } else if (inList) {
+          currentList.push(trimmedLine);
+        } else {
+          elements.push(
+            <Typography key={`para-${idx}`} variant="body1" sx={{ mb: 2 }}>
+              {trimmedLine}
+            </Typography>
+          );
+        }
+      });
+    
+      // Final list flush
+      if (inList && currentList.length > 0) {
+        elements.push(
+          <List key={`list-final`}>
+            {currentList.map((item, i) => (
+              <ListItem key={i} sx={{ pl: 0 }}>
+                <Typography variant="body1">• {item}</Typography>
+              </ListItem>
+            ))}
+          </List>
+        );
+      }
+    
+      return elements;
+    };
+
+
   return (
     <>
       <NavBar />
@@ -385,7 +463,7 @@ export default function ListingDetail() {
                   fontSize: "16px",
                   lineHeight: "150%",
                   p: 0,
-                }}>{listing?.description}</Typography>
+                }}>{listing?.description && parseDescription(listing.description)}</Typography>
               </Box>
             </Accordion>
 
