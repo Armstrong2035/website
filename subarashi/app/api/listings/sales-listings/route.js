@@ -109,10 +109,7 @@ export async function GET() {
           subLocality: getFieldValue(fields, "Sub locality") || "",
           building: getFieldValue(fields, "Tower name") || "",
         },
-        rental: {
-          frequency: getRentalFrequency(fields),
-          permitNumber: getFieldValue(fields, "Permit Number") || "",
-        },
+        price: Number(getFieldValue(fields, "Asking price")) || 0,
         agent: {
           name: getFieldValue(fields, "Agent") || "",
           email: getFieldValue(fields, "Agent Email") || "",
