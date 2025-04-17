@@ -15,6 +15,7 @@ import NavBar from "../components/appBar/AppBar";
 import Image from "next/image";
 import Hero from "../components/subarashiFlex/Hero";
 import typographyStyles from "../styles";
+import Footer from "../components/footer/new-footer";
 
 export default function Calculator() {
   const [totalRent, setTotalRent] = useState("");
@@ -60,116 +61,132 @@ export default function Calculator() {
 
       <Hero />
 
-      <Grid
-        container
-        spacing={3}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          mt: 5,
-        }}
-      >
-        <Grid item xs={12} sm={6} md={5}>
-          <Stack spacing={3}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              label="How much is the total rent?"
-              type="number"
-              value={totalRent}
-              onChange={handleRentChange}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">AED</InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              fullWidth
-              variant="outlined"
-              label="How many cheques does the landlord want?"
-              type="number"
-              value={cheques}
-              onChange={handleChequesChange}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleSubmit}
-              fullWidth
-              size="large"
-              sx={{ backgroundColor: "#196956" }}
-            >
-              Calculate
-            </Button>
-          </Stack>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={5}>
-          <Box
-            sx={{
-              p: 3,
-              bgcolor: "background.paper",
-              borderRadius: 2,
-              boxShadow: 1,
-            }}
-          >
-            <Typography variant="h6" gutterBottom>
-              Payment Comparison
-            </Typography>
-
-            <Box direction={"column"}>
-              <Typography
-                sx={{
-                  ...typographyStyles.bodyMedium,
-                  fontSize: "20px",
-                  lineHeight: "120%",
+      <Container maxWidth="lg" sx={{ py: 4, mb: 5 }}>
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: 5,
+          }}
+        >
+          <Grid item xs={12} sm={6} md={5}>
+            <Stack spacing={3}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                label="How much is the total rent?"
+                type="number"
+                value={totalRent}
+                onChange={handleRentChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">AED</InputAdornment>
+                  ),
                 }}
-                gutterBottom
+              />
+              <TextField
+                fullWidth
+                variant="outlined"
+                label="How many cheques does the landlord want?"
+                type="number"
+                value={cheques}
+                onChange={handleChequesChange}
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+                fullWidth
+                size="large"
+                sx={{ backgroundColor: "#196956" }}
               >
-                With Flex You pay
-              </Typography>
-              <Typography
-                sx={{
-                  ...typographyStyles.bodyLarge,
-                  fontSize: "25px",
-                  color: "#196956",
-                  fontWeight: 700,
-                }}
-              >
-                AED {formatNumberWithCommas(result.withFlex.toFixed(2))} upfront
-              </Typography>
-            </Box>
-
-            <Divider sx={{ mt: 4, mb: 4 }} />
-
-            <Stack>
-              <Typography
-                sx={{
-                  ...typographyStyles.bodyMedium,
-                  fontSize: "20px",
-                  lineHeight: "120%",
-                }}
-              >
-                Without Flex you pay
-              </Typography>
-              <Typography
-                sx={{
-                  ...typographyStyles.bodyLarge,
-                  fontSize: "30px",
-                  lineHeight: "50px",
-                  color: "#196956",
-                  fontWeight: 700,
-                }}
-              >
-                AED {formatNumberWithCommas(result.withoutFlex.toFixed(2))}{" "}
-                upfront
-              </Typography>
+                Calculate
+              </Button>
             </Stack>
-          </Box>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={5}>
+            <Box
+              sx={{
+                p: 3,
+                bgcolor: "background.paper",
+                borderRadius: 2,
+                boxShadow: 1,
+              }}
+            >
+              <Typography variant="h6" gutterBottom>
+                Payment Comparison
+              </Typography>
+
+              <Box direction={"column"}>
+                <Typography
+                  sx={{
+                    ...typographyStyles.bodyMedium,
+                    fontSize: "20px",
+                    lineHeight: "120%",
+                  }}
+                  gutterBottom
+                >
+                  With Flex You pay
+                </Typography>
+                <Typography
+                  sx={{
+                    ...typographyStyles.bodyLarge,
+                    fontSize: "25px",
+                    color: "#196956",
+                    fontWeight: 700,
+                  }}
+                >
+                  AED {formatNumberWithCommas(result.withFlex.toFixed(2))}{" "}
+                  upfront
+                </Typography>
+                <Typography
+                  sx={{
+                    ...typographyStyles.bodyMedium,
+                    fontSize: "25px",
+                    color: "grey.500",
+                    fontWeight: 700,
+                    fontSize: "12px",
+                  }}
+                >
+                  * Subarashi charges a 20% premium on monthly rent.
+                </Typography>
+              </Box>
+
+              <Divider sx={{ mt: 4, mb: 4 }} />
+
+              <Stack>
+                <Typography
+                  sx={{
+                    ...typographyStyles.bodyMedium,
+                    fontSize: "20px",
+                    lineHeight: "120%",
+                  }}
+                >
+                  Without Flex you pay
+                </Typography>
+                <Typography
+                  sx={{
+                    ...typographyStyles.bodyLarge,
+                    fontSize: "30px",
+                    lineHeight: "50px",
+                    color: "#196956",
+                    fontWeight: 700,
+                  }}
+                >
+                  AED {formatNumberWithCommas(result.withoutFlex.toFixed(2))}{" "}
+                  upfront
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
+
+      <Footer />
     </Box>
   );
 }

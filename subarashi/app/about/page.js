@@ -52,12 +52,6 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Heidi-Profile-Photo-Subarashi-1_wc3ccg.png",
     },
-    {
-      Name: "Taher",
-      Title: "Investment Consultant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Taher_qjpy1n.png",
-    },
 
     {
       Name: "Oliver",
@@ -121,12 +115,6 @@ export default function AboutUs() {
       Title: "Accountant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374954/Marvin-Profile-Photo-Subarashi-1_mlx8pw.png",
-    },
-    {
-      Name: "Bicher",
-      Title: "Compliance Officer",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374954/Bicher-Profile-Photo-Subarashi-1_z7dsv2.png",
     },
     {
       Name: "Roselily",

@@ -60,6 +60,8 @@ export default function HolidayHomes() {
           color: "white",
           py: 4,
           mb: 4,
+          pl: 5,
+          pr: 5,
           textAlign: "center",
         }}
       >
@@ -91,7 +93,13 @@ export default function HolidayHomes() {
         </Container>
       </Box>
 
-      <Container maxWidth="lg" sx={{ mb: 8, overflow: "hidden" }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          mb: 8,
+          overflow: "hidden",
+        }}
+      >
         <AirbnbWidgetGrid listings={airbnbListings} />
       </Container>
 
