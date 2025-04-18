@@ -23,7 +23,7 @@ export default async function AreaGuides() {
         buttonColor={"#005244"}
       />
 
-      <Container maxWidth="lg" sx={{ py: 8, mt: 10 }}>
+      <Container sx={{ pl: 10, pr: 10, mt: 10, mb: 10 }}>
         <AreaGuideHeader />
         <AreaGuideGrid guides={guides} />
       </Container>

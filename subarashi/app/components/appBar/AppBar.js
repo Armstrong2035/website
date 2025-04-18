@@ -141,60 +141,18 @@ export default function NavBar({
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <MenuItem onClick={handleCloseNavMenu}>
+                {navItems.map((item, index) => (
                   <Link
-                    href="/about"
+                    href={`${item.route}`}
                     passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
+                    style={{ textDecoration: "none" }}
+                    key={index}
                   >
-                    <Typography textAlign="center">About us</Typography>
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">{item.title}</Typography>
+                    </MenuItem>
                   </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Link
-                    href="/Listings/sales"
-                    passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <Typography textAlign="center">Sales</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Link
-                    href="/Listings/lease"
-                    passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <Typography textAlign="center">Lease</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Link
-                    href="/holiday-homes"
-                    passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <Typography textAlign="center">Holiday Homes</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Link
-                    href="/areaGuides"
-                    passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <Typography textAlign="center">Area Guides</Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu} style={{}}>
-                  <Link
-                    href="/contact"
-                    passHref
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <Typography textAlign="center">Contact Us</Typography>
-                  </Link>
-                </MenuItem>
+                ))}
               </Menu>
             </Box>
           ) : (

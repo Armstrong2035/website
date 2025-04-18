@@ -28,7 +28,6 @@ export default function FeaturedAreaGuideCard({ guide }) {
           sx={{
             position: "relative",
             height: 200,
-            width: "100%",
           }}
         >
           <Image
@@ -56,8 +55,6 @@ export default function FeaturedAreaGuideCard({ guide }) {
           }}
         >
           <Typography
-            variant="h6"
-            component="h3"
             sx={{
               ...typographyStyles.cardHeader,
               color: "#005244",

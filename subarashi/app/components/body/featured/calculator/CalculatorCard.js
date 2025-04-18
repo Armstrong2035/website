@@ -1,12 +1,24 @@
-import { Icon, Stack, Typography, Container, Box, Grid2 } from "@mui/material";
+"use client";
+import {
+  Icon,
+  Stack,
+  Typography,
+  Container,
+  Box,
+  Grid2,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
 import Link from "next/link";
 
 export default function CalculatorCard() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Container sx={{ pl: 0, pr: 0 }}>
+    <Container sx={{}}>
       <Grid2 container direction={"row"} spacing={10} justifyContent={"center"}>
         <Grid2 item>
           <Image
@@ -17,7 +29,7 @@ export default function CalculatorCard() {
             height={400}
             alt="calculator"
             style={{
-            width: "100%",
+              width: "100%",
             }}
           />
         </Grid2>
@@ -29,7 +41,7 @@ export default function CalculatorCard() {
             display: "flex",
             justifyContent: "space-between",
             flexDirection: "column",
-            pt: 2,
+
             pl: 2,
             pr: 2,
           }}
@@ -37,14 +49,20 @@ export default function CalculatorCard() {
           <Typography
             sx={{
               ...typographyStyles.bodyLarge,
-              fontSize: "55px",
+              fontSize: isMobile ? "40px" : "55px",
               lineHeight: "107.7%",
             }}
           >
             Split rental cheques <br /> into 12 easy <br /> installments!
           </Typography>
 
-          <Link href={"/subarashi-flex"} style={{ textDecoration: "none" }}>
+          <Link
+            href={"/subarashi-flex"}
+            style={{
+              textDecoration: "none",
+              marginTop: isMobile ? "20px" : null,
+            }}
+          >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <Typography
                 sx={{
@@ -54,7 +72,7 @@ export default function CalculatorCard() {
                   color: "#043D32",
                 }}
               >
-                Find Out More
+                Learn more
               </Typography>
               <Icon>
                 <ArrowForwardIcon sx={{ color: "#043D32" }} />

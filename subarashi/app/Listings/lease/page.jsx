@@ -142,6 +142,7 @@ export default function PropertyListings() {
               <Link
                 href={`/Listings/lease/${listing.id}`}
                 style={{ textDecoration: "none" }}
+                key={index}
               >
                 <Grid2
                   item

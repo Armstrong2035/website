@@ -36,6 +36,7 @@ export default function Inquiries() {
           ...typographyStyles.displayMedium,
           color: "#005244",
           lineHeight: isMobile ? "60px" : "95px",
+          fontSize: isMobile ? "40px" : "55px",
         }}
       >
         For any inquiries

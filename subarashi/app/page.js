@@ -15,14 +15,14 @@ export const revalidate = 3600;
 
 export default async function Home() {
   // Try to fetch listings with fallback to mockListings
-  let listings = [];
-  try {
-    listings = await receiveListingsFromFirestore();
-  } catch (error) {
-    console.error("Error in Home component:", error);
-    // Fallback to mock data
-    listings = mockListings;
-  }
+  // let listings = [];
+  // try {
+  //   listings = await receiveListingsFromFirestore();
+  // } catch (error) {
+  //   console.error("Error in Home component:", error);
+  //   // Fallback to mock data
+  //   listings = mockListings;
+  // }
 
   const guides = await getAllAreaGuides();
 
@@ -35,7 +35,6 @@ export default async function Home() {
         overflowX: "hidden",
       }}
     >
-      <ListingsProvider listings={listings} />
       <NavBar buttonColor={"#F2FFC2"} />
       <HeroPage heroImage={heroImage} />
       <FeaturedResources guides={guides} />

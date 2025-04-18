@@ -11,53 +11,11 @@ import { getAllAreaGuides } from "../../../../lib/notion";
 import { useAreaGuidesStore } from "../../../../store/areaGuidesStore";
 
 export default function FeaturedAreaGuides({ guides }) {
-  // const guides = useAreaGuidesStore((state) => state.guides);
-
-  //console.log(guides);
   const featuredGuides = guides.slice(0, 4);
 
-  // Dummy data as fallback
-  // const dummyGuides = [
-  //   {
-  //     id: "palm-jumeirah",
-  //     title: "Palm Jumeirah",
-  //     image:
-  //       "https://res.cloudinary.com/dulafqaoq/image/upload/v1739812368/Image_17_uijjge.png",
-  //     description:
-  //       "Iconic palm-shaped island with luxury villas and apartments",
-  //   },
-  //   {
-  //     id: "dubai-marina",
-  //     title: "Dubai Marina",
-  //     image:
-  //       "https://res.cloudinary.com/dulafqaoq/image/upload/v1739812368/Image_17_uijjge.png",
-  //     description:
-  //       "Waterfront community with stunning skyscrapers and beachfront living",
-  //   },
-  //   {
-  //     id: "downtown-dubai",
-  //     title: "Downtown Dubai",
-  //     image:
-  //       "https://res.cloudinary.com/dulafqaoq/image/upload/v1739812368/Image_17_uijjge.png",
-  //     description:
-  //       "Home to Burj Khalifa and Dubai Mall with premium apartments",
-  //   },
-  //   {
-  //     id: "arabian-ranches",
-  //     title: "Arabian Ranches",
-  //     image:
-  //       "https://res.cloudinary.com/dulafqaoq/image/upload/v1739812368/Image_17_uijjge.png",
-  //     description: "Established desert-themed community with spacious villas",
-  //   },
-  // ];
-
-  //nsole.log(dummyGuides);
-
-  // Fetch featured area guides
-
   return (
-    <Container>
-      <Box sx={{ mb: 6, mt: 4 }}>
+    <Container sx={{ pr: 10, pl: 10 }}>
+      <Box sx={{ mb: { sm: 2, md: 6 }, mt: { xs: 2, md: 6 } }}>
         <Box
           sx={{
             display: "flex",
@@ -88,7 +46,7 @@ export default function FeaturedAreaGuides({ guides }) {
 
         <Grid container spacing={3}>
           {featuredGuides.map((guide) => (
-            <Grid item xs={12} sm={6} md={3} key={guide.id}>
+            <Grid item xs={12} sm={12} md={3} key={guide.id}>
               <FeaturedAreaGuideCard guide={guide} />
             </Grid>
           ))}
