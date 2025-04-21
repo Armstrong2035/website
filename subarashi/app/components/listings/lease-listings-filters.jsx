@@ -22,7 +22,7 @@ const propertyTypes = [
   "Buy Townhouses",
   "Buy Penthouses",
 ];
-const bedroomOptions = ["Any", 1, 2, 3, 4, 5];
+const bedroomOptions = ["Any", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const priceRangeOptions = [
   { min: 100000, max: 300000, label: "100,000 to 300,000" },
   { min: 300000, max: 500000, label: "300,000 - 500,000" },
@@ -103,7 +103,7 @@ export default function LeaseListingsFilters({ onFilterChange }) {
       <Container maxWidth="lg">
         <Grid container spacing={2} alignItems="flex-end">
           <Grid item xs={12} sm={6} md={3}>
-       {/*      <Box sx={{ mb: 1 }}>
+            {/*      <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"
                 sx={{

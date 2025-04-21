@@ -233,7 +233,7 @@ const Footer = () => {
         >
           <Grid2 item xs={12} md={3}>
             <Typography variant="body2" color="textSecondary">
-              © SUBARASHI 2024
+              SUBARASHI REAL ESTATE BROKERAGE L.L.C
             </Typography>
           </Grid2>
 
