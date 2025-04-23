@@ -17,7 +17,7 @@ import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
 import LeaseListingsFilters from "../../components/listings/lease-listings-filters";
 import Link from "next/link";
-import { useLeastListingStore } from "../../store/leaseListingStore";
+import { useListingsStore } from "../../store/listingsStore";
 import { useRouter } from "next/navigation";
 
 export default function PropertyListings() {
@@ -26,7 +26,8 @@ export default function PropertyListings() {
   const [loading, setLoading] = useState(true);
   const [hoveredCardId, setHoveredCardId] = useState(null);
   const router = useRouter();
-  const { setListings } = useLeastListingStore();
+  const setLeaseListings = useListingsStore((state) => state.setLeaseListings);
+  const leaseListings = useListingsStore((state) => state.leaseListings);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -35,7 +36,7 @@ export default function PropertyListings() {
         const data = await res.json();
         setAllListings(data.listings);
         setFilteredListings(data.listings);
-        setListings(data.listings);
+        setLeaseListings(data.listings);
       } catch (error) {
         console.error("Failed to fetch listings:", error);
       } finally {
@@ -45,6 +46,8 @@ export default function PropertyListings() {
 
     fetchListings();
   }, []);
+
+  console.log(leaseListings);
 
   const handleMouseEnter = (id) => {
     setHoveredCardId(id);
@@ -80,28 +83,6 @@ export default function PropertyListings() {
       }
     }
 
-    // Filter by price range
-
-    /*     if (filterParams.priceRange && (filterParams.priceRange.min > 0 || filterParams.priceRange.max !== null)) {
-      filtered = filtered.filter((listing) => {
-      
-        const price = listing.price || 0
-
-        if (filterParams.priceRange.max === null) {
-          return price >= filterParams.priceRange.min
-        }
-        return price >= filterParams.priceRange.min && price <= filterParams.priceRange.max
-      })
-    } */
-
-    // Filter by location
-    /*    if (filterParams.location) {
-      filtered = filtered.filter((listing) => {
-        const listingLocation = `${listing.location.city}, ${listing.location.building}`
-        return listingLocation.includes(filterParams.location.split(",")[0])
-      })
-    }
- */
     setFilteredListings(filtered);
   };
 
@@ -184,22 +165,6 @@ export default function PropertyListings() {
                           aspectRatio: "16/10",
                         }}
                       />
-                      {/* <Chip
-                      label={"For sale"}
-                      size="small"
-                      sx={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        backgroundColor: "#005e46",
-                        color: "white",
-                        fontWeight: "bold",
-                        fontSize: "0.75rem",
-                        borderRadius: "0 0 0 0",
-                        ...typographyStyles.bodySmall,
-                      }}
-                      fontFamily
-                    /> */}
                     </Box>
                     <CardContent sx={{ p: 1, pt: 2 }}>
                       <Typography
@@ -255,18 +220,7 @@ export default function PropertyListings() {
                             beds
                           </Typography>
                         </Box>
-                        {/* <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontWeight: 400 }}
-                        >
-                          {" "}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          kitchen
-                        </Typography>
-                      </Box> */}
+
                         <Box>
                           <Typography
                             variant="body2"

@@ -3,11 +3,8 @@ import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
 import HeroNav from "./HeroNav";
 import { Box, Stack } from "@mui/material";
-import { useListingsStore } from "../../../zustand/listingsStore";
 
 export default function HeroPage({ heroImage }) {
-  const listings = useListingsStore((state) => state.listings);
-
   return (
     <div
       style={{

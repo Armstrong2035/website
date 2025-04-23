@@ -1,16 +1,16 @@
-"use client";
+// "use client";
 
-import { useEffect } from "react";
-import { useListingsStore } from "../../../zustand/listingsStore";
+// import { useEffect } from "react";
+// import { useListingsStore } from "../../../zustand/listingsStore";
 
-export default function ListingsProvider({ listings }) {
-  const setListings = useListingsStore((state) => state.setListings);
+// export default function ListingsProvider({ listings }) {
+//   const setListings = useListingsStore((state) => state.setListings);
 
-  useEffect(() => {
-    if (listings) {
-      setListings(listings);
-    }
-  }, [listings, setListings]);
+//   useEffect(() => {
+//     if (listings) {
+//       setListings(listings);
+//     }
+//   }, [listings, setListings]);
 
-  return null;
-}
+//   return null;
+// }

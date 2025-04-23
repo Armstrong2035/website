@@ -8,7 +8,7 @@ import ListingHeader from "./ListingHeader";
 import ListingDetails from "./ListingDetails";
 import ListingAmenities from "./ListingAmenities";
 import ListingFeatures from "./ListingFeatures";
-import ListingContactForm from "./ListingContactForm";
+import ListingContactForm from "./ListingAgent";
 import ListingLocation from "./ListingLocation";
 import ListingGallery from "./ListingGallery";
 import ListingSimilarHomes from "./ListingSimilarHomes";

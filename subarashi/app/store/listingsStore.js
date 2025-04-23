@@ -1,17 +1,19 @@
-"use client"
+"use client";
 
-import { create } from "zustand"
-import { createJSONStorage, persist } from "zustand/middleware"
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
-export const useListingStore = create(
+export const useListingsStore = create(
   persist(
     (set) => ({
-      listings: [],
-      setListings: (listings) => set({ listings }),
+      leaseListings: [],
+      salesListings: [],
+      setLeaseListings: (listings) => set({ leaseListings: listings }),
+      setSalesListings: (listings) => set({ salesListings: listings }),
     }),
     {
-      name: "listing-storage",
+      name: "listings-storage",
       storage: createJSONStorage(() => localStorage),
     }
   )
-)
+);

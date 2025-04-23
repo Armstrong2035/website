@@ -15,19 +15,21 @@ import typographyStyles from "../../styles";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../components/loading/loading-spinner";
 import Footer from "../../components/footer/new-footer";
-import SalesListingsFilters from "../../components/listings/sales-listings-filters";
-import { useRouter } from "next/navigation";
-import { useListingStore } from "../../store/listingsStore";
+import LeaseListingsFilters from "../../components/listings/lease-listings-filters";
 import Link from "next/link";
+import { useListingsStore } from "../../store/listingsStore";
+import { useRouter } from "next/navigation";
 
-export default function SalesListings() {
+export default function PropertyListings() {
   const [allListings, setAllListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [hoveredCardId, setHoveredCardId] = useState(null);
   const router = useRouter();
-  const { setListings } = useListingStore();
+  const setSalesListings = useListingsStore((state) => state.setSalesListings);
+  const salesListings = useListingsStore((state) => state.salesListings);
+
+  console.log(salesListings);
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -36,8 +38,7 @@ export default function SalesListings() {
         const data = await res.json();
         setAllListings(data.listings);
         setFilteredListings(data.listings);
-        setListings(data.listings);
-        console.log("Sales listings", data.listings);
+        setSalesListings(data.listings);
       } catch (error) {
         console.error("Failed to fetch listings:", error);
       } finally {
@@ -55,10 +56,6 @@ export default function SalesListings() {
   const handleMouseLeave = () => {
     setHoveredCardId(null);
   };
-
-  // const handleListingClick = (id) => {
-  //   router.push(`/Listings/sales/${id}`);
-  // };
 
   //console.log(listings);
   const applyFilters = (filterParams) => {
@@ -119,8 +116,7 @@ export default function SalesListings() {
         hoverBackground={"#005244"}
         buttonColor={"#005244"}
       />
-
-      <SalesListingsFilters onFilterChange={applyFilters} />
+      <LeaseListingsFilters onFilterChange={applyFilters} />
 
       <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
         {loading ? (
@@ -145,10 +141,11 @@ export default function SalesListings() {
               },
             }}
           >
-            {filteredListings.map((listing, index) => (
+            {filteredListings?.map((listing, index) => (
               <Link
                 href={`/Listings/sales/${listing.id}`}
                 style={{ textDecoration: "none" }}
+                key={index}
               >
                 <Grid2
                   item
@@ -164,11 +161,10 @@ export default function SalesListings() {
                         : "none",
                     transform:
                       hoveredCardId === index ? "scale(1.02)" : "scale(1)",
-                    zIndex: hoveredCardId === index ? 2 : 1,
+                    zIndex: hoveredCardId === index ? 3 : 2,
                   }}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
-                  // onClick={() => handleListingClick(listing.id)}
                 >
                   <Card
                     sx={{
@@ -219,7 +215,7 @@ export default function SalesListings() {
                         component="div"
                         gutterBottom
                       >
-                        {`${listing.location.building}, ${listing.location.locality}, ${listing.location.city}`}
+                        {`${listing.location.building},${listing.location.city}, ${listing.location.city} `}
                       </Typography>
                       <Box
                         sx={{
@@ -244,7 +240,7 @@ export default function SalesListings() {
                             color="text.secondary"
                             sx={{ fontWeight: 400 }}
                           >
-                            {`${listing.area} `}
+                            {listing.area}
                           </Typography>
                           <Typography variant="caption" color="text.secondary">
                             sqft
@@ -295,7 +291,6 @@ export default function SalesListings() {
           </Grid2>
         )}
       </Container>
-
       <Footer />
     </>
   );
