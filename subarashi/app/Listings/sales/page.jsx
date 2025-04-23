@@ -141,11 +141,10 @@ export default function PropertyListings() {
               },
             }}
           >
-            {filteredListings?.map((listing, index) => (
+            {filteredListings.map((listing, index) => (
               <Link
                 href={`/Listings/sales/${listing.id}`}
                 style={{ textDecoration: "none" }}
-                key={index}
               >
                 <Grid2
                   item
@@ -161,10 +160,11 @@ export default function PropertyListings() {
                         : "none",
                     transform:
                       hoveredCardId === index ? "scale(1.02)" : "scale(1)",
-                    zIndex: hoveredCardId === index ? 3 : 2,
+                    zIndex: hoveredCardId === index ? 2 : 1,
                   }}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
+                  // onClick={() => handleListingClick(listing.id)}
                 >
                   <Card
                     sx={{
@@ -215,7 +215,7 @@ export default function PropertyListings() {
                         component="div"
                         gutterBottom
                       >
-                        {`${listing.location.building},${listing.location.city}, ${listing.location.city} `}
+                        {`${listing.location.building}, ${listing.location.locality}, ${listing.location.city}`}
                       </Typography>
                       <Box
                         sx={{
@@ -240,7 +240,7 @@ export default function PropertyListings() {
                             color="text.secondary"
                             sx={{ fontWeight: 400 }}
                           >
-                            {listing.area}
+                            {`${listing.area} `}
                           </Typography>
                           <Typography variant="caption" color="text.secondary">
                             sqft
@@ -291,6 +291,7 @@ export default function PropertyListings() {
           </Grid2>
         )}
       </Container>
+
       <Footer />
     </>
   );

@@ -19,6 +19,7 @@ import LeaseListingsFilters from "../../components/listings/lease-listings-filte
 import Link from "next/link";
 import { useListingsStore } from "../../store/listingsStore";
 import { useRouter } from "next/navigation";
+import LeaseListingsGrid from "../../components/listings/lease-listings-grid";
 
 export default function PropertyListings() {
   const [allListings, setAllListings] = useState([]);
@@ -63,13 +64,6 @@ export default function PropertyListings() {
     console.log("All listings count:", allListings.length);
 
     let filtered = [...allListings];
-
-    // Filter by property type
-    /*     if (filterParams.propertyType && filterParams.propertyType.includes("Apartments")) {
-      filtered = filtered.filter((listing) => listing.propertyType === "Apartment")
-    } else if (filterParams.propertyType && filterParams.propertyType.includes("Villas")) {
-      filtered = filtered.filter((listing) => listing.propertyType === "Villa")
-    } */
 
     // Filter by bedrooms
     if (filterParams.bedrooms && filterParams.bedrooms !== "Any") {
@@ -165,6 +159,22 @@ export default function PropertyListings() {
                           aspectRatio: "16/10",
                         }}
                       />
+                      {/* <Chip
+                      label={"For sale"}
+                      size="small"
+                      sx={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        backgroundColor: "#005e46",
+                        color: "white",
+                        fontWeight: "bold",
+                        fontSize: "0.75rem",
+                        borderRadius: "0 0 0 0",
+                        ...typographyStyles.bodySmall,
+                      }}
+                      fontFamily
+                    /> */}
                     </Box>
                     <CardContent sx={{ p: 1, pt: 2 }}>
                       <Typography
@@ -220,7 +230,18 @@ export default function PropertyListings() {
                             beds
                           </Typography>
                         </Box>
-
+                        {/* <Box>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ fontWeight: 400 }}
+                        >
+                          {" "}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary">
+                          kitchen
+                        </Typography>
+                      </Box> */}
                         <Box>
                           <Typography
                             variant="body2"

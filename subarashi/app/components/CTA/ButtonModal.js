@@ -27,9 +27,49 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import NavBar from "../appBar/AppBar";
 import CloseIcon from "@mui/icons-material/Close";
+import { useForm, Controller } from "react-hook-form";
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+import { styled } from "@mui/material/styles";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
+
+
+
+// This mimics your EmailInput style
+export const StyledPhoneInput = styled(PhoneInput)(({ theme }) => ({
+  width: "100%",
+ ...typographyStyles.bodyMedium,
+  fontSize: "16px",
+  border: "none",
+  borderBottom: `2px solid ${theme.palette.divider}`,
+  padding: "18.5px 14px",
+  outline: "none",
+
+  "& input": {
+    border: "none",
+    outline: "none",
+    fontSize: "16px",
+    fontWeight: 500,
+    color: "black",
+    width: "100%",
+    background: "transparent",
+  },
+
+  "&:hover": {
+    borderBottomColor: theme.palette.text.primary,
+  },
+
+  "&:focus-within": {
+    borderBottom: `2px solid ${theme.palette.primary.main}`,
+  },
+
+  ".PhoneInputCountry": {
+    marginRight: "12px",
+  },
+}));
+
 
 const ButtonModal = ({
   buttonText,
@@ -68,105 +108,68 @@ const ButtonModal = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+ 
 
-    if (type === "checkbox") {
-      // Handle checkbox changes
-      const checkboxValue = e.target.value;
-      setFormData((prevData) => {
-        if (checked) {
-          // Add the value to interests array if checked
-          return {
-            ...prevData,
-            interests: [...prevData.interests, checkboxValue],
-          };
-        } else {
-          // Remove the value from interests array if unchecked
-          return {
-            ...prevData,
-            interests: prevData.interests.filter(
-              (interest) => interest !== checkboxValue
-            ),
-          };
-        }
-      });
-    } else {
-      // Handle regular input changes
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
-  };
+  const {
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      propertyType: "",
+      message: "",
+      interests: [],
+    },
+  });
+  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     setIsSubmitting(true);
-
+  
     try {
-      // Add form data to Firestore
-      await addDoc(collection(db, "leads"), {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        propertyType: formData.propertyType,
-        message: formData.message,
-        interests: formData.interests,
+      console.log("Form data:", data);
+      
+    await addDoc(collection(db, "leads"), {
+        ...data,
         createdAt: serverTimestamp(),
         status: "new",
         source: "website",
-        project: "Null", // Added to match FirebaseForm
+        project: "Null",
       });
-
-      // Add form data to ClickUp - Mirroring the FirebaseForm implementation
+  
       await fetch("/api/add-task", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: formData.phone,
-          unitPreference: formData.propertyType, // Mapping to similar field
-          message: formData.message,
-          interests: formData.interests.join(", "), // Convert array to string for ClickUp
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phone: data.phone,
+          unitPreference: data.propertyType,
+          message: data.message,
+          interests: data.interests.join(", "),
         }),
-      });
-
-      // Show success message
+      }); 
+  
       setSnackbar({
         open: true,
         message: "Thank you! Your information has been submitted successfully.",
         severity: "success",
       });
-
-      // Clear form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        propertyType: "",
-        message: "",
-        interests: [],
-      });
-
-      // Fire Google Ads conversion tracking after successful form submission
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "conversion", {
+  
+      reset();
+  
+      if (typeof window !== "undefined") {
+        window.gtag?.("event", "conversion", {
           send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
         });
-        console.log("Google Ads conversion tracking fired");
+        window.fbq?.("track", "Lead");
       }
-
-      // Fire Facebook Pixel conversion event after successful form submission
-      if (typeof window !== "undefined" && window.fbq) {
-        window.fbq("track", "Lead");
-        console.log("Facebook Pixel conversion event fired");
-      }
-
-      // Close modal after successful submission
+  
       setTimeout(() => {
         handleClose();
       }, 2000);
@@ -174,14 +177,14 @@ const ButtonModal = ({
       console.error("Error submitting form:", error);
       setSnackbar({
         open: true,
-        message:
-          "There was an error submitting your information. Please try again.",
+        message: "There was an error submitting your information. Please try again.",
         severity: "error",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   const handleSnackbarClose = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -263,17 +266,22 @@ const ButtonModal = ({
             </Grid2>
 
             <Grid2 item size={{ sm: 12, md: 7 }}>
-              <Box component="form" onSubmit={handleSubmit} sx={{ p: 4 }}>
+              <Box component="form"  onSubmit={handleSubmit(onSubmit)} sx={{ p: 4 }}>
                 <Grid2 container spacing={5} direction={"row"}>
                   <Grid2 item size={{ md: 6 }}>
+                  <Controller
+  name="firstName"
+  control={control}
+  rules={{ required: "First name is required" }}
+  render={({ field }) => (
+    
                     <EmailInput
+                    {...field}
                       placeholder="FIRST NAME"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
                       fullWidth
                       variant="outlined"
+                      error={!!errors.firstName}
+                      helperText={errors.firstName?.message}
                       sx={{
                         fontSize: "16px",
                         lineHeight: "107.7%",
@@ -286,15 +294,21 @@ const ButtonModal = ({
                         },
                       }}
                     />
+                  )}
+/>
 
+              <Controller
+                name="lastName"
+                control={control}
+                rules={{ required: "Last name is required" }}
+                render={({ field }) => (
                     <EmailInput
+                    {...field}
                       placeholder="LAST NAME"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      required
                       fullWidth
                       variant="outlined"
+                      error={!!errors.lastName}
+                      helperText={errors.lastName?.message}
                       sx={{
                         fontSize: "16px",
                         lineHeight: "107.7%",
@@ -306,16 +320,30 @@ const ButtonModal = ({
                         },
                       }}
                     />
+                  )}
+/>
+
                   </Grid2>
                   <Grid2 item size={{ md: 6 }}>
+
+                  <Controller
+            name="email"
+            control={control}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Invalid email address",
+              },
+            }}
+            render={({ field }) => (
                     <EmailInput
+                    {...field}
                       placeholder="EMAIL ADDRESS"
-                      name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
                       fullWidth
+                      error={!!errors.email}
+                      helperText={errors.email?.message}
                       sx={{
                         fontSize: "16px",
                         lineHeight: "107.7%",
@@ -327,67 +355,112 @@ const ButtonModal = ({
                         },
                       }}
                     />
-                    <EmailInput
-                      placeholder="PHONE NUMBER"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      fullWidth
-                      sx={{
-                        fontSize: "16px",
-                        lineHeight: "107.7%",
-                        mb: 3,
-                        "& input::placeholder": {
-                          ...typographyStyles.bodyMedium,
-                          fontSize: "16px",
-                          fontWeight: 500,
-                        },
-                      }}
-                    />
+                  )}
+                />
+
+<Controller
+  name="phone"
+  control={control}
+  rules={{ required: "Phone number is required" }}
+  render={({ field }) => (
+    <>
+      <StyledPhoneInput
+        {...field}
+        placeholder="PHONE NUMBER"
+    defaultCountry="NG"
+        enableSearch
+        sx={{
+          fontSize: "16px",
+          lineHeight: "107.7%",
+          mb: 3,
+          "& input::placeholder": {
+            ...typographyStyles.bodyMedium,
+            fontSize: "16px",
+            fontWeight: 500,
+          },
+        }}
+        onChange={(phone) => field.onChange(phone)}
+      
+disableDropdown={false}
+preferredCountries={['ng', 'us', 'gb']}
+      />
+      {errors.phone && (
+        <Typography color="error" fontSize="0.8rem" sx={{ mt: -2 }}>
+          {errors.phone.message}
+        </Typography>
+      )}
+    </>
+  )}
+/>
+
+
                   </Grid2>
                 </Grid2>
 
-                <Grid2 container>
-                  {checkboxes.map((checkbox) => (
-                    <Grid2 item size={{ xs: 12, md: 4 }} key={checkbox}>
-                      <FormGroup>
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              value={checkbox}
-                              checked={formData.interests.includes(checkbox)}
-                              onChange={handleChange}
-                              name="interests"
-                              sx={{
-                                boxShadow: "none",
-                                "&.MuiCheckbox-root": {
-                                  boxShadow: "none",
-                                },
-                              }}
-                            />
-                          }
-                          label={checkbox}
-                          sx={{
-                            "& .MuiFormControlLabel-label": {
-                              ...typographyStyles.bodyMedium,
-                              fontSize: "16px",
-                            },
-                          }}
-                        />
-                      </FormGroup>
-                    </Grid2>
-                  ))}
-                </Grid2>
 
+                <Controller
+  name="interests"
+  control={control}
+  rules={{
+    validate: (value) =>
+      value && value.length > 0 ? true : "Please select at least one interest",
+  }}
+  render={({ field }) => (
+    <>
+   
+      <FormGroup>
+      <Grid2 container>
+        {checkboxes.map((interest) => (
+                   <Grid2 item size={{ xs: 12, md: 4 }} key={interest}>
+          <FormControlLabel
+            key={interest}
+            control={
+              <Checkbox
+                checked={field.value.includes(interest)}
+                onChange={(e) => {
+                  const checked = e.target.checked;
+                  if (checked) {
+                    field.onChange([...field.value, interest]);
+                  } else {
+                    field.onChange(
+                      field.value.filter((item) => item !== interest)
+                    );
+                  }
+                }}
+              />
+            }
+            label={interest}
+          />
+          </Grid2>
+         
+
+        ))}
+          </Grid2>
+      </FormGroup>
+      {errors.interests && (
+        <Typography color="error" fontSize="0.8rem">
+          {errors.interests.message}
+        </Typography>
+      )}
+     
+    </>
+  )}
+/>
+
+
+                <Controller
+              name="message"
+              control={control}
+              rules={{ required: "Message is required" }}
+              render={({ field }) => (
                 <TextField
+                {...field}
                   label="MESSAGE"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   multiline
                   rows={3}
                   fullWidth
+                  error={!!errors.message}
+                  helperText={errors.message?.message}
                   sx={{
                     "& .MuiFormControlLabel-label": {
                       ...typographyStyles.bodyMedium,
@@ -396,6 +469,8 @@ const ButtonModal = ({
                     mt: 5,
                   }}
                 />
+              )}
+/>
 
                 <Button
                   type="submit"
