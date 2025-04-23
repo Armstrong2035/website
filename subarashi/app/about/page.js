@@ -61,7 +61,7 @@ export default function AboutUs() {
     },
     {
       Name: "Yahia",
-      Title: "Investment Adviser",
+      Title: "Investment Advisor",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
     },
@@ -75,7 +75,7 @@ export default function AboutUs() {
 
     {
       Name: "Farah",
-      Title: "Investment Adviser",
+      Title: "Investment Advisor",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Farah-Profile-Photo-Subarashi-1_mulx0f.png",
     },
