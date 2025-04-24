@@ -18,6 +18,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { TrendingFlatOutlined, VillaSharp } from "@mui/icons-material";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import typographyStyles from "../../styles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -172,7 +173,14 @@ const Footer = () => {
                   >
                     <ProjectLine>
                       <LineIndicator />
-                      <Typography sx={{ color: "#005244" }}>
+                      <Typography
+                        sx={{
+                          ...typographyStyles.bodySmall,
+                          mb: 2,
+                          fontWeight: 400,
+                          color: "#005244",
+                        }}
+                      >
                         {property.name}
                       </Typography>
                     </ProjectLine>
@@ -196,8 +204,11 @@ const Footer = () => {
 
           <Grid2 item size={{ xs: 12, md: 4 }} />
 
-          <Grid2 item size={{ xs: 12, md: 4 }}>
-            <Typography variant="body1" sx={{ mb: 2, fontWeight: 400 }}>
+          <Grid2 item size={{ xs: 12, md: 4 }} sx={{}}>
+            <Typography
+              variant="body1"
+              sx={{ ...typographyStyles.bodySmall, mb: 2, fontWeight: 400 }}
+            >
               Never Miss A Piece Of The Action. Subscribe For New Listings,
               Sales Results, Podcast Releases, And Media Exclusives From
               Subarashi
