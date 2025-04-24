@@ -9,6 +9,7 @@ export default function OurVision({ image }) {
 
   return (
     <Box
+    data-aos="fade-up"
       sx={{
         display: "flex",
         justifyContent: "center",

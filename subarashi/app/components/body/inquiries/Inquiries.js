@@ -20,6 +20,7 @@ export default function Inquiries() {
   };
   return (
     <Box
+    data-aos="zoom-in"
       sx={{
         backgroundColor: "#F2FFC2",
         display: "flex",

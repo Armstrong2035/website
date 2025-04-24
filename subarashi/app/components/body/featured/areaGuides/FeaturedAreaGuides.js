@@ -14,7 +14,7 @@ export default function FeaturedAreaGuides({ guides }) {
   const featuredGuides = guides.slice(0, 4);
 
   return (
-    <Container sx={{ pr: 10, pl: 10 }}>
+    <Container data-aos="fade-up" sx={{ pr: 10, pl: 10 }}>
       <Box sx={{ mb: { sm: 2, md: 6 }, mt: { xs: 2, md: 6 } }}>
         <Box
           sx={{

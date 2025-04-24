@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Gorditas } from "next/font/google";
+import AOSProvider from "./providers/aos-provider";
 export const metadata = {
   title:
     "Subarashi real estate | Luxury Real Estate Brokers, and Investment Managers",
@@ -148,7 +149,9 @@ export default function RootLayout({ children }) {
           overflowX: "hidden",
         }}
       >
+        <AOSProvider>
         {children}
+        </AOSProvider>
       </body>
     </html>
   );

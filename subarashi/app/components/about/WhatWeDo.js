@@ -24,6 +24,7 @@ export default function WhatWeDo() {
 
   return (
     <Box
+      data-aos="fade-up"
       sx={{
         backgroundColor: "#005244",
         pl: isMobile ? 2 : 20,

@@ -202,6 +202,7 @@ const ButtonModal = ({
       </Button>
 
       <Modal
+        data-aos="fade-up"
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-title"

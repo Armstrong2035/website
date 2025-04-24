@@ -4,7 +4,9 @@ import typographyStyles from "../../../styles";
 
 export default function TeamSection({ ourTeam }) {
   return (
-    <Box sx={{ p: { xs: 2, sm: 4, md: 6 } }}>
+    <Box 
+    data-aos="fade-up"
+    sx={{ p: { xs: 2, sm: 4, md: 6 } }}>
       <Typography
         sx={{
           ...typographyStyles.subheading2,

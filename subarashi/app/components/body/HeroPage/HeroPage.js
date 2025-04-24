@@ -10,6 +10,7 @@ export default function HeroPage({ heroImage }) {
 
   return (
     <div
+      data-aos="zoom-in"
       style={{
         backgroundColor: "#005244",
         height: {
