@@ -31,6 +31,7 @@ export default function LeaseListingsGrid({
     >
       {listings.map((listing, index) => (
         <Link
+        data-aos="fade-up"
           href={`/Listings/lease/${listing.id}`}
           style={{ textDecoration: "none" }}
           key={index}
