@@ -121,7 +121,7 @@ export default function PropertyListings() {
       <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
         {loading ? (
           <LoadingSpinner />
-        ) : filteredListings.length === 0 ? (
+        ) : filteredListings?.length === 0 ? (
           <Box sx={{ textAlign: "center", py: 8 }}>
             <Typography variant="h5" sx={{ color: "#005244", mb: 2 }}>
               No properties found
@@ -132,6 +132,7 @@ export default function PropertyListings() {
           </Box>
         ) : (
           <Grid2
+          data-aos="fade-up"
             container
             spacing={3}
             sx={{
