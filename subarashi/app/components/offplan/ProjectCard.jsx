@@ -11,7 +11,7 @@ export default function ProjectCard({ imageUrl, title }) {
       sx={{
         backgroundColor: "transparent",
         borderRadius: 0,
-        width: "388px",
+        width: "360px",
       }}
     >
       <CardMedia
@@ -19,7 +19,7 @@ export default function ProjectCard({ imageUrl, title }) {
         image={imageUrl}
         alt={title}
         sx={{
-          width: "388px",
+          width: "360px",
           height: "auto",
           aspectRatio: "4/5",
           objectFit: "cover",
