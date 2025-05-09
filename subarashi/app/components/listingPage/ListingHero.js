@@ -75,7 +75,6 @@ export default function ListingHero({ listing }) {
         alt={`${listing.title || "Property"} main image`}
         fill={true}
         priority={true}
-        sizes="(max-width: 600px) 100vw, (max-width: 960px) 100vw, 100vw"
         quality={90}
         style={{
           objectFit: "cover",
