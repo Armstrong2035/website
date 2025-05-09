@@ -56,6 +56,7 @@ export default function NavBar({
     { title: "Holiday Homes", route: "/holiday-homes" },
     { title: "Area Guides", route: "/areaGuides" },
     { title: "Team", route: "/about" },
+    { title: "Offplan Projects", route: "/offplan" },
   ];
 
   return (
