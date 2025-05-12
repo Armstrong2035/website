@@ -137,7 +137,7 @@ const Footer = () => {
   ];
 
   return (
-    <FooterContainer data-aos="fade-up">
+    <FooterContainer >
       <BackgroundImage />
       <ContentContainer maxWidth="lg">
         <Grid2 container spacing={4}>

@@ -72,25 +72,26 @@ const offplanProjects = [
             mb: 4,
             textAlign: "left",
             ...typographyStyles.bannerText,
-            fontSize: { xs: "73px", md: "73px" },
+            fontSize: { xs: "50px", md: "73px" },
             fontWeight: 300,
+            lineHeight: { xs: "60px", md: "90px" },
           }}
         >
-          Off Plan Projects in Dubai
+          Discover Off-Plan Projects in Dubai
         </Typography>
 
-        <Box data-aos="fade-up" sx={{ mb: 6, maxWidth: "70%" }}>
+        <Box data-aos="fade-up" sx={{ mb: 6, maxWidth: {xs: "100%", md: "70%"}, mx: "auto"}}>
           <Typography
             variant="body1"
-            sx={{ mb: 2, ...typographyStyles.bodyMedium }}
+            sx={{ mb: 2, ...typographyStyles.bodyLarge,
+              fontSize: { xs: "16px", md: "20px" },
+              lineHeight: { xs: "25px", md: "40px" },
+    
+
+             }}
           >
-            Discover Dubai&apos;s Most Promising Off-Plan Investment
-            Opportunities At Subarashi, we bring you exclusive access to
-            Dubai&apos;s finest off-plan properties — from stunning waterfront
-            residences to luxurious urban communities. Whether you&apos;re a
-            seasoned investor or a first-time buyer, our curated selection of
-            projects gives you a head start on securing tomorrow&apos;s most
-            desirable addresses at today&apos;s prices.
+At Subarashi, we invite you to step into Dubai&apos;s future with exclusive access to its most sought-after off-plan properties. Picture yourself owning a breathtaking waterfront villa or a sleek apartment in a vibrant urban center, all secured at today&apos;s prices before the world catches up. Our handpicked collection of projects is designed to captivate both seasoned investors and first-time buyers, offering you the chance to claim a piece of Dubai&apos;s skyline before it&apos;s even built. Let us guide you to a property that feels like a dream, crafted just for you.
+
           </Typography>
         </Box>
 

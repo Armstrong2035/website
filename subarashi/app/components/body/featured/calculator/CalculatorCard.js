@@ -18,7 +18,7 @@ export default function CalculatorCard() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Container data-aos="fade-up" sx={{}}>
+    <Container  sx={{}}>
       <Grid2 container direction={"row"} spacing={10} justifyContent={"center"}>
         <Grid2 item>
           <Image

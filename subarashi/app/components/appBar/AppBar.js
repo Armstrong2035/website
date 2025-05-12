@@ -51,12 +51,13 @@ export default function NavBar({
   };
 
   const navItems = [
-    // { title: "Sales", route: "/Listings/sales" },
+    { title: "Sales", route: "/Listings/sales" },
     { title: "Lease", route: "/Listings/lease" },
+       { title: "Offplan Projects", route: "/offplan" },
     { title: "Holiday Homes", route: "/holiday-homes" },
     { title: "Area Guides", route: "/areaGuides" },
     { title: "Team", route: "/about" },
-    { title: "Offplan Projects", route: "/offplan" },
+ 
   ];
 
   return (
@@ -72,12 +73,20 @@ export default function NavBar({
         top: 0,
         pt: 1,
         pb: 1,
+        ...(isMobile && {
+          backgroundColor: "#005244",
+        }
+        ),
 
-        "&:hover": {
+      ...(!isMobile && { 
+                "&:hover": {
           backgroundColor: "#005244",
           pt: 1,
           pb: 1,
         },
+      }
+      )
+
       }}
     >
       <Container maxWidth="xl">
@@ -101,7 +110,7 @@ export default function NavBar({
               }}
             >
               <Image
-                src={hover ? logo : logoGreen}
+                src={hover || isMobile ? logo : logoGreen}
                 alt="Subarashi Real Estate"
                 fill
                 style={{
