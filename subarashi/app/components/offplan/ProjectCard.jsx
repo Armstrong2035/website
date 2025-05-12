@@ -1,6 +1,7 @@
 "use client"
 
 import { Typography, Card, CardMedia, CardContent } from "@mui/material"
+import typographyStyles from "../../styles"
 
 
 
@@ -33,6 +34,7 @@ export default function ProjectCard({ imageUrl, title }) {
             color: "#196956",
             fontWeight: 500,
             fontSize: "1.25rem",
+            ...typographyStyles.cardTitle,
           }}
         >
           {title}
