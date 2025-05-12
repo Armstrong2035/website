@@ -51,13 +51,12 @@ export default function NavBar({
   };
 
   const navItems = [
-    { title: "Sales", route: "/Listings/sales" },
+    // { title: "Sales", route: "/Listings/sales" },
     { title: "Lease", route: "/Listings/lease" },
-       { title: "Offplan Projects", route: "/offplan" },
+    { title: "Offplan Projects", route: "/offplan" },
     { title: "Holiday Homes", route: "/holiday-homes" },
     { title: "Area Guides", route: "/areaGuides" },
     { title: "Team", route: "/about" },
- 
   ];
 
   return (
@@ -75,18 +74,15 @@ export default function NavBar({
         pb: 1,
         ...(isMobile && {
           backgroundColor: "#005244",
-        }
-        ),
+        }),
 
-      ...(!isMobile && { 
-                "&:hover": {
-          backgroundColor: "#005244",
-          pt: 1,
-          pb: 1,
-        },
-      }
-      )
-
+        ...(!isMobile && {
+          "&:hover": {
+            backgroundColor: "#005244",
+            pt: 1,
+            pb: 1,
+          },
+        }),
       }}
     >
       <Container maxWidth="xl">
