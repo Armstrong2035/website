@@ -5,7 +5,7 @@ import typographyStyles from "../../styles";
 import ListingHeaderModal from "./ListingHeaderModal";
 import { useState } from "react";
 
-export default function ListingHero({ listing }) {
+export default function ListingHero({ listing, isSales }) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);

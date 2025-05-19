@@ -222,7 +222,7 @@ export default function ListingDetail() {
       />
 
       <Box sx={{}}>
-        <ListingHero listing={listing} />
+        <ListingHero listing={listing} isSales={true} />
       </Box>
 
       {/* Property Details Section */}

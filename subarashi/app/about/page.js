@@ -38,6 +38,12 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Luri_gwnrvk.png",
     },
+    {
+      Name: "Daryl",
+      Title: "Investment Consultant",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631299/Daryl_ihrniq.png",
+    },
 
     {
       Name: "Kamaal",
@@ -47,10 +53,10 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Heidi",
-      Title: "Investment Advisor",
+      Name: "Ola",
+      Title: "Investment Consultant",
       ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Heidi-Profile-Photo-Subarashi-1_wc3ccg.png",
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631297/Banks_uhjrtb.png",
     },
 
     {
@@ -65,6 +71,12 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
     },
+    {
+      Name: "Hamza",
+      Title: "Investment Advisor",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631297/Hamza_lbc50h.png",
+    },
 
     {
       Name: "Zamin",
@@ -74,15 +86,8 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Farah",
-      Title: "Investment Advisor",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Farah-Profile-Photo-Subarashi-1_mulx0f.png",
-    },
-
-    {
       Name: "Sofia",
-      Title: "Administrative Coordinator",
+      Title: "Administrative Manager",
       ImageUrl:
         "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374958/Sofia-Profile-Photo-Subarashi_n1d8su.png",
     },
@@ -110,12 +115,7 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374953/Yina-Profile-Photo-Subarashi-1_es5fmt.png",
     },
-    {
-      Name: "Marvin",
-      Title: "Accountant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374954/Marvin-Profile-Photo-Subarashi-1_mlx8pw.png",
-    },
+
     {
       Name: "Roselily",
       Title: "Receptionist",
@@ -134,13 +134,6 @@ export default function AboutUs() {
       Title: "Telesales",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Shad-Profile-Photo-Subarashi-1_aozzr1.png",
-    },
-
-    {
-      Name: "Leo",
-      Title: "Marketing",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742375800/Profile-Photo-Subarashi_xrqxwf.png",
     },
 
     {
