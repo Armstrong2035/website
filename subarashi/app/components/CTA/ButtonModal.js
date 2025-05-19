@@ -368,7 +368,7 @@ const ButtonModal = ({
       <StyledPhoneInput
         {...field}
         placeholder="PHONE NUMBER"
-    defaultCountry="NG"
+    defaultCountry="AE"
         enableSearch
         sx={{
           fontSize: "16px",
