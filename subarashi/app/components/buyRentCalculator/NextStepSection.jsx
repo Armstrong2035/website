@@ -1,4 +1,7 @@
+"use client"
+
 import { Box, Typography, Button, Avatar, Stack, Paper } from "@mui/material"
+import typographyStyles from "../../styles"
 
 export default function NextStepSection() {
   const experts = [
@@ -18,10 +21,10 @@ export default function NextStepSection() {
 
   return (
     <Paper elevation={0} sx={{ p: 4, backgroundColor: "#fff", borderRadius: 2 }}>
-      <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2, color: "#1a1a1a" }}>
+      <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 2 }}>
         Ready to take the next step?
       </Typography>
-      <Typography variant="body1" sx={{ color: "#666", mb: 4 }}>
+      <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", mb: 4 }}>
         Our property experts will connect you with our trusted mortgage partners to help you find the best mortgage rate
         for your home purchase.
       </Typography>
@@ -56,6 +59,7 @@ export default function NextStepSection() {
         fullWidth
         size="large"
         sx={{
+          ...typographyStyles.button,
           backgroundColor: "#005244",
           color: "white",
           py: 2,
