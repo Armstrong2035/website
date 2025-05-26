@@ -32,7 +32,7 @@ export default function WhatWeDo() {
         pb: 10,
         pr: 20,
 
-        width: "100%",
+       
       }}
     >
       <Typography

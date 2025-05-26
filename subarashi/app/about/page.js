@@ -153,7 +153,7 @@ export default function AboutUs() {
 
   return (
     <div>
-      <NavBar buttonColor={"#F2EF9A"} />
+      <NavBar buttonColor={"#F2FFC2"} />
 
       <Hero />
 
