@@ -61,7 +61,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         />
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>10,000</Typography>
-          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>500,000</Typography>
+          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>1,000,000</Typography>
         </Box>
       </Box>
 
@@ -81,14 +81,14 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Slider
           value={inputs.propertyPrice}
           onChange={(e, value) => onInputChange("propertyPrice", value)}
-          min={200000}
-          max={50000000}
+          min={400000}
+          max={150000000}
           step={50000}
           {...sliderCommonProps}
         />
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>200,000</Typography>
-          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>50,000,000</Typography>
+          <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>400,000</Typography>
+          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>150,000,000</Typography>
         </Box>
       </Box>
 
@@ -193,13 +193,13 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           value={inputs.interestRate}
           onChange={(e, value) => onInputChange("interestRate", value)}
           min={1}
-          max={10}
+          max={5}
           step={0.1}
           {...sliderCommonProps}
         />
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1%</Typography>
-          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>10%</Typography>
+          <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>5%</Typography>
         </Box>
       </Box>
 
@@ -258,7 +258,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
       </Box>
 
       {/* How long are you planning to stay in Dubai? */}
-      <Box>
+  {/*     <Box>
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
           How long are you planning to stay in Dubai?
         </Typography>
@@ -282,7 +282,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1 years</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>25 years</Typography>
         </Box>
-      </Box>
+      </Box> */}
     </Stack>
   )
 }
