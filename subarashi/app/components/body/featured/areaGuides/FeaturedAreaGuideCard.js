@@ -1,11 +1,11 @@
-// app/components/body/featured/featuredAreaGuides/FeaturedAreaGuideCard.js
+// app/components/body/featured/areaGuides/FeaturedAreaGuideCard.js
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import typographyStyles from "../../../../styles";
 
-export default function FeaturedAreaGuideCard({ guide }) {
+export default function FeaturedAreaGuideCard({ guide, isHovered }) {
   return (
     <Link href={`/areaGuides/${guide.id}`} style={{ textDecoration: "none" }}>
       <Box
@@ -13,21 +13,33 @@ export default function FeaturedAreaGuideCard({ guide }) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-
+          borderRadius: "16px",
           overflow: "hidden",
-
-          transition: "all 0.3s ease",
+          position: "relative",
           backgroundColor: "#FFF",
-          "&:hover": {
-            transform: "translateY(-8px)",
-            boxShadow: "0 12px 20px rgba(0,0,0,0.15)",
-          },
+          boxShadow: isHovered
+            ? "0 16px 32px rgba(0,82,68,0.15)"
+            : "0 8px 16px rgba(0,82,68,0.08)",
+          transition: "all 0.3s ease-in-out",
         }}
       >
         <Box
           sx={{
             position: "relative",
-            height: 200,
+            height: 240,
+            overflow: "hidden",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "30%",
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%)",
+              opacity: isHovered ? 1 : 0,
+              transition: "opacity 0.3s ease-in-out",
+            },
           }}
         >
           <Image
@@ -40,6 +52,8 @@ export default function FeaturedAreaGuideCard({ guide }) {
             style={{
               objectFit: "cover",
               objectPosition: "center",
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+              transition: "transform 0.3s ease-in-out",
             }}
           />
         </Box>
@@ -49,9 +63,19 @@ export default function FeaturedAreaGuideCard({ guide }) {
             flexGrow: 1,
             display: "flex",
             alignItems: "center",
-            justifyContent: "flexStart",
-
-            p: 2,
+            justifyContent: "center",
+            p: 3,
+            position: "relative",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: "10%",
+              right: "10%",
+              height: "1px",
+              background: "linear-gradient(to right, transparent, #005244, transparent)",
+              opacity: 0.1,
+            },
           }}
         >
           <Typography
@@ -61,6 +85,8 @@ export default function FeaturedAreaGuideCard({ guide }) {
               textAlign: "center",
               fontWeight: 500,
               fontSize: "18px",
+              transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+              transition: "transform 0.3s ease-in-out",
             }}
           >
             {guide.title}
