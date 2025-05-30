@@ -1,9 +1,13 @@
 import { Box, Typography, Paper } from "@mui/material"
 
 export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
-  const maxCost = Math.max(buyMonthlyCost, rentMonthlyCost)
-  const buyHeight = (buyMonthlyCost / maxCost) * 300
-  const rentHeight = (rentMonthlyCost / maxCost) * 300
+  const CHART_HEIGHT = 300
+
+  // Calculate y-axis values based on the maximum value
+  const maxValue = Math.max(buyMonthlyCost, rentMonthlyCost)
+  const yAxisValues = Array.from({ length: 8 }, (_, i) => 
+    Math.round((maxValue * (7 - i) / 7) / 1000 * 10) / 10
+  )
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat("en-AE", {
@@ -34,7 +38,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
             width: 50,
           }}
         >
-          {[10.5, 9, 7.5, 6, 4.5, 3, 1.5, 0].map((value, index) => (
+          {yAxisValues.map((value, index) => (
             <Typography key={index} variant="caption" sx={{ color: "#666" }}>
               {value}K
             </Typography>
@@ -56,7 +60,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
           }}
         >
           {/* Grid lines */}
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((line) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((line) => (
             <Box
               key={line}
               sx={{
@@ -77,7 +81,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
               elevation={0}
               sx={{
                 width: "100%",
-                height: buyHeight,
+                height: `${(buyMonthlyCost / maxValue) * CHART_HEIGHT}px`,
                 backgroundColor: "#a5a5a5",
                 display: "flex",
                 flexDirection: "column",
@@ -104,7 +108,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
               elevation={0}
               sx={{
                 width: "100%",
-                height: rentHeight,
+                height: `${(rentMonthlyCost / maxValue) * CHART_HEIGHT}px`,
                 backgroundColor: "#005244",
                 display: "flex",
                 flexDirection: "column",

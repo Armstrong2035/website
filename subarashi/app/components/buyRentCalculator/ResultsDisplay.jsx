@@ -17,6 +17,7 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
       .trim()
   }
 
+  console.log("results", results)
   const savingsPercentage = Math.round(
     ((results.rentMonthlyCost - results.buyMonthlyCost) / results.rentMonthlyCost) * 100,
   )
@@ -86,7 +87,7 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
               <Typography sx={{ ...typographyStyles.bodyMedium }}>Monthly Rent</Typography>
               <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
-                AED {formatCurrency(results.monthlyRentCost)}
+                AED {formatCurrency(results.rentMonthlyCost)}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>

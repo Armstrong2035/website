@@ -93,7 +93,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
       </Box>
 
       {/* Residency Status */}
-      <Box>
+    {/*   <Box>
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
           Residency Status
         </Typography>
@@ -120,7 +120,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
             </Button>
           ))}
         </ButtonGroup>
-      </Box>
+      </Box> */}
 
       {/* Deposit */}
       <Box>
@@ -258,7 +258,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
       </Box>
 
       {/* How long are you planning to stay in Dubai? */}
-  {/*     <Box>
+      <Box>
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
           How long are you planning to stay in Dubai?
         </Typography>
@@ -282,7 +282,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1 years</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>25 years</Typography>
         </Box>
-      </Box> */}
+      </Box>
     </Stack>
   )
 }
