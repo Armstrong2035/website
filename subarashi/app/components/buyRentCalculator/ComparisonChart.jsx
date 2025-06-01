@@ -76,7 +76,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
           ))}
 
           {/* Buy bar */}
-          <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center",  }}>
             <Paper
               elevation={0}
               sx={{
@@ -87,16 +87,15 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                position: "relative",
                 zIndex: 1,
                 borderTopLeftRadius: 15,
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ color: "white", fontWeight: "bold" }}>
+              <Typography variant="body2" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
                 Buy Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ color: "white", fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(buyMonthlyCost)}
               </Typography>
             </Paper>
@@ -114,16 +113,15 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                position: "relative",
                 zIndex: 1,
                 borderTopLeftRadius: 15,
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ color: "white", fontWeight: "bold" }}>
+              <Typography variant="body2" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
                 Rent Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ color: "white", fontWeight: "bold" }}>
+              <Typography variant="h6" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(rentMonthlyCost)}
               </Typography>
             </Paper>

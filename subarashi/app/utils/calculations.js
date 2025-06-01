@@ -24,11 +24,10 @@ export function calculateRentVsBuy(inputs) {
       (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)
   
     // Additional monthly costs for buying (maintenance, insurance, etc.)
-    const monthlyMaintenanceCost = propertyPrice * 0.001 // 0.1% of property value per month
-    const monthlyInsurance = propertyPrice * 0.0005 // 0.05% of property value per month
+  
   
     // Total monthly costs
-    const buyMonthlyCost = monthlyMortgage + monthlyMaintenanceCost + monthlyInsurance
+    const buyMonthlyCost = monthlyMortgage
     const rentMonthlyCost = monthlyRent
   
     // Total costs over stay duration

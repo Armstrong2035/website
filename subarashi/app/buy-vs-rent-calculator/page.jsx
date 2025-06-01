@@ -79,7 +79,7 @@ export default function RentVsBuyCalculator() {
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Box sx={{ mb: 4 }}>
+                <Box sx={{ mb: 0 }}>
                   <ResultsDisplay
                     results={results}
                     activeBreakdown={activeBreakdown}

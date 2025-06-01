@@ -21,11 +21,13 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
   const sliderCommonProps = {
     sx: {
       color: "#4caf50",
-      height: 3,
+      height: 2,
+      paddingBottom: 0,
       "& .MuiSlider-thumb": {
-        height: 16,
-        width: 16,
+        height: 12,
+        width: 12,
         backgroundColor: "#005244",
+        paddingBottom: 0,
         "&:hover, &.Mui-focusVisible": {
           boxShadow: "0px 0px 0px 8px rgba(76, 175, 80, 0.16)",
         },
@@ -40,14 +42,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
     <Stack spacing={3}>
       {/* Annual Rent */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual Rent
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.annualRent)}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             AED
           </Typography>
         </Box>
@@ -55,10 +58,11 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           value={inputs.annualRent}
           onChange={(e, value) => onInputChange("annualRent", value)}
           min={10000}
-          max={500000}
+          max={1000000}
           step={5000}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>10,000</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>1,000,000</Typography>
@@ -67,14 +71,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Property Price */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Property Price
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.propertyPrice)}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             AED
           </Typography>
         </Box>
@@ -86,6 +91,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={50000}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>400,000</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>150,000,000</Typography>
@@ -94,7 +100,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Residency Status */}
     {/*   <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Residency Status
         </Typography>
         <Typography sx={{ ...typographyStyles.bodySmall, color: "#666", mb: 2 }}>
@@ -124,14 +130,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Deposit */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Deposit
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.deposit)}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             {Math.round((inputs.deposit / inputs.propertyPrice) * 100)} %
           </Typography>
         </Box>
@@ -143,6 +150,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={10000}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>{formatCurrency(inputs.propertyPrice * 0.05)}</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>{formatCurrency(inputs.propertyPrice * 0.8)}</Typography>
@@ -151,14 +159,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Mortgage Period */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Mortgage Period
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.mortgagePeriod}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             Years
           </Typography>
         </Box>
@@ -170,6 +179,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={1}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1 years</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>25 years</Typography>
@@ -178,14 +188,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Interest Rate */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Interest Rate
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.interestRate}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             %
           </Typography>
         </Box>
@@ -197,6 +208,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={0.1}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1%</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>5%</Typography>
@@ -205,14 +217,15 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
 
       {/* Annual home price growth rate */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual home price growth rate
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.homePriceGrowthRate}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             %
           </Typography>
         </Box>
@@ -224,6 +237,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={1}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>-50%</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>50%</Typography>
@@ -231,15 +245,16 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
       </Box>
 
       {/* Annual rent growth rate */}
-      <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+{/*       <Box>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual rent growth rate
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.rentGrowthRate}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             %
           </Typography>
         </Box>
@@ -251,22 +266,24 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={1}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>-50%</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>50%</Typography>
         </Box>
       </Box>
-
+ */}
       {/* How long are you planning to stay in Dubai? */}
       <Box>
-        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1 }}>
+        <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           How long are you planning to stay in Dubai?
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.5rem", md: "2rem"}, lineHeight: "normal", textAlign: "left" }}>
+       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
+          <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.stayDuration}
           </Typography>
-          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end" }}>
+          <Typography sx={{ ...typographyStyles.bodyMedium, color: "#666", alignSelf: "end", lineHeight: 0.6 }}>
             Years
           </Typography>
         </Box>
@@ -278,6 +295,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
           step={1}
           {...sliderCommonProps}
         />
+        </Box>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "left" }}>1 years</Typography>
           <Typography sx={{ ...typographyStyles.caption, textAlign: "right" }}>25 years</Typography>
