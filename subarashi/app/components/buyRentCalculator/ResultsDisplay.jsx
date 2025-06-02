@@ -17,6 +17,7 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
       .trim()
   }
 
+  console.log("results", results)
   const savingsPercentage = Math.round(
     ((results.rentMonthlyCost - results.buyMonthlyCost) / results.rentMonthlyCost) * 100,
   )
@@ -25,7 +26,7 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
   return (
     <Box>
       {/* Main Result Header */}
-      <Paper elevation={0} sx={{ p: 4, backgroundColor: "#fff", borderRadius: 2, mb: 4 }}>
+      <Paper elevation={0} sx={{ p: 4, backgroundColor: "#fff", borderRadius: 2, mb: 0 }}>
         <Typography sx={{ ...typographyStyles.displayMedium, lineHeight: "normal", mb: 2, color: "#1a1a1a", fontSize: { xs: "1.5rem", md: "2rem" } }}>
           {isBuyingCheaper ? "Buying" : "Renting"} is{" "}
           <span style={{ color: "#005244" }}>{Math.abs(savingsPercentage)}% cheaper</span> than{" "}
@@ -86,7 +87,7 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
               <Typography sx={{ ...typographyStyles.bodyMedium }}>Monthly Rent</Typography>
               <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
-                AED {formatCurrency(results.monthlyRentCost)}
+                AED {formatCurrency(results.rentMonthlyCost)}
               </Typography>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
@@ -101,29 +102,12 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
         ) : (
           <Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-              <Typography sx={{ ...typographyStyles.bodyMedium }}>Monthly Mortgage</Typography>
+              <Typography sx={{ ...typographyStyles.bodyMedium }}>Buy Monthly Cost</Typography>
               <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
                 AED {formatCurrency(results.monthlyMortgage)}
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-              <Typography sx={{ ...typographyStyles.bodyMedium }}>Property Service Charges</Typography>
-              <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
-                AED {formatCurrency(results.monthlyServiceCharge)}
-              </Typography>
-            </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-              <Typography sx={{ ...typographyStyles.bodyMedium }}>Property Insurance</Typography>
-              <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
-                AED {formatCurrency(results.monthlyInsurance)}
-              </Typography>
-            </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
-              <Typography sx={{ ...typographyStyles.bodyMedium }}>Total Monthly Cost</Typography>
-              <Typography sx={{ ...typographyStyles.bodyMedium, fontWeight: 600 }}>
-                AED {formatCurrency(results.monthlyBuyCost)}
-              </Typography>
-            </Box>
+
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
               <Typography sx={{ ...typographyStyles.bodyMedium }}>
                 Total Buy Cost Over {results.stayDuration} years
