@@ -2,13 +2,13 @@
 import HeroText from "./HeroText";
 import HeroImage from "./HeroImage";
 import HeroNav from "./HeroNav";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 
 export default function HeroPage({ heroImage }) {
   return (
-    <div
-     
-      style={{
+    <Box
+      sx={{
+        position: "relative",
         backgroundColor: "#005244",
         height: {
           xs: "70vh",
@@ -20,23 +20,14 @@ export default function HeroPage({ heroImage }) {
     >
       <Box
         sx={{
-          height: { xs: "100%", sm: "100%", md: "100%" },
+          height: "100%",
+          position: "relative",
         }}
       >
         <HeroImage heroImage={heroImage} />
-      </Box>
-
-      {/* <Stack
-        justifyContent={"center"}
-        sx={{
-          width: "100%",
-          backgroundColor: "#005244",
-          // pb: { xs: 4, sm: 4, md: 5 },
-        }}
-      >
-        <HeroNav />
         <HeroText />
-      </Stack> */}
-    </div>
+        <HeroNav />
+      </Box>
+    </Box>
   );
 }

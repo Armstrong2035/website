@@ -10,8 +10,15 @@ import {
   Container,
   useMediaQuery,
   useTheme,
+  ListItemIcon,
+  Fade,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import BusinessIcon from "@mui/icons-material/Business";
+import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
+import ExploreIcon from "@mui/icons-material/Explore";
+import GroupsIcon from "@mui/icons-material/Groups";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/logos/logo.png";
@@ -28,7 +35,6 @@ export default function NavBar({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorElNav, setAnchorElNav] = useState(null);
-
   const [hover, setHover] = useState(false);
 
   const buttonStyle = {
@@ -51,13 +57,43 @@ export default function NavBar({
   };
 
   const navItems = [
-    // { title: "Sales", route: "/Listings/sales" },
-    { title: "Lease", route: "/Listings/lease" },
-    { title: "Offplan Projects", route: "/offplan" },
-    { title: "Holiday Homes", route: "/holiday-homes" },
-    { title: "Area Guides", route: "/areaGuides" },
-    { title: "Team", route: "/about" },
+    { title: "Lease", route: "/Listings/lease", icon: <ApartmentIcon /> },
+    { title: "Offplan Projects", route: "/offplan", icon: <BusinessIcon /> },
+    { title: "Holiday Homes", route: "/holiday-homes", icon: <HolidayVillageIcon /> },
+    { title: "Area Guides", route: "/areaGuides", icon: <ExploreIcon /> },
+    { title: "Team", route: "/about", icon: <GroupsIcon /> },
   ];
+
+  const menuStyles = {
+    "& .MuiPaper-root": {
+      backgroundColor: "#005244",
+      width: 280,
+      borderRadius: "16px",
+      marginTop: "8px",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+      border: "1px solid rgba(242, 255, 194, 0.1)",
+    },
+    "& .MuiList-root": {
+      padding: "8px",
+    },
+  };
+
+  const menuItemStyles = {
+    borderRadius: "8px",
+    margin: "4px 0",
+    padding: "12px 16px",
+    gap: 2,
+    transition: "all 0.2s ease",
+    color: "#F2FFC2",
+    "&:hover": {
+      backgroundColor: "rgba(242, 255, 194, 0.1)",
+      transform: "translateX(4px)",
+    },
+    "& .MuiListItemIcon-root": {
+      minWidth: 36,
+      color: "#F2FFC2",
+    },
+  };
 
   return (
     <Box
@@ -75,7 +111,6 @@ export default function NavBar({
         ...(isMobile && {
           backgroundColor: "#005244",
         }),
-
         ...(!isMobile && {
           "&:hover": {
             backgroundColor: "#005244",
@@ -121,11 +156,14 @@ export default function NavBar({
           {isMobile ? (
             <Box sx={{ display: "flex" }}>
               <IconButton
-                size="large"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="primary"
+                sx={{
+                  color: "#F2FFC2",
+                  transition: "transform 0.3s ease",
+                  "&:hover": {
+                    transform: "rotate(180deg)",
+                  },
+                }}
               >
                 <MenuIcon />
               </IconButton>
@@ -143,22 +181,53 @@ export default function NavBar({
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
+                sx={menuStyles}
+                TransitionComponent={Fade}
               >
                 {navItems.map((item, index) => (
                   <Link
-                    href={`${item.route}`}
+                    href={item.route}
                     passHref
                     style={{ textDecoration: "none" }}
                     key={index}
                   >
-                    <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{item.title}</Typography>
+                    <MenuItem 
+                      onClick={handleCloseNavMenu}
+                      sx={menuItemStyles}
+                    >
+                      <ListItemIcon>
+                        {item.icon}
+                      </ListItemIcon>
+                      <Typography
+                        sx={{
+                          ...typographyStyles.bodyMedium,
+                          fontSize: "16px",
+                          fontWeight: 500,
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
                     </MenuItem>
                   </Link>
                 ))}
+                <MenuItem sx={{ ...menuItemStyles, mt: 1 }}>
+                  <ButtonModal
+                    buttonText="Contact Us"
+                    style="text"
+                    buttonStyle={{
+                      ...buttonStyle,
+                      ml: 0,
+                      width: "100%",
+                      py: 1,
+                      backgroundColor: "rgba(242, 255, 194, 0.1)",
+                      "&:hover": {
+                        backgroundColor: "rgba(242, 255, 194, 0.2)",
+                      },
+                    }}
+                    buttonColor={buttonColor}
+                    hover={hover}
+                  />
+                </MenuItem>
               </Menu>
             </Box>
           ) : (
@@ -166,7 +235,7 @@ export default function NavBar({
             <Box sx={{ display: "flex", alignItems: "center", gap: "30px" }}>
               {navItems.map((item, index) => (
                 <Link
-                  href={`${item.route}`}
+                  href={item.route}
                   passHref
                   style={{ textDecoration: "none" }}
                   key={index}
@@ -186,8 +255,8 @@ export default function NavBar({
               ))}
 
               <ButtonModal
-                buttonText={"Contact Us"}
-                style={"text"}
+                buttonText="Contact Us"
+                style="text"
                 buttonStyle={buttonStyle}
                 buttonColor={buttonColor}
                 hover={hover}

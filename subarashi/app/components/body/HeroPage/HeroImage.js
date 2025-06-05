@@ -2,20 +2,41 @@
 
 import { Box } from "@mui/material";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroImage({ heroImage, additionalStyles = {} }) {
 
   const videoRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    const playPromise = videoRef.current?.play();
-    if (playPromise !== undefined) {
-      playPromise.catch((error) => {
+    if (!videoRef.current) return;
 
-        console.log("Autoplay blocked:", error);
-      });
-    }
+    const video = videoRef.current;
+
+    const handleCanPlay = () => {
+      setIsVideoLoaded(true);
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Autoplay prevented:", error);
+
+        });
+      }
+    };
+
+    const handleError = (error) => {
+      console.error("Video loading error:", error);
+      setIsVideoLoaded(false);
+    };
+
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('error', handleError);
+
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('error', handleError);
+    };
   }, []);
 
 
@@ -40,10 +61,16 @@ export default function HeroImage({ heroImage, additionalStyles = {} }) {
         loop={true}
         muted={true}
         playsInline
-        preload="auto"
-
-        style={{ objectFit: "cover", width: "100%", height: "100%" }}
-      ></video>
+        preload="metadata"
+        poster="https://res.cloudinary.com/dulafqaoq/video/upload/so_0/v1742972834/Hero-Page_Video_w5dimj.jpg"
+        controls={false}
+        style={{ 
+          objectFit: "cover", 
+          width: "100%", 
+          height: "100%",
+          backgroundColor: "#000" 
+        }}
+      />
     </Box>
   );
 }

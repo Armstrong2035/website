@@ -2,12 +2,13 @@
 
 import { Container, Grid, Paper, Box, Typography } from "@mui/material"
 import { useState } from "react"
-import CalculatorInputs from "./components/CalculatorInputs"
-import ResultsDisplay from "./components/ResultsDisplay"
-import NextStepSection from "./components/NextStepSection"
+import CalculatorInputs from "../components/buyRentCalculator/CalculatorInputs"
+import ResultsDisplay from "../components/buyRentCalculator/ResultsDisplay"
+import NextStepSection from "../components/buyRentCalculator/NextStepSection"
 import { calculateRentVsBuy } from "../utils/calculations.js"
 import NavBar from "../components/appBar/AppBar"
 import Footer from "../components/footer/new-footer"
+import typographyStyles from "../styles"
 
 export default function RentVsBuyCalculator() {
   const [inputs, setInputs] = useState({
@@ -62,10 +63,10 @@ export default function RentVsBuyCalculator() {
         
         {/* Content */}
         <Container maxWidth="xl" sx={{ position: "relative" }}>
-          <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2, color: "#1a1a1a" }}>
+          <Typography sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#1a1a1a", lineHeight: "90px" }}>
             Buy vs Rent Calculator
           </Typography>
-          <Typography variant="h6" sx={{ color: "#666", maxWidth: "800px", mb: 6 }}>
+          <Typography sx={{ ...typographyStyles.featureText, color: "#666", maxWidth: "800px", mb: 6 }}>
             If you're thinking about buying a property instead of continuing to rent, use our buy-to-rent calculator to
             help you determine which option is more beneficial for you.
           </Typography>
@@ -78,7 +79,7 @@ export default function RentVsBuyCalculator() {
                 </Paper>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Box sx={{ mb: 4 }}>
+                <Box sx={{ mb: 0 }}>
                   <ResultsDisplay
                     results={results}
                     activeBreakdown={activeBreakdown}

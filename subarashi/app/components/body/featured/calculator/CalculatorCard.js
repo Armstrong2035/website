@@ -1,13 +1,12 @@
 "use client";
 import {
-  Icon,
   Stack,
   Typography,
   Container,
   Box,
-  Grid2,
   useMediaQuery,
   useTheme,
+  Button,
 } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -17,70 +16,98 @@ import Link from "next/link";
 export default function CalculatorCard() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
-    <Container  sx={{}}>
-      <Grid2 container direction={"row"} spacing={10} justifyContent={"center"}>
-        <Grid2 item>
-          <Image
-            src={
-              "https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_auto,dpr_auto,c_scale/v1742980894/FLexible_payments_bteyox.png"
-            }
-            width={400}
-            height={400}
-            alt="calculator"
-            style={{
-              width: "100%",
-            }}
-          />
-        </Grid2>
-
-        <Grid2
-          item
+    <Container>
+      <Box
+        sx={{
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)',
+          borderRadius: '24px',
+          boxShadow: '0 8px 32px rgba(0,82,68,0.08)',
+          overflow: 'hidden',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-8px)',
+            boxShadow: '0 12px 48px rgba(0,82,68,0.12)',
+          },
+        }}
+      >
+        <Box
           sx={{
-            // border: "1px solid red",
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "column",
-
-            pl: 2,
-            pr: 2,
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: { xs: 4, md: 6 },
+            gap: { xs: 4, md: 8 },
           }}
         >
-          <Typography
+          <Box
             sx={{
-              ...typographyStyles.bodyLarge,
-              fontSize: isMobile ? "40px" : "55px",
-              lineHeight: "107.7%",
+              flex: '1 1 auto',
+              maxWidth: { xs: '100%', md: '50%' },
+              position: 'relative',
             }}
           >
-            Split rental cheques <br /> into 12 easy <br /> installments!
-          </Typography>
+            <Image
+              src="https://res.cloudinary.com/dulafqaoq/image/upload/q_auto,f_auto,w_auto,dpr_auto,c_scale/v1742980894/FLexible_payments_bteyox.png"
+              width={400}
+              height={400}
+              alt="calculator"
+              style={{
+                width: '100%',
+                height: 'auto',
+                transition: 'transform 0.3s ease-in-out',
+              }}
+            />
+          </Box>
 
-          <Link
-            href={"/subarashi-flex"}
-            style={{
-              textDecoration: "none",
-              marginTop: isMobile ? "20px" : null,
+          <Box
+            sx={{
+              flex: '1 1 auto',
+              maxWidth: { xs: '100%', md: '50%' },
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 4,
             }}
           >
-            <Stack direction={"row"} alignItems={"center"} spacing={1}>
-              <Typography
+            <Typography
+              sx={{
+                ...typographyStyles.bodyLarge,
+                fontSize: isMobile ? "40px" : "55px",
+                lineHeight: "107.7%",
+                color: '#005244',
+                fontWeight: 600,
+                textShadow: '0 2px 4px rgba(0,82,68,0.1)',
+              }}
+            >
+              Split rental cheques into 12 easy installments!
+            </Typography>
+
+            <Link href="/subarashi-flex" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                endIcon={<ArrowForwardIcon />}
                 sx={{
-                  ...typographyStyles.bodyMedium,
-                  fontSize: "23px",
-                  lineHeight: "120%",
-                  color: "#043D32",
+                  backgroundColor: '#005244',
+                  color: '#fff',
+                  padding: '12px 24px',
+                  fontSize: '18px',
+                  borderRadius: '12px',
+                  textTransform: 'none',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#006d5b',
+                    transform: 'translateX(8px)',
+                  },
                 }}
               >
                 Learn more
-              </Typography>
-              <Icon>
-                <ArrowForwardIcon sx={{ color: "#043D32" }} />
-              </Icon>
-            </Stack>
-          </Link>
-        </Grid2>
-      </Grid2>
+              </Button>
+            </Link>
+          </Box>
+        </Box>
+      </Box>
     </Container>
   );
 }
