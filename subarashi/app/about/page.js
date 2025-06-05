@@ -38,18 +38,19 @@ export default function AboutUs() {
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Luri_gwnrvk.png",
     },
-    {
-      Name: "Daryl",
-      Title: "Investment Consultant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631299/Daryl_ihrniq.png",
-    },
 
     {
       Name: "Kamaal",
       Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Kamaal-Profile-Photo-Subarashi_fe3gde.png",
+    },
+
+    {
+      Name: "Oliver",
+      Title: "Investment Consultant",
+      ImageUrl:
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Oliver-Profile-Photo-Subarashi-1_czgx1x.png",
     },
 
     {
@@ -60,17 +61,19 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Oliver",
+      Name: "Mohammed",
       Title: "Investment Consultant",
       ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Oliver-Profile-Photo-Subarashi-1_czgx1x.png",
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747632523/Mohammed_azlf2l.png",
     },
+
     {
-      Name: "Yahia",
-      Title: "Investment Advisor",
+      Name: "Daryl",
+      Title: "Investment Consultant",
       ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374955/Yahia-Profile-Photo-Subarashi-1_a4pky4.png",
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631299/Daryl_ihrniq.png",
     },
+
     {
       Name: "Hamza",
       Title: "Investment Advisor",
