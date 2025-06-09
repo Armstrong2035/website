@@ -15,14 +15,7 @@ import Link from "next/link";
 import typographyStyles from "../../styles";
 import LoadingSpinner from "../loading/loading-spinner";
 
-
-
-
-
-export default function SalesListingsGrid({
-  listings,
-  loading,
-}) {
+export default function SalesListingsGrid({ listings, loading }) {
   const [hoveredCardId, setHoveredCardId] = useState(null);
 
   const handleMouseEnter = (id) => {
@@ -34,9 +27,9 @@ export default function SalesListingsGrid({
   };
 
   return (
-    <Container data-aos="fade-up" maxWidth="lg" sx={{ py: 4, mt: 6 }}>
+    <Container maxWidth="lg" sx={{ py: 4, mt: 6 }}>
       {loading ? (
-         <LoadingSpinner />
+        <LoadingSpinner />
       ) : listings?.length === 0 ? (
         <Box sx={{ textAlign: "center", py: 8 }}>
           <Typography variant="h5" sx={{ color: "#005244", mb: 2 }}>
@@ -59,7 +52,6 @@ export default function SalesListingsGrid({
         >
           {listings.map((listing, index) => (
             <Link
-            data-aos="fade-up"
               href={`/Listings/sales/${listing.id}`}
               key={listing.id}
               style={{ textDecoration: "none" }}

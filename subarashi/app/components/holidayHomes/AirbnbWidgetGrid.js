@@ -58,7 +58,7 @@ export default function AirbnbWidgetGrid({ listings }) {
             const airbnbUrl = `https://www.airbnb.com/rooms/${listingId}?guests=1&adults=1&s=66`;
 
             return (
-              <Grid data-aos="fade-up" item xs={12} md={6} key={listing.id}>
+              <Grid item xs={12} md={6} key={listing.id}>
                 <Card
                   sx={{
                     mb: 2,

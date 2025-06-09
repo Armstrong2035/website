@@ -132,7 +132,6 @@ export default function PropertyListings() {
           </Box>
         ) : (
           <Grid2
-          data-aos="fade-up"
             container
             spacing={3}
             sx={{

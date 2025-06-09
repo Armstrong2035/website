@@ -28,19 +28,17 @@ import Checkbox from "@mui/material/Checkbox";
 import NavBar from "../appBar/AppBar";
 import CloseIcon from "@mui/icons-material/Close";
 import { useForm, Controller } from "react-hook-form";
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { styled } from "@mui/material/styles";
 
 // Initialize Firestore using the app instance
 const db = getFirestore(app);
 
-
-
 // This mimics your EmailInput style
 export const StyledPhoneInput = styled(PhoneInput)(({ theme }) => ({
   width: "100%",
- ...typographyStyles.bodyMedium,
+  ...typographyStyles.bodyMedium,
   fontSize: "16px",
   border: "none",
   borderBottom: `2px solid ${theme.palette.divider}`,
@@ -69,7 +67,6 @@ export const StyledPhoneInput = styled(PhoneInput)(({ theme }) => ({
     marginRight: "12px",
   },
 }));
-
 
 const ButtonModal = ({
   buttonText,
@@ -108,8 +105,6 @@ const ButtonModal = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
- 
-
   const {
     handleSubmit,
     control,
@@ -126,22 +121,21 @@ const ButtonModal = ({
       interests: [],
     },
   });
-  
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-  
+
     try {
       console.log("Form data:", data);
-      
-    await addDoc(collection(db, "leads"), {
+
+      await addDoc(collection(db, "leads"), {
         ...data,
         createdAt: serverTimestamp(),
         status: "new",
         source: "website",
         project: "Null",
       });
-  
+
       await fetch("/api/add-task", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -153,23 +147,23 @@ const ButtonModal = ({
           message: data.message,
           interests: data.interests.join(", "),
         }),
-      }); 
-  
+      });
+
       setSnackbar({
         open: true,
         message: "Thank you! Your information has been submitted successfully.",
         severity: "success",
       });
-  
+
       reset();
-  
+
       if (typeof window !== "undefined") {
         window.gtag?.("event", "conversion", {
           send_to: "AW-16909263453/jTrDCNHE5qYaEN3E-_4-",
         });
         window.fbq?.("track", "Lead");
       }
-  
+
       setTimeout(() => {
         handleClose();
       }, 2000);
@@ -177,14 +171,14 @@ const ButtonModal = ({
       console.error("Error submitting form:", error);
       setSnackbar({
         open: true,
-        message: "There was an error submitting your information. Please try again.",
+        message:
+          "There was an error submitting your information. Please try again.",
         severity: "error",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-  
 
   const handleSnackbarClose = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -202,7 +196,6 @@ const ButtonModal = ({
       </Button>
 
       <Modal
-        data-aos="fade-up"
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-title"
@@ -267,211 +260,214 @@ const ButtonModal = ({
             </Grid2>
 
             <Grid2 item size={{ sm: 12, md: 7 }}>
-              <Box component="form"  onSubmit={handleSubmit(onSubmit)} sx={{ p: 4 }}>
+              <Box
+                component="form"
+                onSubmit={handleSubmit(onSubmit)}
+                sx={{ p: 4 }}
+              >
                 <Grid2 container spacing={5} direction={"row"}>
                   <Grid2 item size={{ md: 6 }}>
-                  <Controller
-  name="firstName"
-  control={control}
-  rules={{ required: "First name is required" }}
-  render={({ field }) => (
-    
-                    <EmailInput
-                    {...field}
-                      placeholder="FIRST NAME"
-                      fullWidth
-                      variant="outlined"
-                      error={!!errors.firstName}
-                      helperText={errors.firstName?.message}
-                      sx={{
-                        fontSize: "16px",
-                        lineHeight: "107.7%",
-                        mb: 3,
-                        "& input::placeholder": {
-                          ...typographyStyles.bodyMedium,
-                          fontSize: "16px",
-                          fontWeight: 500,
-                          color: "black",
-                        },
-                      }}
+                    <Controller
+                      name="firstName"
+                      control={control}
+                      rules={{ required: "First name is required" }}
+                      render={({ field }) => (
+                        <EmailInput
+                          {...field}
+                          placeholder="FIRST NAME"
+                          fullWidth
+                          variant="outlined"
+                          error={!!errors.firstName}
+                          helperText={errors.firstName?.message}
+                          sx={{
+                            fontSize: "16px",
+                            lineHeight: "107.7%",
+                            mb: 3,
+                            "& input::placeholder": {
+                              ...typographyStyles.bodyMedium,
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              color: "black",
+                            },
+                          }}
+                        />
+                      )}
                     />
-                  )}
-/>
 
-              <Controller
-                name="lastName"
-                control={control}
-                rules={{ required: "Last name is required" }}
-                render={({ field }) => (
-                    <EmailInput
-                    {...field}
-                      placeholder="LAST NAME"
-                      fullWidth
-                      variant="outlined"
-                      error={!!errors.lastName}
-                      helperText={errors.lastName?.message}
-                      sx={{
-                        fontSize: "16px",
-                        lineHeight: "107.7%",
-                        mb: 3,
-                        "& input::placeholder": {
-                          ...typographyStyles.bodyMedium,
-                          fontSize: "16px",
-                          fontWeight: 500,
-                        },
-                      }}
+                    <Controller
+                      name="lastName"
+                      control={control}
+                      rules={{ required: "Last name is required" }}
+                      render={({ field }) => (
+                        <EmailInput
+                          {...field}
+                          placeholder="LAST NAME"
+                          fullWidth
+                          variant="outlined"
+                          error={!!errors.lastName}
+                          helperText={errors.lastName?.message}
+                          sx={{
+                            fontSize: "16px",
+                            lineHeight: "107.7%",
+                            mb: 3,
+                            "& input::placeholder": {
+                              ...typographyStyles.bodyMedium,
+                              fontSize: "16px",
+                              fontWeight: 500,
+                            },
+                          }}
+                        />
+                      )}
                     />
-                  )}
-/>
-
                   </Grid2>
                   <Grid2 item size={{ md: 6 }}>
-
-                  <Controller
-            name="email"
-            control={control}
-            rules={{
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Invalid email address",
-              },
-            }}
-            render={({ field }) => (
-                    <EmailInput
-                    {...field}
-                      placeholder="EMAIL ADDRESS"
-                      type="email"
-                      fullWidth
-                      error={!!errors.email}
-                      helperText={errors.email?.message}
-                      sx={{
-                        fontSize: "16px",
-                        lineHeight: "107.7%",
-                        mb: 3,
-                        "& input::placeholder": {
-                          ...typographyStyles.bodyMedium,
-                          fontSize: "16px",
-                          fontWeight: 500,
+                    <Controller
+                      name="email"
+                      control={control}
+                      rules={{
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Invalid email address",
                         },
                       }}
+                      render={({ field }) => (
+                        <EmailInput
+                          {...field}
+                          placeholder="EMAIL ADDRESS"
+                          type="email"
+                          fullWidth
+                          error={!!errors.email}
+                          helperText={errors.email?.message}
+                          sx={{
+                            fontSize: "16px",
+                            lineHeight: "107.7%",
+                            mb: 3,
+                            "& input::placeholder": {
+                              ...typographyStyles.bodyMedium,
+                              fontSize: "16px",
+                              fontWeight: 500,
+                            },
+                          }}
+                        />
+                      )}
                     />
-                  )}
-                />
 
-<Controller
-  name="phone"
-  control={control}
-  rules={{ required: "Phone number is required" }}
-  render={({ field }) => (
-    <>
-      <StyledPhoneInput
-        {...field}
-        placeholder="PHONE NUMBER"
-    defaultCountry="AE"
-        enableSearch
-        sx={{
-          fontSize: "16px",
-          lineHeight: "107.7%",
-          mb: 3,
-          "& input::placeholder": {
-            ...typographyStyles.bodyMedium,
-            fontSize: "16px",
-            fontWeight: 500,
-          },
-        }}
-        onChange={(phone) => field.onChange(phone)}
-      
-disableDropdown={false}
-preferredCountries={['ng', 'us', 'gb']}
-      />
-      {errors.phone && (
-        <Typography color="error" fontSize="0.8rem" sx={{ mt: -2 }}>
-          {errors.phone.message}
-        </Typography>
-      )}
-    </>
-  )}
-/>
-
-
+                    <Controller
+                      name="phone"
+                      control={control}
+                      rules={{ required: "Phone number is required" }}
+                      render={({ field }) => (
+                        <>
+                          <StyledPhoneInput
+                            {...field}
+                            placeholder="PHONE NUMBER"
+                            defaultCountry="AE"
+                            enableSearch
+                            sx={{
+                              fontSize: "16px",
+                              lineHeight: "107.7%",
+                              mb: 3,
+                              "& input::placeholder": {
+                                ...typographyStyles.bodyMedium,
+                                fontSize: "16px",
+                                fontWeight: 500,
+                              },
+                            }}
+                            onChange={(phone) => field.onChange(phone)}
+                            disableDropdown={false}
+                            preferredCountries={["ng", "us", "gb"]}
+                          />
+                          {errors.phone && (
+                            <Typography
+                              color="error"
+                              fontSize="0.8rem"
+                              sx={{ mt: -2 }}
+                            >
+                              {errors.phone.message}
+                            </Typography>
+                          )}
+                        </>
+                      )}
+                    />
                   </Grid2>
                 </Grid2>
 
-
                 <Controller
-  name="interests"
-  control={control}
-  rules={{
-    validate: (value) =>
-      value && value.length > 0 ? true : "Please select at least one interest",
-  }}
-  render={({ field }) => (
-    <>
-   
-      <FormGroup>
-      <Grid2 container>
-        {checkboxes.map((interest) => (
-                   <Grid2 item size={{ xs: 12, md: 4 }} key={interest}>
-          <FormControlLabel
-            key={interest}
-            control={
-              <Checkbox
-                checked={field.value.includes(interest)}
-                onChange={(e) => {
-                  const checked = e.target.checked;
-                  if (checked) {
-                    field.onChange([...field.value, interest]);
-                  } else {
-                    field.onChange(
-                      field.value.filter((item) => item !== interest)
-                    );
-                  }
-                }}
-              />
-            }
-            label={interest}
-          />
-          </Grid2>
-         
-
-        ))}
-          </Grid2>
-      </FormGroup>
-      {errors.interests && (
-        <Typography color="error" fontSize="0.8rem">
-          {errors.interests.message}
-        </Typography>
-      )}
-     
-    </>
-  )}
-/>
-
-
-                <Controller
-              name="message"
-              control={control}
-              rules={{ required: "Message is required" }}
-              render={({ field }) => (
-                <TextField
-                {...field}
-                  label="MESSAGE"
-                  multiline
-                  rows={3}
-                  fullWidth
-                  error={!!errors.message}
-                  helperText={errors.message?.message}
-                  sx={{
-                    "& .MuiFormControlLabel-label": {
-                      ...typographyStyles.bodyMedium,
-                      fontSize: "16px",
-                    },
-                    mt: 5,
+                  name="interests"
+                  control={control}
+                  rules={{
+                    validate: (value) =>
+                      value && value.length > 0
+                        ? true
+                        : "Please select at least one interest",
                   }}
+                  render={({ field }) => (
+                    <>
+                      <FormGroup>
+                        <Grid2 container>
+                          {checkboxes.map((interest) => (
+                            <Grid2 item size={{ xs: 12, md: 4 }} key={interest}>
+                              <FormControlLabel
+                                key={interest}
+                                control={
+                                  <Checkbox
+                                    checked={field.value.includes(interest)}
+                                    onChange={(e) => {
+                                      const checked = e.target.checked;
+                                      if (checked) {
+                                        field.onChange([
+                                          ...field.value,
+                                          interest,
+                                        ]);
+                                      } else {
+                                        field.onChange(
+                                          field.value.filter(
+                                            (item) => item !== interest
+                                          )
+                                        );
+                                      }
+                                    }}
+                                  />
+                                }
+                                label={interest}
+                              />
+                            </Grid2>
+                          ))}
+                        </Grid2>
+                      </FormGroup>
+                      {errors.interests && (
+                        <Typography color="error" fontSize="0.8rem">
+                          {errors.interests.message}
+                        </Typography>
+                      )}
+                    </>
+                  )}
                 />
-              )}
-/>
+
+                <Controller
+                  name="message"
+                  control={control}
+                  rules={{ required: "Message is required" }}
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      label="MESSAGE"
+                      multiline
+                      rows={3}
+                      fullWidth
+                      error={!!errors.message}
+                      helperText={errors.message?.message}
+                      sx={{
+                        "& .MuiFormControlLabel-label": {
+                          ...typographyStyles.bodyMedium,
+                          fontSize: "16px",
+                        },
+                        mt: 5,
+                      }}
+                    />
+                  )}
+                />
 
                 <Button
                   type="submit"

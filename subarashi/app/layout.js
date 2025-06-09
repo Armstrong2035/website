@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Gorditas } from "next/font/google";
-import AOSProvider from "./providers/aos-provider";
+
 import Script from "next/script";
 export const metadata = {
   title:
@@ -163,7 +163,7 @@ export default function RootLayout({ children }) {
           overflowX: "hidden",
         }}
       >
-        <AOSProvider>{children}</AOSProvider>
+        {children}
       </body>
     </html>
   );
