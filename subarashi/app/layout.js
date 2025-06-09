@@ -142,6 +142,19 @@ export default function RootLayout({ children }) {
           defer
           src="https://app.futurai.ai/js/widget/fv3w6vf9r2s6kwqp/float.js"
         ></script>
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PD9VDF9K4Y"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PD9VDF9K4Y');
+          `}
+        </Script>
       </head>
       <body
         style={{
@@ -149,9 +162,7 @@ export default function RootLayout({ children }) {
           overflowX: "hidden",
         }}
       >
-        <AOSProvider>
-        {children}
-        </AOSProvider>
+        <AOSProvider>{children}</AOSProvider>
       </body>
     </html>
   );
