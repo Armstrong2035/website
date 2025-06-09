@@ -42,7 +42,7 @@ export default function HolidayHomes() {
 
   return (
     <>
-      <Box data-aos="zoom-in" sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative" }}>
         <NavBar
           color="#005244"
           hoverColor="#F2FFC2"
@@ -55,7 +55,6 @@ export default function HolidayHomes() {
       </Box>
 
       <Box
-        data-aos="fade-up"
         sx={{
           backgroundColor: "#005244",
           color: "white",

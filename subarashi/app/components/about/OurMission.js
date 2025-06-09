@@ -9,7 +9,6 @@ export default function OurMission({ image }) {
 
   return (
     <Box
-      data-aos="fade-up"
       sx={{
         display: "flex",
         justifyContent: "center",

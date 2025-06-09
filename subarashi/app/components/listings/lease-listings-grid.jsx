@@ -10,8 +10,6 @@ import {
 import Link from "next/link";
 import typographyStyles from "../../styles";
 
-
-
 export default function LeaseListingsGrid({
   listings,
   hoveredCardId,
@@ -31,7 +29,6 @@ export default function LeaseListingsGrid({
     >
       {listings.map((listing, index) => (
         <Link
-        data-aos="fade-up"
           href={`/Listings/lease/${listing.id}`}
           style={{ textDecoration: "none" }}
           key={index}

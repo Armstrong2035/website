@@ -10,7 +10,6 @@ export default function Introduction({ logoIcon, backgroundImage }) {
 
   return (
     <Box
-      data-aos="fade-up"
       sx={{
         position: "relative", // Needed for absolute overlay
         display: "flex",

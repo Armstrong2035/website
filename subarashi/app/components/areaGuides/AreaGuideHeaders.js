@@ -5,7 +5,7 @@ import typographyStyles from "../../styles";
 
 export default function AreaGuideHeader() {
   return (
-    <Box data-aos="fade-up" sx={{ mb: 5 }}>
+    <Box sx={{ mb: 5 }}>
       <Typography
         variant="h3"
         component="h1"
@@ -23,9 +23,9 @@ export default function AreaGuideHeader() {
         variant="body1"
         sx={{ ...typographyStyles.bodyLarge, color: "#333" }}
       >
-        Whether you&apos;re looking for a vibrant city lifestyle or a serene area
-        with stunning views, Dubai offers plenty of locations for every need.
-        Just browse through our area portfolio below.
+        Whether you&apos;re looking for a vibrant city lifestyle or a serene
+        area with stunning views, Dubai offers plenty of locations for every
+        need. Just browse through our area portfolio below.
       </Typography>
     </Box>
   );
