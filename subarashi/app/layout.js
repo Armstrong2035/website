@@ -3,6 +3,7 @@ import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Gorditas } from "next/font/google";
 import AOSProvider from "./providers/aos-provider";
+import Script from "next/script";
 export const metadata = {
   title:
     "Subarashi real estate | Luxury Real Estate Brokers, and Investment Managers",
