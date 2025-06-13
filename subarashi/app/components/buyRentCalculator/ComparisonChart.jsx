@@ -1,4 +1,5 @@
 import { Box, Typography, Paper } from "@mui/material"
+import typographyStyles from "../../styles"
 
 export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
   const CHART_HEIGHT = 300
@@ -39,7 +40,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
           }}
         >
           {yAxisValues.map((value, index) => (
-            <Typography key={index} variant="caption" sx={{ color: "#666" }}>
+            <Typography key={index} variant="caption" sx={{ color: "#fff" }}>
               {value}K
             </Typography>
           ))}
@@ -92,10 +93,10 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
+              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)", }}>
                 Buy Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
+              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(buyMonthlyCost)}
               </Typography>
             </Paper>
@@ -108,7 +109,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
               sx={{
                 width: "100%",
                 height: `${(rentMonthlyCost / maxValue) * CHART_HEIGHT}px`,
-                backgroundColor: "#005244",
+                backgroundColor: "#fff",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -118,10 +119,10 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
+              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
                 Rent Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ color: "black", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
+              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(rentMonthlyCost)}
               </Typography>
             </Paper>
