@@ -137,7 +137,7 @@ const Footer = () => {
   ];
 
   return (
-    <FooterContainer >
+    <FooterContainer>
       <BackgroundImage />
       <ContentContainer maxWidth="lg">
         <Grid2 container spacing={4}>
@@ -186,18 +186,6 @@ const Footer = () => {
                     </ProjectLine>
                   </Link>
                 ))}
-                {/* <ProjectLine>
-                  <LineIndicator />
-                  <Typography variant="body2">Sobha One Element</Typography>
-                </ProjectLine>
-                <ProjectLine>
-                  <LineIndicator />
-                  <Typography variant="body2">Off-Plan Project One</Typography>
-                </ProjectLine>
-                <ProjectLine>
-                  <LineIndicator />
-                  <Typography variant="body2">Off-Plan Project One</Typography>
-                </ProjectLine> */}
               </Grid2>
             </Grid2>
           </Grid2>
@@ -231,6 +219,24 @@ const Footer = () => {
                 }}
               />
             </form>
+            <Typography
+              variant="body1"
+              sx={{ ...typographyStyles.bodySmall, mb: 2, fontWeight: 400 }}
+            >
+              Office 410, AB Center, Al Barsha 1, Dubai, UAE
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ ...typographyStyles.bodySmall, mb: 2, fontWeight: 400 }}
+            >
+              PO Box: 413393
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ ...typographyStyles.bodySmall, mb: 2, fontWeight: 400 }}
+            >
+              Phone: +971 4 5725275
+            </Typography>
           </Grid2>
         </Grid2>
 
