@@ -63,23 +63,23 @@ export default function RentVsBuyCalculator() {
         
         {/* Content */}
         <Container maxWidth="xl" sx={{ position: "relative" }}>
-          <Typography sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#1a1a1a", lineHeight: "90px" }}>
+          <Typography sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#1a1a1a", lineHeight: "90px", color: "#005244", textAlign: "center" }}>
             Buy vs Rent Calculator
           </Typography>
-          <Typography sx={{ ...typographyStyles.featureText, color: "#666", maxWidth: "800px", mb: 6 }}>
+          <Typography sx={{ ...typographyStyles.featureText, color: "#666", mb: 6,  textAlign: "center",  }}>
             If you're thinking about buying a property instead of continuing to rent, use our buy-to-rent calculator to
             help you determine which option is more beneficial for you.
           </Typography>
 
-          <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+          <Paper elevation={3} sx={{ p: 4, borderRadius: 2, backgroundColor: "#005244" }}>
             <Grid container spacing={4}>
               <Grid item xs={12} md={6}>
-                <Paper elevation={0} sx={{ p: 3, backgroundColor: "#f8f9fa", borderRadius: 2 }}>
+                <Paper elevation={0} sx={{ p: 3, backgroundColor: "#edfceb", borderRadius: 2 }}>
                   <CalculatorInputs inputs={inputs} onInputChange={handleInputChange} />
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={6}>
-                <Box sx={{ mb: 0 }}>
+              <Grid item xs={12} md={6} sx={{ backgroundColor: "#005244" }} >
+                <Box sx={{ mb: 0, backgroundColor: "#005244" }}>
                   <ResultsDisplay
                     results={results}
                     activeBreakdown={activeBreakdown}
