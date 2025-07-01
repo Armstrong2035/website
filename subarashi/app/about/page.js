@@ -61,36 +61,19 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Zamin",
-      Title: "Investment Advisor",
-      ImageUrl:
-        "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Zamin-Profile-Photo-Subarashi-1_fbvkjb.png",
-    },
-
-    {
       Name: "Sofia",
       Title: "Administrative Manager",
       ImageUrl:
         "hhttps://res.cloudinary.com/dulafqaoq/image/upload/v1742374958/Sofia-Profile-Photo-Subarashi_n1d8su.png",
     },
-    {
-      Name: "Estrella",
-      Title: "Administrative Coordinator",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374958/Istar-Profile-Photo-Subarashi-1_r2agka.png",
-    },
+
     {
       Name: "Armstrong",
-      Title: "Marketing Technologist Manager",
+      Title: "IT manager / Software Engineer",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374963/Armstrong-Profile-Photo-Subarashi-1_aq86vi.png",
     },
-    {
-      Name: "Dafne",
-      Title: "Recruiter",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Dafne-Profile-Photo-Subarashi_teot1x.png",
-    },
+
     {
       Name: "Yina",
       Title: "Accounts Assistant",
@@ -109,20 +92,6 @@ export default function AboutUs() {
       Title: "Holiday Homes Operations Specialist",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374956/Erica-Profile-Photo-Subarashi_vs25qr.png",
-    },
-
-    {
-      Name: "Shahd",
-      Title: "Telesales",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374957/Shad-Profile-Photo-Subarashi-1_aozzr1.png",
-    },
-
-    {
-      Name: "Aasma",
-      Title: "Videographer & Photographer",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742375575/Aasma-Profile-Photo-Subarashi-1_t4hrsa.png",
     },
 
     {
