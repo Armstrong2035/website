@@ -45,7 +45,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual Rent
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.annualRent)}
@@ -74,7 +74,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Property Price
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.propertyPrice)}
@@ -133,7 +133,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Deposit
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {formatCurrency(inputs.deposit)}
@@ -162,7 +162,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Mortgage Period
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.mortgagePeriod}
@@ -191,7 +191,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Interest Rate
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.interestRate}
@@ -220,7 +220,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual home price growth rate
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.homePriceGrowthRate}
@@ -249,7 +249,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           Annual rent growth rate
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.rentGrowthRate}
@@ -278,7 +278,7 @@ export default function CalculatorInputs({ inputs, onInputChange }) {
         <Typography sx={{ ...typographyStyles.cardTitle, fontWeight: 600, color: "#005244", mb: 1, lineHeight: "normal" }}>
           How long are you planning to stay in Dubai?
         </Typography>
-       <Box sx={{ backgroundColor: "#ffffff", paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
+       <Box sx={{  paddingBottom: 0, paddingTop: 1.5, borderRadius: "4px" }}>
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0 }}>
           <Typography sx={{ ...typographyStyles.displayMedium, fontSize: { xs: "1.2rem", md: "1.5rem"}, lineHeight: 0.6, textAlign: "left" }}>
             {inputs.stayDuration}

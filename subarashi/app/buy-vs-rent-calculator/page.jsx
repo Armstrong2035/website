@@ -36,12 +36,7 @@ export default function RentVsBuyCalculator() {
 
   return (
     <Box>
-      <NavBar
-        color="#005244"
-        hoverColor="#F2FFC2"
-        hoverBackground={"#005244"}
-        buttonColor={"#005244"}
-      />
+  <NavBar buttonColor={"#F2FFC2"} />
       
       {/* Calculator Section */}
       <Box sx={{
@@ -58,15 +53,30 @@ export default function RentVsBuyCalculator() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
+          backgroundColor: "#005244",
+          opacity: 0.7,
         }} />
         
         {/* Content */}
-        <Container maxWidth="xl" sx={{ position: "relative" }}>
-          <Typography sx={{ ...typographyStyles.displayLarge, mb: 2, color: "#1a1a1a", lineHeight: "90px", color: "#005244", textAlign: "center" }}>
+        <Container maxWidth="xl" sx={{ position: "relative", mt: 5, }}>
+          <Typography sx={{ ...typographyStyles.displayLarge, mb: 2, lineHeight: "90px", textAlign: "center", color: "#F2FFC2",
+              fontSize: {
+                xs: "24px",
+                sm: "32px",
+                md: "48px",
+              },
+              lineHeight: {
+                xs: "32px",
+                sm: "40px",
+                md: "56px",
+              },
+              textAlign: "center",
+              maxWidth: "800px",
+              margin: "0 auto",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)", }}>
             Buy vs Rent Calculator
           </Typography>
-          <Typography sx={{ ...typographyStyles.featureText, color: "#666", mb: 6,  textAlign: "center",  }}>
+          <Typography sx={{ ...typographyStyles.featureText, color: "#F2FFC2", mb: 6,  textAlign: "center",  }}>
             If you're thinking about buying a property instead of continuing to rent, use our buy-to-rent calculator to
             help you determine which option is more beneficial for you.
           </Typography>
