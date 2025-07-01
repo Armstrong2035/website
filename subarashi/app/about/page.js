@@ -34,7 +34,7 @@ export default function AboutUs() {
 
     {
       Name: "Jauad",
-      Title: "Investment Consultant",
+      Title: "Sales Team Manager",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374964/Luri_gwnrvk.png",
     },
