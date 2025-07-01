@@ -152,7 +152,7 @@ export default function Calculator() {
                     fontSize: "12px",
                   }}
                 >
-                  * Subarashi charges a 20% premium on monthly rent.
+                  * Subarashi charges a 10% premium on monthly rent.
                 </Typography>
               </Box>
 
