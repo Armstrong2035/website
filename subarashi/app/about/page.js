@@ -47,13 +47,6 @@ export default function AboutUs() {
     },
 
     {
-      Name: "Oliver",
-      Title: "Investment Consultant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Oliver-Profile-Photo-Subarashi-1_czgx1x.png",
-    },
-
-    {
       Name: "Ola",
       Title: "Investment Consultant",
       ImageUrl:
@@ -65,20 +58,6 @@ export default function AboutUs() {
       Title: "Investment Consultant",
       ImageUrl:
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1747632523/Mohammed_azlf2l.png",
-    },
-
-    {
-      Name: "Daryl",
-      Title: "Investment Consultant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631299/Daryl_ihrniq.png",
-    },
-
-    {
-      Name: "Hamza",
-      Title: "Investment Advisor",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631297/Hamza_lbc50h.png",
     },
 
     {
