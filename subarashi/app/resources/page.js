@@ -49,7 +49,7 @@ export default function ResourcesPage() {
         hoverBackground={"#005244"}
         buttonColor={"#005244"}
       />
-    <Container maxWidth="lg" sx={{ pl: 10, pr: 10, mt: 15, mb: 10 }}>
+    <Container maxWidth="lg" sx={{ pl: { xs: 2, md: 10 }, pr: { xs: 2, md: 10 }, mt: { xs: 8, md: 15 }, mb: { xs: 4, md: 10 } }}>
 
       <Typography
         variant="h3"
@@ -58,7 +58,8 @@ export default function ResourcesPage() {
           mb: 4,
           fontWeight: 500,
           color: "#333",
-          fontSize: { xs: "2rem", md: "2.5rem" },
+          fontSize: { xs: "1.6rem", md: "2.5rem" },
+          textAlign: { xs: "center", md: "left" },
         }}
       >
         Resources
@@ -73,23 +74,31 @@ export default function ResourcesPage() {
                 overflow: "hidden",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                 transition: "transform 0.2s ease-in-out",
-                "&:hover": {
+                '&:hover': {
                   transform: "translateY(-2px)",
                   boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
                 },
               }}
             >
-              <Box sx={{ display: "flex", minHeight: 280 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  minHeight: { xs: 0, md: 280 },
+                }}
+              >
                 {/* Left side - Image */}
-                <Box sx={{ flex: 1 }}>
+                <Box sx={{ flex: 1, minWidth: 0 }}>
                   <CardMedia
                     component="img"
-                    height="280"
+                    height={isMobile ? 180 : 280}
                     image={card.image}
                     alt={card.alt}
                     sx={{
                       objectFit: "cover",
-                      height: "100%",
+                      width: "100%",
+                      height: { xs: 180, md: "100%" },
+                      maxHeight: { xs: 180, md: 400 },
                     }}
                   />
                 </Box>
@@ -97,7 +106,7 @@ export default function ResourcesPage() {
                 <Box
                   sx={{
                     flex: 1,
-                    p: 4,
+                    p: { xs: 2, md: 4 },
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -113,7 +122,8 @@ export default function ResourcesPage() {
                         ...typographyStyles.cardHeader,
                         mb: 2,
                         color: "#333",
-                        fontSize: { xs: "1.5rem", md: "2rem" },
+                        fontSize: { xs: "1.1rem", md: "2rem" },
+                        textAlign: { xs: "center", md: "left" },
                       }}
                     >
                       {card.title}
@@ -125,7 +135,8 @@ export default function ResourcesPage() {
                         mb: 3,
                         color: "#666",
                         lineHeight: 1.6,
-                        fontSize: "1.1rem",
+                        fontSize: { xs: "0.98rem", md: "1.1rem" },
+                        textAlign: { xs: "center", md: "left" },
                       }}
                     >
                       {card.description}
@@ -140,16 +151,17 @@ export default function ResourcesPage() {
                         color: "#333",
                         fontWeight: 600,
                         textTransform: "none",
-                        fontSize: "1.1rem",
+                        fontSize: { xs: "1rem", md: "1.1rem" },
                         p: 0,
-                        alignSelf: "flex-start",
-                        "&:hover": {
+                        alignSelf: { xs: "center", md: "flex-start" },
+                        mt: { xs: 1, md: 0 },
+                        '&:hover': {
                           backgroundColor: "transparent",
-                          "& .MuiSvgIcon-root": {
+                          '& .MuiSvgIcon-root': {
                             transform: "translateX(4px)",
                           },
                         },
-                        "& .MuiSvgIcon-root": {
+                        '& .MuiSvgIcon-root': {
                           transition: "transform 0.2s ease",
                         },
                       }}
