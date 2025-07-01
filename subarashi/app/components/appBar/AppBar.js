@@ -60,7 +60,7 @@ export default function NavBar({
     { title: "Lease", route: "/Listings/lease", icon: <ApartmentIcon /> },
     { title: "Offplan Projects", route: "/offplan", icon: <BusinessIcon /> },
     { title: "Holiday Homes", route: "/holiday-homes", icon: <HolidayVillageIcon /> },
-    { title: "Area Guides", route: "/areaGuides", icon: <ExploreIcon /> },
+    { title: "Resources", route: "/resources", icon: <ExploreIcon /> },
     { title: "Team", route: "/about", icon: <GroupsIcon /> },
   ];
 

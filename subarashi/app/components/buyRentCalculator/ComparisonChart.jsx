@@ -93,10 +93,10 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)", }}>
+              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#fff", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)", }}>
                 Buy Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
+              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#fff", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(buyMonthlyCost)}
               </Typography>
             </Paper>
@@ -109,7 +109,7 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
               sx={{
                 width: "100%",
                 height: `${(rentMonthlyCost / maxValue) * CHART_HEIGHT}px`,
-                backgroundColor: "#fff",
+                backgroundColor: "#a5a5a5",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -119,10 +119,10 @@ export default function ComparisonChart({ buyMonthlyCost, rentMonthlyCost }) {
                 borderTopRightRadius: 15,
               }}
             >
-              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
+              <Typography variant="body2" sx={{ ...typographyStyles.cardTitle, color: "#fff", fontWeight: "bold", position: "absolute", top: "40%", transform: "translateY(-50%)" }}>
                 Rent Monthly Cost
               </Typography>
-              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#000", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
+              <Typography variant="h6" sx={{ ...typographyStyles.cardTitle, color: "#fff", fontWeight: "bold", position: "absolute", top: "50%", transform: "translateY(-50%)" }}>
                 AED {formatCurrency(rentMonthlyCost)}
               </Typography>
             </Paper>

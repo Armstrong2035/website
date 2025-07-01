@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Typography, Button, Stack, Paper } from "@mui/material"
+import { Box, Typography, Button, Stack, Paper, Tabs, Tab } from "@mui/material"
 import ComparisonChart from "./ComparisonChart"
 import typographyStyles from "../../styles"
 
@@ -47,42 +47,36 @@ export default function ResultsDisplay({ results, activeBreakdown, onBreakdownCh
           Cost Breakdown
         </Typography>
 
-        <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
-          <Button
-            variant={activeBreakdown === "rent" ? "contained" : "outlined"}
-            onClick={() => onBreakdownChange("rent")}
+        <Box sx={{ mb: 3 }}>
+          <Tabs
+            value={activeBreakdown === "rent" ? 0 : 1}
+            onChange={(_, newValue) => onBreakdownChange(newValue === 0 ? "rent" : "buy")}
+            textColor="inherit"
+            TabIndicatorProps={{ style: { background: "#4caf50" } }}
             sx={{
-              ...typographyStyles.button,
-              flex: 1,
-              backgroundColor: activeBreakdown === "rent" ? "#e0f7dc" : "transparent",
-              borderColor: "#4caf50",
-              color: activeBreakdown === "rent" ? "#005244" : "#fff",
-              "&:hover": {
-                backgroundColor: activeBreakdown === "rent" ? "#004235" : "#f1f8e9",
-                color: activeBreakdown === "rent" ? "#fff" : "#4caf50",
+              backgroundColor: "#005244",
+              borderRadius: 2,
+              minHeight: 48,
+              '& .MuiTab-root': {
+                flex: 1,
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: { xs: '1rem', md: '1.1rem' },
+                textTransform: 'none',
+                borderRadius: 2,
+                transition: 'background 0.2s',
+                '&.Mui-selected': {
+                  color: '#005244',
+                  backgroundColor: '#e0f7dc',
+                },
               },
             }}
+            variant="fullWidth"
           >
-            Rent Cost Breakdown
-          </Button>
-          <Button
-            variant={activeBreakdown === "buy" ? "contained" : "outlined"}
-            onClick={() => onBreakdownChange("buy")}
-            sx={{
-              ...typographyStyles.button,
-              flex: 1,
-              backgroundColor: activeBreakdown === "buy" ? "#e0f7dc" : "transparent",
-              borderColor: "#4caf50",
-              color: activeBreakdown === "buy" ? "#005244" : "#fff",
-              "&:hover": {
-                backgroundColor: activeBreakdown === "buy" ? "#004235" : "#f1f8e9",
-                color: activeBreakdown === "buy" ? "#fff" : "#4caf50",
-              },
-            }}
-          >
-            Buy Cost Breakdown
-          </Button>
-        </Stack>
+            <Tab label="Rent Cost Breakdown" />
+            <Tab label="Buy Cost Breakdown" />
+          </Tabs>
+        </Box>
 
         {activeBreakdown === "rent" ? (
           <Box>
