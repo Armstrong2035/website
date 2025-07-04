@@ -57,9 +57,14 @@ export default function NavBar({
   };
 
   const navItems = [
+    { title: "Sales", route: "/Listings/sales", icon: <ApartmentIcon /> },
     { title: "Lease", route: "/Listings/lease", icon: <ApartmentIcon /> },
     { title: "Offplan Projects", route: "/offplan", icon: <BusinessIcon /> },
-    { title: "Holiday Homes", route: "/holiday-homes", icon: <HolidayVillageIcon /> },
+    {
+      title: "Holiday Homes",
+      route: "/holiday-homes",
+      icon: <HolidayVillageIcon />,
+    },
     { title: "Resources", route: "/resources", icon: <ExploreIcon /> },
     { title: "Team", route: "/about", icon: <GroupsIcon /> },
   ];
@@ -191,13 +196,8 @@ export default function NavBar({
                     style={{ textDecoration: "none" }}
                     key={index}
                   >
-                    <MenuItem 
-                      onClick={handleCloseNavMenu}
-                      sx={menuItemStyles}
-                    >
-                      <ListItemIcon>
-                        {item.icon}
-                      </ListItemIcon>
+                    <MenuItem onClick={handleCloseNavMenu} sx={menuItemStyles}>
+                      <ListItemIcon>{item.icon}</ListItemIcon>
                       <Typography
                         sx={{
                           ...typographyStyles.bodyMedium,
