@@ -13,12 +13,12 @@ export default function OffPlanProjectsPage() {
   const [hoveredCardId, setHoveredCardId] = useState(null);
 
   const offplanProjects = [
-    {
-      title: "Damac Riverside",
-      imageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1745581249/MARRIOTT_JVC_-_PRESENTATION-Medium_NEW_2-86_vhbgnv.jpg",
-      link: "https://damacriverside.subarashirealestate.com/",
-    },
+    // {
+    //   title: "Damac Riverside",
+    //   imageUrl:
+    //     "https://res.cloudinary.com/dulafqaoq/image/upload/v1745581249/MARRIOTT_JVC_-_PRESENTATION-Medium_NEW_2-86_vhbgnv.jpg",
+    //   link: "https://damacriverside.subarashirealestate.com/",
+    // },
     {
       title: "Sobha One",
       imageUrl:

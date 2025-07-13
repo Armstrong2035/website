@@ -142,13 +142,15 @@ export default function NavBar({
                 height: 60,
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "center",
                 borderRadius: "50px",
               }}
             >
               <Image
                 src={hover || isMobile ? logo : logoGreen}
                 alt="Subarashi Real Estate"
-                fill
+                width={140}
+                height={50}
                 style={{
                   objectFit: "contain",
                 }}

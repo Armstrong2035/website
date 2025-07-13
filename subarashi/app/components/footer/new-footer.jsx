@@ -163,7 +163,7 @@ const Footer = () => {
                   />
                 </Box>
               </Grid2>
-              <Grid2 item xs={12} md={8}>
+              {/* <Grid2 item xs={12} md={8}>
                 {offPlanProperties.map((property, index) => (
                   <Link
                     href={property.url}
@@ -186,7 +186,7 @@ const Footer = () => {
                     </ProjectLine>
                   </Link>
                 ))}
-              </Grid2>
+              </Grid2> */}
             </Grid2>
           </Grid2>
 
