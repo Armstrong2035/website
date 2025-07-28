@@ -134,6 +134,18 @@ const Footer = () => {
       name: "Palm Jebel Ali Villas",
       url: "https://palmjebelali.subarashirealestate.com/",
     },
+    {
+      name: "JW Marriott Five",
+      url: "https://jw-marriot-five.vercel.app/",
+    },
+    {
+      name: "Terra Heights",
+      url: "https://terra-heights.vercel.app/",
+    },
+    {
+      name: "Vela Dorchester",
+      url: "https://veladorchester.subarashirealestate.com/",
+    },
   ];
 
   return (
@@ -163,30 +175,31 @@ const Footer = () => {
                   />
                 </Box>
               </Grid2>
-              {/* <Grid2 item xs={12} md={8}>
+              <Grid2 item xs={12} md={8}>
                 {offPlanProperties.map((property, index) => (
                   <Link
                     href={property.url}
                     key={index}
                     passHref
-                    style={{ textDecoration: "none" }}
+                    style={{
+                      textDecoration: "none",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
                   >
-                    <ProjectLine>
-                      <LineIndicator />
-                      <Typography
-                        sx={{
-                          ...typographyStyles.bodySmall,
-                          mb: 2,
-                          fontWeight: 400,
-                          color: "#005244",
-                        }}
-                      >
-                        {property.name}
-                      </Typography>
-                    </ProjectLine>
+                    <Typography
+                      sx={{
+                        ...typographyStyles.bodySmall,
+                        mb: 2,
+                        fontWeight: 400,
+                        color: "#005244",
+                      }}
+                    >
+                      {property.name}
+                    </Typography>
                   </Link>
                 ))}
-              </Grid2> */}
+              </Grid2>
             </Grid2>
           </Grid2>
 
