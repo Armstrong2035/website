@@ -100,6 +100,16 @@ export default function NavBar({
     },
   };
 
+  const logoSrc = () => {
+    if (hover || isMobile) {
+      return logo;
+    }
+    if (color === "#005244") {
+      return logoGreen;
+    }
+    return logo;
+  };
+
   return (
     <Box
       component="header"
@@ -147,7 +157,7 @@ export default function NavBar({
               }}
             >
               <Image
-                src={hover || isMobile ? logo : logo}
+                src={logoSrc()}
                 alt="Subarashi Real Estate"
                 width={140}
                 height={50}
