@@ -83,7 +83,7 @@ export default function OffPlanProjectsPage() {
           Discover Off-Plan Projects in Dubai
         </Typography>
 
-        <Box sx={{ mb: 6, maxWidth: { xs: "100%", md: "70%" }, mx: "auto" }}>
+        <Box sx={{ mb: 6, maxWidth: { xs: "100%", md: "70%" } }}>
           <Typography
             variant="body1"
             sx={{
