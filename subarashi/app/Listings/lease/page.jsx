@@ -126,7 +126,7 @@ export default function PropertyListings() {
                   md={4}
                   key={index}
                   sx={{
-                    transition: "filter 0.3s ease, transform 0.3s ease",
+                    transition: "filter 0.2s ease, transform 0.1s ease",
                     filter:
                       hoveredCardId && hoveredCardId !== index
                         ? "blur(3px)"
