@@ -147,7 +147,7 @@ export default function NavBar({
               }}
             >
               <Image
-                src={hover || isMobile ? logo : logoGreen}
+                src={hover || isMobile ? logo : logo}
                 alt="Subarashi Real Estate"
                 width={140}
                 height={50}
