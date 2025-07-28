@@ -210,10 +210,10 @@ const Footer = () => {
                 onChange={handleEmailChange}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end">
-                      <Icon edge="end" type="submit">
+                    <InputAdornment position="end" onClick={handleSubmit}>
+                      <IconButton edge="end" type="submit">
                         <TrendingFlatOutlined />
-                      </Icon>
+                      </IconButton>
                     </InputAdornment>
                   ),
                 }}
