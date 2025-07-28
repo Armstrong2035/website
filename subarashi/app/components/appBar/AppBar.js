@@ -262,6 +262,7 @@ export default function NavBar({
                 buttonStyle={buttonStyle}
                 buttonColor={buttonColor}
                 hover={hover}
+                varaiantStyle="text"
               />
             </Box>
           )}

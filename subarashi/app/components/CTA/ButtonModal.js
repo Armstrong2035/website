@@ -189,7 +189,11 @@ const ButtonModal = ({
       <Button
         onClick={handleOpen}
         variant={variantStyle}
-        sx={{ ...buttonStyle, color: hover ? "#F2FFC2" : buttonColor }}
+        sx={{
+          ...buttonStyle,
+          color: hover ? "#F2FFC2" : buttonColor,
+          textTransform: "none",
+        }}
         className={`${variantStyle}-button`}
       >
         {buttonText}
