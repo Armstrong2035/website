@@ -12,6 +12,8 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import typographyStyles from "../../styles";
+import ButtonModal from "../CTA/ButtonModal";
+import { buttonStyle } from "../appBar/AppBar";
 
 export default function ListingAgent({ listing }) {
   return (
@@ -66,7 +68,22 @@ export default function ListingAgent({ listing }) {
           >
             Investment Consultant
           </Typography>
-          <Stack direction={"row"} alignItems={"center"} spacing={2} mt={2}>
+          <Box
+            sx={{
+              display: "flex",
+              mt: 1,
+              alignItems: "flexStart",
+              justifyContent: "flexStart",
+            }}
+          >
+            {/* <ButtonModal
+              buttonText="Contact Jauad"
+              style="text"
+              buttonColor={"#005244"}
+              varaiant="contained"
+            /> */}
+          </Box>
+          {/* <Stack direction={"row"} alignItems={"center"} spacing={2} mt={2}>
             <Typography
               component="a"
               href={`mailto:${listing?.agent?.email}?subject=Inquiry about your listing&body=Hi ${listing?.agent?.name}`}
@@ -79,7 +96,7 @@ export default function ListingAgent({ listing }) {
               Contact
             </Typography>
             <ArrowForwardIcon sx={{ color: "#005244" }} />
-          </Stack>
+          </Stack> */}
         </Box>
       </Box>
     </Box>

@@ -26,6 +26,17 @@ import logoGreen from "../../../public/logos/logoGreen.png";
 import ButtonModal from "../CTA/ButtonModal";
 import typographyStyles from "../../styles";
 
+export const buttonStyle = {
+  ...typographyStyles.bodyMedium,
+  fontSize: "16px",
+  fontWeight: 500,
+  lineHeight: "107.7%",
+  ml: 3,
+  color: "#F2FFC2",
+  borderColor: "#F2FFC2",
+  borderRadius: "20px",
+};
+
 export default function NavBar({
   color = "#F2FFC2",
   hoverColor = "#F2FFC2",
@@ -36,17 +47,6 @@ export default function NavBar({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [hover, setHover] = useState(false);
-
-  const buttonStyle = {
-    ...typographyStyles.bodyMedium,
-    fontSize: "16px",
-    fontWeight: 500,
-    lineHeight: "107.7%",
-    ml: 3,
-    color: "#F2FFC2",
-    borderColor: "#F2FFC2",
-    borderRadius: "20px",
-  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

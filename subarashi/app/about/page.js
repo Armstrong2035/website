@@ -50,7 +50,7 @@ export default function AboutUs() {
       Name: "Ola",
       Title: "Investment Consultant",
       ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1747631297/Banks_uhjrtb.png",
+        "https://res.cloudinary.com/dulafqaoq/image/upload/v1753780059/Simon_dqstod.jpg",
     },
 
     {

@@ -72,7 +72,7 @@ const ButtonModal = ({
   buttonText,
   buttonStyle,
   buttonColor,
-  variantStyle,
+  variant,
   hover,
 }) => {
   const [open, setOpen] = useState(false);
@@ -188,13 +188,12 @@ const ButtonModal = ({
     <>
       <Button
         onClick={handleOpen}
-        variant={variantStyle}
+        variant={variant}
         sx={{
           ...buttonStyle,
           color: hover ? "#F2FFC2" : buttonColor,
           textTransform: "none",
         }}
-        className={`${variantStyle}-button`}
       >
         {buttonText}
       </Button>
