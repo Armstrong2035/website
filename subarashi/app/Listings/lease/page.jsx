@@ -159,22 +159,6 @@ export default function PropertyListings() {
                           aspectRatio: "16/10",
                         }}
                       />
-                      {/* <Chip
-                      label={"For sale"}
-                      size="small"
-                      sx={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        backgroundColor: "#005e46",
-                        color: "white",
-                        fontWeight: "bold",
-                        fontSize: "0.75rem",
-                        borderRadius: "0 0 0 0",
-                        ...typographyStyles.bodySmall,
-                      }}
-                      fontFamily
-                    /> */}
                     </Box>
                     <CardContent sx={{ p: 1, pt: 2 }}>
                       <Typography
@@ -230,18 +214,6 @@ export default function PropertyListings() {
                             beds
                           </Typography>
                         </Box>
-                        {/* <Box>
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontWeight: 400 }}
-                        >
-                          {" "}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          kitchen
-                        </Typography>
-                      </Box> */}
                         <Box>
                           <Typography
                             variant="body2"
