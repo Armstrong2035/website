@@ -46,12 +46,12 @@ export default function AboutUs() {
         "https://res.cloudinary.com/dulafqaoq/image/upload/v1742374962/Kamaal-Profile-Photo-Subarashi_fe3gde.png",
     },
 
-    {
-      Name: "Ola",
-      Title: "Investment Consultant",
-      ImageUrl:
-        "https://res.cloudinary.com/dulafqaoq/image/upload/v1753780059/Simon_dqstod.jpg",
-    },
+    // {
+    //   Name: "Ola",
+    //   Title: "Investment Consultant",
+    //   ImageUrl:
+    //     "https://res.cloudinary.com/dulafqaoq/image/upload/v1753780059/Simon_dqstod.jpg",
+    // },
 
     {
       Name: "Mohammed",
