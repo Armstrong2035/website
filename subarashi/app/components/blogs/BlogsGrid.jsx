@@ -75,9 +75,7 @@ export default function BlogsGrid({ guides }) {
       {displayGuides.map((guide) => (
         <Grid
           item
-          xs={12}
-          sm={6}
-          md={4}
+          size={{ xs: 12, sm: 6, md: 4 }}
           key={guide.id}
           sx={{
             transition: "filter 0.3s ease, transform 0.3s ease",

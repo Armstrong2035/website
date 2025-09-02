@@ -1,22 +1,16 @@
 "use client";
 
 import { Description, InstallMobile } from "@mui/icons-material";
-import {
-  Button,
-  Typography,
-  Box,
-  Stack,
-  Grid2,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Button, Typography, Box, Stack, Grid } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
 import Link from "next/link";
+import { useIsMobile } from "../../../../providers/MobileProvider";
 
 export default function Title() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
   const titleItems = {
     title: "Featured Listings",
     description:
@@ -25,7 +19,7 @@ export default function Title() {
   };
 
   return (
-    <Grid2
+    <Grid
       container
       direction={"row"}
       alignItems={"center"}
@@ -33,7 +27,7 @@ export default function Title() {
       sx={{ pr: 10, pl: 10, mt: 7, mb: 7 }}
       spacing={7}
     >
-      <Grid2 item size={{ lg: 6 }}>
+      <Grid item lg={6}>
         <Typography
           sx={{
             ...typographyStyles.displayLarge,
@@ -48,9 +42,9 @@ export default function Title() {
         <Typography sx={{ ...typographyStyles.featureText, color: "#005244" }}>
           {titleItems.description}
         </Typography>
-      </Grid2>
+      </Grid>
 
-      <Grid2
+      <Grid
         item
         size={{ lg: 6 }}
         justifySelf={"flex-end"}
@@ -74,7 +68,7 @@ export default function Title() {
             View all listings
           </Button>
         </Link>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 }

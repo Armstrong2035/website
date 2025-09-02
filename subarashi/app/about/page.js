@@ -4,10 +4,11 @@ import OurMission from "../components/about/OurMission";
 import OurVision from "../components/about/OurVision";
 import { Divider } from "@mui/material";
 import WhatWeDo from "../components/about/WhatWeDo";
-import WhatMakesUsDifferent from "../components/about/WhatMakesUsDifferent";
+//import WhatMakesUsDifferent from "../components/about/WhatMakesUsDifferent";
 import Footer from "../components/footer/new-footer";
 import Introduction from "../components/about/Introduction";
 import TeamSection from "../components/about/OurTeam/TeamSection";
+import ClientNavBar from "../components/appBar/ClientNavBar";
 
 export const revalidate = 2592000;
 
@@ -104,7 +105,7 @@ export default function AboutUs() {
 
   return (
     <div>
-      <NavBar buttonColor={"#F2FFC2"} />
+      <ClientNavBar buttonColor={"#F2FFC2"} />
 
       <Hero />
 

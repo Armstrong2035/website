@@ -1,18 +1,13 @@
 "use client";
 
-import {
-  Box,
-  Typography,
-  useMediaQuery,
-  useTheme,
-  Stack,
-  Divider,
-} from "@mui/material";
+import { Box, Typography, Stack, Divider } from "@mui/material";
 import typographyStyles from "../../styles";
+import { useIsMobile } from "../../providers/MobileProvider";
 
 export default function WhatWeDo() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
 
   const services = [
     { title: "PROPERTY SALES" },

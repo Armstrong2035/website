@@ -7,7 +7,7 @@ import {
   Typography,
   TextField,
   IconButton,
-  Grid2,
+  Grid,
   Divider,
   Link as MuiLink,
   InputAdornment,
@@ -117,7 +117,7 @@ const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Subscribing email:", email);
+    // console.log("Subscribing email:", email);
     setEmail("");
   };
 
@@ -152,16 +152,16 @@ const Footer = () => {
     <FooterContainer>
       <BackgroundImage />
       <ContentContainer maxWidth="lg">
-        <Grid2 container spacing={4}>
-          <Grid2 items size={{ xs: 12, md: 4 }}>
-            <Grid2
+        <Grid container spacing={4}>
+          <Grid items xs={12} md={4}>
+            <Grid
               container
               spacing={2}
               alignItems="center"
               justifyContent="start"
               sx={{ mb: 4 }}
             >
-              <Grid2
+              <Grid
                 item
                 xs={12}
                 md={4}
@@ -174,8 +174,8 @@ const Footer = () => {
                     style={{ width: "100%", height: "100%" }}
                   />
                 </Box>
-              </Grid2>
-              <Grid2 item xs={12} md={8}>
+              </Grid>
+              <Grid item xs={12} md={4}>
                 {offPlanProperties.map((property, index) => (
                   <Link
                     href={property.url}
@@ -199,13 +199,13 @@ const Footer = () => {
                     </Typography>
                   </Link>
                 ))}
-              </Grid2>
-            </Grid2>
-          </Grid2>
+              </Grid>
+            </Grid>
+          </Grid>
 
-          <Grid2 item size={{ xs: 12, md: 4 }} />
+          <Grid item xs={12} md={4} />
 
-          <Grid2 item size={{ xs: 12, md: 4 }} sx={{}}>
+          <Grid item xs={12} md={4} sx={{}}>
             <Typography
               variant="body1"
               sx={{ ...typographyStyles.bodySmall, mb: 2, fontWeight: 400 }}
@@ -250,24 +250,24 @@ const Footer = () => {
             >
               Phone: +971 4 5725275
             </Typography>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
 
         <Divider sx={{ my: 6 }} />
 
-        <Grid2
+        <Grid
           container
           spacing={2}
           alignItems="center"
           justifyContent="space-between"
         >
-          <Grid2 item xs={12} md={3}>
+          <Grid item xs={12} md={3}>
             <Typography variant="body2" color="textSecondary">
               SUBARASHI REAL ESTATE BROKERAGE L.L.C
             </Typography>
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Box
               sx={{ display: "flex", justifyContent: "end", flexWrap: "wrap" }}
             >
@@ -296,9 +296,9 @@ const Footer = () => {
                 Instagram
               </SocialLink>
             </Box>
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Box
               sx={{
                 display: "flex",
@@ -312,8 +312,8 @@ const Footer = () => {
                 Terms & Conditions
               </SocialLink>
             </Box>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </ContentContainer>
     </FooterContainer>
   );

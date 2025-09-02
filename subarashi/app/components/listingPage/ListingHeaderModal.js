@@ -1,151 +1,160 @@
 import React, { useState } from "react";
-import { Box, IconButton, Typography, Modal, Container } from "@mui/material";
+import { Box, Grid, Typography, IconButton } from "@mui/material";
+import Image from "next/image";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import CloseIcon from "@mui/icons-material/Close";
-import EastIcon from "@mui/icons-material/East";
-import WestIcon from "@mui/icons-material/West";
-
 import typographyStyles from "../../styles";
 
-export default function ListingHeaderModal({ listing, open, setOpen }) {
+export default function ListingHero({ listing }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleNextImage = () => {
-    if (!listing || !listing.media || !listing.media.length) return;
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === listing.media.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % listing.media.pictures.length
     );
   };
 
   const handlePrevImage = () => {
-    if (!listing || !listing.media || !listing.media.length) return;
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? listing.media.length - 1 : prevIndex - 1
+    setCurrentImageIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + listing.media.pictures.length) %
+        listing.media.pictures.length
     );
   };
 
-  // Reset the current image index when the modal is opened
-  React.useEffect(() => {
-    if (open) {
-      setCurrentImageIndex(0);
-    }
-  }, [open]);
+  if (!listing || !listing.media || !listing.media.pictures.length) {
+    return (
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "60vh", sm: "70vh", md: "100vh" },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        <Typography
+          sx={{
+            ...typographyStyles.bodyLarge,
+            color: "#005244",
+          }}
+        >
+          Loading property details...
+        </Typography>
+      </Box>
+    );
+  }
+
+  const heroImage = listing.media.pictures[currentImageIndex].file.url;
 
   return (
-    <Modal
-      open={open}
-      onClose={() => setOpen(false)}
+    <Box
       sx={{
+        position: "relative",
+        width: "100%",
+        height: { xs: "60vh", sm: "70vh", md: "100vh" },
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white", // Creates the whitespace
         overflow: "hidden",
-
-        height: "100vh",
-        width: "100vw",
-        backgroundColor: "white",
       }}
     >
+      {/* Image Container with constrained size */}
       <Box
         sx={{
           position: "relative",
           width: "100%",
           height: "100%",
+          maxWidth: "70%", // Constrains the width on large screens
+          maxHeight: { xs: "60vh", md: "80vh" }, // Constrains the height
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "white",
+          alignItems: "center",
         }}
       >
-        {/* Close button (top right) */}
+        <Image
+          src={heroImage}
+          alt={`${listing.title || "Property"} main image`}
+          fill={true}
+          priority={true}
+          sizes="(max-width: 600px) 90vw, (max-width: 960px) 80vw, 70vw"
+          quality={90}
+          style={{
+            objectFit: "contain", // Prevents upscaling and pixelation
+            objectPosition: "center",
+          }}
+        />
+        {/* Navigation Buttons on top of the image container */}
         <IconButton
-          onClick={() => setOpen(false)}
+          onClick={handlePrevImage}
           sx={{
             position: "absolute",
-            right: 20,
-            top: 20,
-            bgcolor: "#005244",
-            "&:hover": { bgcolor: "rgba(0,0,0,0.2)" },
+            left: 0,
+            color: "white",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            "&:hover": { backgroundColor: "rgba(0,0,0,0.7)" },
           }}
         >
-          <CloseIcon
-            sx={{
-              color: "white",
-            }}
-          />
+          <ChevronLeftIcon sx={{ fontSize: { xs: 40, md: 60 } }} />
         </IconButton>
-
-        {/* Main image container */}
-        <Box
+        <IconButton
+          onClick={handleNextImage}
           sx={{
-            position: "relative",
-            width: "100%",
-            height: "80%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            position: "absolute",
+            right: 0,
+            color: "white",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            "&:hover": { backgroundColor: "rgba(0,0,0,0.7)" },
           }}
         >
-          <Box
-            component="img"
-            src={listing?.media?.[currentImageIndex] || ""}
-            alt={listing?.title || "Property image"}
-            sx={{
-              maxWidth: "90%",
-              maxHeight: "90%",
-              objectFit: "contain",
-            }}
-          />
-
-          {/* Navigation buttons */}
-          <IconButton
-            onClick={handlePrevImage}
-            sx={{
-              position: "absolute",
-              left: 20,
-              top: "50%",
-              transform: "translateY(-50%)",
-              bgcolor: "#005244",
-              "&:hover": { bgcolor: "rgba(0,0,0,0.2)" },
-            }}
-          >
-            <WestIcon sx={{ color: "white" }} />
-          </IconButton>
-
-          <IconButton
-            onClick={handleNextImage}
-            sx={{
-              position: "absolute",
-              right: 20,
-              top: "50%",
-              transform: "translateY(-50%)",
-              bgcolor: "#005244",
-              "&:hover": { bgcolor: "rgba(0,0,0,0.2)" },
-            }}
-          >
-            <EastIcon sx={{ color: "white" }} />
-          </IconButton>
-        </Box>
-
-        <Container
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "space-between",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography sx={{ ...typographyStyles.bodyLarge, color: "#005244" }}>
-            {listing.location.building}, {listing.location.locality},
-            {listing.location.city}
-          </Typography>
-          <Typography
-            sx={{ ...typographyStyles.bodyLarge, color: "#005244" }}
-          >{`${currentImageIndex + 1}/${listing.media.length + 1}`}</Typography>
-        </Container>
+          <ChevronRightIcon sx={{ fontSize: { xs: 40, md: 60 } }} />
+        </IconButton>
       </Box>
-    </Modal>
+
+      {/* Text and image count below the image container */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          padding: { xs: "20px", md: "40px" },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "space-between",
+          alignItems: { xs: "flex-start", md: "flex-end" },
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.0))",
+        }}
+      >
+        {/* <Typography
+          sx={{
+            ...typographyStyles.bannerText,
+            fontSize: { xs: "28px", sm: "42px", md: "44px" },
+            fontWeight: 300,
+            color: "white",
+            mb: { xs: 1, md: 0 },
+          }}
+        >
+          {`${listing.location.bayut.buildingName || ""}, 
+    ${listing.location.bayut.community || ""}, 
+    ${listing.location.bayut.subCommunity || ""}`}
+        </Typography> */}
+        <Typography
+          sx={{
+            ...typographyStyles.bannerText,
+            fontSize: { xs: "28px", sm: "42px", md: "20px" },
+            fontWeight: 300,
+            color: "white",
+          }}
+        >
+          {`${currentImageIndex + 1}/${listing.media.pictures.length}`}
+        </Typography>
+      </Box>
+    </Box>
   );
 }

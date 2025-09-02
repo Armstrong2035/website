@@ -58,9 +58,7 @@ export default function SalesListingsGrid({ listings, loading }) {
             >
               <Grid2
                 item
-                xs={12}
-                sm={6}
-                md={4}
+                size={{ xs: 12, sm: 6, md: 4 }}
                 sx={{
                   transition: "filter 0.3s ease, transform 0.3s ease",
                   filter:

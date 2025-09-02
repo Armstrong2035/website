@@ -72,7 +72,7 @@ export default function ListingNearby({ listing }) {
 
       <Grid container spacing={2}>
         {nearbyPlaces.map((place, index) => (
-          <Grid item xs={6} sm={4} md={3} key={index}>
+          <Grid item xs={6} md={4} lg={3} key={index}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               {place.icon}
               <Typography variant="body2">

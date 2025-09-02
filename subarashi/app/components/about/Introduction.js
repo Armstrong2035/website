@@ -1,12 +1,14 @@
 "use client";
 
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import icon from "../../../public/logos/icon.png";
+import { useIsMobile } from "../../providers/MobileProvider";
 
 export default function Introduction({ logoIcon, backgroundImage }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
 
   return (
     <Box
@@ -52,7 +54,7 @@ export default function Introduction({ logoIcon, backgroundImage }) {
           fontSize: isMobile ? "12px" : "18px",
           position: "relative",
           zIndex: 2, // Ensures it's above the overlay
-          color: theme.palette.text.primary,
+          // color: theme.palette.text.primary,
         }}
       >
         At Subarashi Real Estate, we go beyond the conventional real estate

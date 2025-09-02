@@ -8,17 +8,17 @@ import {
   CardMedia,
   Button,
   Box,
-  useTheme,
-  useMediaQuery,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import typographyStyles from "../styles";
 import NavBar from "../components/appBar/AppBar";
+import { useIsMobile } from "../providers/MobileProvider";
 
 export default function ResourcesPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useIsMobile();
 
   const cards = [
     {

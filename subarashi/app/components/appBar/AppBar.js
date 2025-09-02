@@ -8,8 +8,6 @@ import {
   Menu,
   MenuItem,
   Container,
-  useMediaQuery,
-  useTheme,
   ListItemIcon,
   Fade,
 } from "@mui/material";
@@ -25,6 +23,7 @@ import logo from "../../../public/logos/logo.png";
 import logoGreen from "../../../public/logos/logoGreen.png";
 import ButtonModal from "../CTA/ButtonModal";
 import typographyStyles from "../../styles";
+import { useIsMobile } from "../../providers/MobileProvider";
 
 export const buttonStyle = {
   ...typographyStyles.bodyMedium,
@@ -43,8 +42,10 @@ export default function NavBar({
   hoverBackground,
   buttonColor,
 }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const isMobile = useIsMobile();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [hover, setHover] = useState(false);
 

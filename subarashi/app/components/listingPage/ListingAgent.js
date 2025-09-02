@@ -16,6 +16,8 @@ import ButtonModal from "../CTA/ButtonModal";
 import { buttonStyle } from "../appBar/AppBar";
 
 export default function ListingAgent({ listing }) {
+  const broker = listing.broker;
+  console.log(broker);
   return (
     <Box sx={{ textAlign: "left", mb: 2, mt: 12 }}>
       {/* Agent Box with Image */}
@@ -34,8 +36,8 @@ export default function ListingAgent({ listing }) {
           }}
         >
           <Image
-            src={listing?.agent?.image}
-            alt={listing?.agent?.name}
+            src={broker.user.avatar}
+            alt={broker.first_name}
             fill
             style={{
               objectFit: "cover",
@@ -55,7 +57,7 @@ export default function ListingAgent({ listing }) {
               fontSize: "24px",
             }}
           >
-            {listing?.agent?.name || "Agent Name"}
+            {`${broker.first_name} ${broker.last_name} ` || "Agent Name"}
           </Typography>
           <Typography
             sx={{

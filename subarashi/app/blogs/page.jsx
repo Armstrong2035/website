@@ -6,14 +6,13 @@ import Footer from "../components/footer/new-footer";
 import BlogHeader from "../components/blogs/BlogHeaders";
 import BlogsGrid from "../components/blogs/BlogsGrid";
 
-
 // Generate static page with revalidation
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function AreaGuides() {
   const guides = await getAllAreaGuides();
 
-  console.log(guides);
+  //  console.log(guides);
 
   return (
     <Box>

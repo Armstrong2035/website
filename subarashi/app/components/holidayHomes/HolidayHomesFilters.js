@@ -75,7 +75,7 @@ export default function HolidayHomesFilter() {
         </Grid>
 
         {/* Check-in */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={4}>
           <Typography
             variant="body2"
             sx={{ ...typographyStyles.bodyMedium, mb: 1, ml: 1 }}
@@ -150,9 +150,7 @@ export default function HolidayHomesFilter() {
         {/* Search Button */}
         <Grid
           item
-          xs={12}
-          sm={6}
-          md={2}
+          size={{ xs: 12, sm: 6, md: 2 }}
           sx={{ display: "flex", alignItems: "flex-end" }}
         >
           <Button

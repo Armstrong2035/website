@@ -2,8 +2,10 @@ import localFont from "next/font/local";
 import { Red_Hat_Display } from "next/font/google";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Gorditas } from "next/font/google";
-
+import DataProvider from "./hooks/DataProvider";
 import Script from "next/script";
+import { MobileProvider } from "./providers/MobileProvider";
+
 export const metadata = {
   title:
     "Subarashi real estate | Luxury Real Estate Brokers, and Investment Managers",
@@ -163,7 +165,9 @@ export default function RootLayout({ children }) {
           overflowX: "hidden",
         }}
       >
-        {children}
+        <DataProvider>
+          <MobileProvider>{children}</MobileProvider>
+        </DataProvider>
       </body>
     </html>
   );

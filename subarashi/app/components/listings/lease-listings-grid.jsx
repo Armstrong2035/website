@@ -1,7 +1,7 @@
 "use client";
 import {
   Box,
-  Grid2,
+  Grid,
   Card,
   CardMedia,
   CardContent,
@@ -17,7 +17,7 @@ export default function LeaseListingsGrid({
   onMouseLeave,
 }) {
   return (
-    <Grid2
+    <Grid
       container
       spacing={3}
       sx={{
@@ -33,11 +33,9 @@ export default function LeaseListingsGrid({
           style={{ textDecoration: "none" }}
           key={index}
         >
-          <Grid2
+          <Grid
             item
-            xs={12}
-            sm={6}
-            md={4}
+            size={{ xs: 12, sm: 6, md: 4 }}
             sx={{
               transition: "filter 0.3s ease, transform 0.3s ease",
               filter:
@@ -141,9 +139,9 @@ export default function LeaseListingsGrid({
                 </Box>
               </CardContent>
             </Card>
-          </Grid2>
+          </Grid>
         </Link>
       ))}
-    </Grid2>
+    </Grid>
   );
 }

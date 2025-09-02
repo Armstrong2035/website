@@ -1,11 +1,11 @@
 "use client";
 
-import { Box, Typography, useMediaQuery, useTheme, Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import typographyStyles from "../../styles";
 
 export default function WhatMakesUsDifferent() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const values = [
     {

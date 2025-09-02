@@ -24,10 +24,10 @@ export async function getAllAreaGuides() {
 
     // Log the first page structure to help with debugging
     if (response.results.length > 0) {
-      console.log(
-        "First Notion page property names:",
-        Object.keys(response.results[0].properties).join(", ")
-      );
+      // console.log(
+      //   "First Notion page property names:",
+      //   Object.keys(response.results[0].properties).join(", ")
+      // );
     }
 
     const guides = response.results.map((page) => {

@@ -1,18 +1,14 @@
 "use client";
 
-import {
-  Typography,
-  Box,
-  Button,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Typography, Box, Button, useTheme } from "@mui/material";
 import typographyStyles from "../../../styles";
 import ButtonModal from "../../CTA/ButtonModal";
+import { useIsMobile } from "../../../providers/MobileProvider";
 
 export default function Inquiries() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
   const buttonStyle = {
     ...typographyStyles.button,
     backgroundColor: "#005244",
@@ -20,7 +16,6 @@ export default function Inquiries() {
   };
   return (
     <Box
-    
       sx={{
         backgroundColor: "#F2FFC2",
         display: "flex",

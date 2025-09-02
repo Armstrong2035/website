@@ -1,18 +1,13 @@
 "use client";
 
-import {
-  Box,
-  Typography,
-  Stack,
-  useMediaQuery,
-  useTheme,
-  Container,
-} from "@mui/material";
+import { Box, Typography, Stack, Container } from "@mui/material";
 import typographyStyles from "../../styles";
+import { useIsMobile } from "../../providers/MobileProvider";
 
 export default function Hero() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
 
   return (
     <Box

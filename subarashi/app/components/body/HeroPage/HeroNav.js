@@ -2,25 +2,26 @@ import {
   Box,
   Stack,
   Typography,
-  useMediaQuery,
   IconButton,
   Menu,
   MenuItem,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import MenuIcon from "@mui/icons-material/Menu";
+//import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import typographyStyles from "../../../styles";
 import { useState } from "react";
+import { useIsMobile } from "../../../providers/MobileProvider";
 
 export default function HeroNav() {
+  const isMobile = useIsMobile();
   const navItems = [
     { title: "Listings", href: "/Listings" },
     { title: "Holiday Homes", href: "/holiday-homes" },
     { title: "About us", href: "/about" },
   ];
   const item = "Area guides";
-  const isMobile = useMediaQuery("(max-width:768px)");
+  // const isMobile = useMediaQuery("(max-width:768px)");
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -139,43 +140,6 @@ export default function HeroNav() {
           <ArrowForwardIcon sx={{ color: "#F2FFC2" }} />
         </Stack>
       </Link>
-
-      {/* <Menu
-        id="mobile-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "mobile-menu-button",
-        }}
-        PaperProps={{
-          sx: {
-            backgroundColor: "#005244",
-            color: "#F2FFC2",
-          },
-        }}
-      >
-        {navItems.map((item, index) => (
-          <MenuItem
-            key={index}
-            onClick={handleClose}
-            component={Link}
-            href={`${item}`}
-            sx={{ textDecoration: "none" }}
-          >
-            <Typography
-              sx={{
-                ...typographyStyles.subheading,
-                color: "#F2FFC2",
-                fontSize: "16px",
-                lineHeight: "24px",
-              }}
-            >
-              {item}
-            </Typography>
-          </MenuItem>
-        ))}
-      </Menu> */}
     </Stack>
   );
 }

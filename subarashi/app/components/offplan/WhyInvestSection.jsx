@@ -43,7 +43,7 @@ export default function WhyInvestSection() {
   return (
     <Box sx={{ py: 8 }}>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={6}>
           <Box
             sx={{
               position: "relative",
@@ -59,7 +59,7 @@ export default function WhyInvestSection() {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={6}>
           <Box sx={{ pl: { md: 4 } }}>
             <Typography
               variant="h2"

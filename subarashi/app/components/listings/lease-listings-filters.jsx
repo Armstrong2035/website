@@ -91,8 +91,8 @@ export default function LeaseListingsFilters({ onFilterChange }) {
 
     setFilters(newFilters);
 
-    console.log("Filter changed:", field, value);
-    console.log("New filters:", newFilters);
+    // console.log("Filter changed:", field, value);
+    // console.log("New filters:", newFilters);
     if (onFilterChange) {
       onFilterChange(newFilters);
     }
@@ -102,7 +102,7 @@ export default function LeaseListingsFilters({ onFilterChange }) {
     <Paper elevation={0} sx={{ py: 3, mt: 8, borderRadius: 0 }}>
       <Container maxWidth="lg">
         <Grid container spacing={2} alignItems="flex-end">
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} lg={3}>
             {/*      <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"
@@ -140,9 +140,9 @@ export default function LeaseListingsFilters({ onFilterChange }) {
               </Select>
             </FormControl> */}
           </Grid>
-          <Grid item xs={12} sm={6} md={3} />
+          <Grid item xs={12} md={6} lg={3} />
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"
@@ -179,7 +179,7 @@ export default function LeaseListingsFilters({ onFilterChange }) {
             </FormControl>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <Box sx={{ mb: 1 }}>
               <Typography
                 variant="caption"

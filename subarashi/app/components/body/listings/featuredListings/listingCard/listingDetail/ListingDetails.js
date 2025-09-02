@@ -1,10 +1,12 @@
 import { Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import DetailBody from "./DetailBody";
 import typographyStyles from "../../../../../../styles";
+import { useIsMobile } from "../../../../../../providers/MobileProvider";
 
 export default function ListingDetails({ listing }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
 
   return (
     <Grid
@@ -16,8 +18,7 @@ export default function ListingDetails({ listing }) {
     >
       <Grid
         item
-        xs={12}
-        sm={6}
+        size={{ xs: 12, sm: 6 }}
         sx={{
           backgroundColor: "#005244",
           p: { xs: 2, sm: 2.5, md: 3 },
@@ -59,8 +60,7 @@ export default function ListingDetails({ listing }) {
 
       <Grid
         item
-        xs={12}
-        sm={6}
+        ize={{ xs: 12, sm: 6 }}
         sx={{
           backgroundColor: "#FFFFFF",
           p: { xs: 2, sm: 2, md: 2 },

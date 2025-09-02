@@ -28,7 +28,7 @@ export default function ListingDetails({ listing }) {
 
       <Grid container spacing={2} sx={{}}>
         {propertyDetails.map((detail, index) => (
-          <Grid item xs={6} md={6} key={index}>
+          <Grid item xs={6} sm={6} key={index}>
             <Box sx={{ mb: 2 }}>
               <Typography
                 sx={{ ...typographyStyles.priceRight }}

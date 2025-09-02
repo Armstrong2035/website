@@ -8,16 +8,6 @@ import { getAllAreaGuides } from "./lib/notion";
 export const revalidate = 3600;
 
 export default async function Home() {
-  // Try to fetch listings with fallback to mockListings
-  // let listings = [];
-  // try {
-  //   listings = await receiveListingsFromFirestore();
-  // } catch (error) {
-  //   console.error("Error in Home component:", error);
-  //   // Fallback to mock data
-  //   listings = mockListings;
-  // }
-
   const guides = await getAllAreaGuides();
 
   const heroImage =

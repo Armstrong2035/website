@@ -40,7 +40,7 @@ export default function HolidayHomesList({ listings }) {
 
       <Grid container spacing={4}>
         {listings.map((listing) => (
-          <Grid item xs={12} md={6} key={listing.id}>
+          <Grid item xs={12} sm={6} key={listing.id}>
             <HolidayHomeCard listing={listing} />
           </Grid>
         ))}

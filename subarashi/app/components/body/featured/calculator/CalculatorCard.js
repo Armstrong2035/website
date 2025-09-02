@@ -1,52 +1,47 @@
 "use client";
-import {
-  Stack,
-  Typography,
-  Container,
-  Box,
-  useMediaQuery,
-  useTheme,
-  Button,
-} from "@mui/material";
+import { Stack, Typography, Container, Box, Button } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import typographyStyles from "../../../../styles";
 import Link from "next/link";
+import { useIsMobile } from "../../../../providers/MobileProvider";
 
 export default function CalculatorCard() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useIsMobile();
 
   return (
     <Container>
       <Box
         sx={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)',
-          borderRadius: '24px',
-          boxShadow: '0 8px 32px rgba(0,82,68,0.08)',
-          overflow: 'hidden',
-          transition: 'all 0.3s ease-in-out',
-          '&:hover': {
-            transform: 'translateY(-8px)',
-            boxShadow: '0 12px 48px rgba(0,82,68,0.12)',
+          background:
+            "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
+          borderRadius: "24px",
+          boxShadow: "0 8px 32px rgba(0,82,68,0.08)",
+          overflow: "hidden",
+          transition: "all 0.3s ease-in-out",
+          "&:hover": {
+            transform: "translateY(-8px)",
+            boxShadow: "0 12px 48px rgba(0,82,68,0.12)",
           },
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "space-between",
             padding: { xs: 4, md: 6 },
             gap: { xs: 4, md: 8 },
           }}
         >
           <Box
             sx={{
-              flex: '1 1 auto',
-              maxWidth: { xs: '100%', md: '50%' },
-              position: 'relative',
+              flex: "1 1 auto",
+              maxWidth: { xs: "100%", md: "50%" },
+              position: "relative",
             }}
           >
             <Image
@@ -55,19 +50,19 @@ export default function CalculatorCard() {
               height={400}
               alt="calculator"
               style={{
-                width: '100%',
-                height: 'auto',
-                transition: 'transform 0.3s ease-in-out',
+                width: "100%",
+                height: "auto",
+                transition: "transform 0.3s ease-in-out",
               }}
             />
           </Box>
 
           <Box
             sx={{
-              flex: '1 1 auto',
-              maxWidth: { xs: '100%', md: '50%' },
-              display: 'flex',
-              flexDirection: 'column',
+              flex: "1 1 auto",
+              maxWidth: { xs: "100%", md: "50%" },
+              display: "flex",
+              flexDirection: "column",
               gap: 4,
             }}
           >
@@ -76,9 +71,9 @@ export default function CalculatorCard() {
                 ...typographyStyles.bodyLarge,
                 fontSize: isMobile ? "40px" : "55px",
                 lineHeight: "107.7%",
-                color: '#005244',
+                color: "#005244",
                 fontWeight: 600,
-                textShadow: '0 2px 4px rgba(0,82,68,0.1)',
+                textShadow: "0 2px 4px rgba(0,82,68,0.1)",
               }}
             >
               Split rental cheques into 12 easy installments!
@@ -89,16 +84,16 @@ export default function CalculatorCard() {
                 variant="contained"
                 endIcon={<ArrowForwardIcon />}
                 sx={{
-                  backgroundColor: '#005244',
-                  color: '#fff',
-                  padding: '12px 24px',
-                  fontSize: '18px',
-                  borderRadius: '12px',
-                  textTransform: 'none',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    backgroundColor: '#006d5b',
-                    transform: 'translateX(8px)',
+                  backgroundColor: "#005244",
+                  color: "#fff",
+                  padding: "12px 24px",
+                  fontSize: "18px",
+                  borderRadius: "12px",
+                  textTransform: "none",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "#006d5b",
+                    transform: "translateX(8px)",
                   },
                 }}
               >

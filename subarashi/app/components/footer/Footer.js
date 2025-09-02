@@ -3,7 +3,7 @@
 //   Box,
 //   Container,
 //   Divider,
-//   Grid2,
+//   Grid,
 //   useMediaQuery,
 //   useTheme,
 // } from "@mui/material";
@@ -89,16 +89,16 @@
 //         sx={{ backgroundColor: "#E5E5FF", mt: 5, mb: 5 }}
 //       />
 
-//       <Grid2 container spacing={3}>
-//         <Grid2 item size={{ lg: 8 }}>
+//       <Grid container spacing={3}>
+//         <Grid item size={{ lg: 8 }}>
 //           <Address address={footerItems.address} />
-//         </Grid2>
+//         </Grid>
 
-//         <Grid2 item size={{ lg: 4 }}>
+//         <Grid item size={{ lg: 4 }}>
 //           <ContactUs details={footerItems.contactDetails} />
 //           {/* <Socials socials={footerItems.socials} /> */}
-//         </Grid2>
-//       </Grid2>
+//         </Grid>
+//       </Grid>
 
 //       {/*
 //       <SocialMedia /> */}

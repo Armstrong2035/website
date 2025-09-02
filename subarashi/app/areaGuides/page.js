@@ -12,7 +12,7 @@ export const revalidate = 3600; // Revalidate every hour
 export default async function AreaGuides() {
   const guides = await getAllAreaGuides();
 
-  console.log(guides);
+  //console.log(guides);
 
   return (
     <Box>

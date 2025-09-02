@@ -10,7 +10,7 @@ import {
   Alert,
   CircularProgress,
   FormGroup,
-  Grid2,
+  Grid,
   Modal,
   IconButton,
 } from "@mui/material";
@@ -126,7 +126,7 @@ const ButtonModal = ({
     setIsSubmitting(true);
 
     try {
-      console.log("Form data:", data);
+      // console.log("Form data:", data);
 
       await addDoc(collection(db, "leads"), {
         ...data,
@@ -214,7 +214,7 @@ const ButtonModal = ({
             hoverBackground={"#FFFFFF"}
             buttonColor={"#005244"}
           />
-          <Grid2
+          <Grid
             container
             sx={{
               backgroundColor: "white",
@@ -225,7 +225,7 @@ const ButtonModal = ({
               height: "100%",
             }}
           >
-            <Grid2
+            <Grid
               item
               size={{ sm: 12, md: 4 }}
               id={"modal-title"}
@@ -260,16 +260,16 @@ const ButtonModal = ({
                 Fill in your details below and our property specialist will
                 contact you soon
               </Typography>
-            </Grid2>
+            </Grid>
 
-            <Grid2 item size={{ sm: 12, md: 7 }}>
+            <Grid item sm={12} md={7}>
               <Box
                 component="form"
                 onSubmit={handleSubmit(onSubmit)}
                 sx={{ p: 4 }}
               >
-                <Grid2 container spacing={5} direction={"row"}>
-                  <Grid2 item size={{ md: 6 }}>
+                <Grid container spacing={5} direction={"row"}>
+                  <Grid item md={6}>
                     <Controller
                       name="firstName"
                       control={control}
@@ -322,8 +322,8 @@ const ButtonModal = ({
                         />
                       )}
                     />
-                  </Grid2>
-                  <Grid2 item size={{ md: 6 }}>
+                  </Grid>
+                  <Grid item md={6}>
                     <Controller
                       name="email"
                       control={control}
@@ -393,8 +393,8 @@ const ButtonModal = ({
                         </>
                       )}
                     />
-                  </Grid2>
-                </Grid2>
+                  </Grid>
+                </Grid>
 
                 <Controller
                   name="interests"
@@ -408,9 +408,9 @@ const ButtonModal = ({
                   render={({ field }) => (
                     <>
                       <FormGroup>
-                        <Grid2 container>
+                        <Grid container>
                           {checkboxes.map((interest) => (
-                            <Grid2 item size={{ xs: 12, md: 4 }} key={interest}>
+                            <Grid item xs={12} md={4} key={interest}>
                               <FormControlLabel
                                 key={interest}
                                 control={
@@ -435,9 +435,9 @@ const ButtonModal = ({
                                 }
                                 label={interest}
                               />
-                            </Grid2>
+                            </Grid>
                           ))}
-                        </Grid2>
+                        </Grid>
                       </FormGroup>
                       {errors.interests && (
                         <Typography color="error" fontSize="0.8rem">
@@ -492,9 +492,9 @@ const ButtonModal = ({
                   )}
                 </Button>
               </Box>
-            </Grid2>
+            </Grid>
 
-            <Grid2 item size={{ sm: 12, md: 1 }} sx={{}}>
+            <Grid item sm={12} md={1} sx={{}}>
               <IconButton
                 onClick={handleClose}
                 sx={{
@@ -507,7 +507,7 @@ const ButtonModal = ({
               >
                 <CloseIcon />
               </IconButton>
-            </Grid2>
+            </Grid>
 
             <Snackbar
               open={snackbar.open}
@@ -523,7 +523,7 @@ const ButtonModal = ({
                 {snackbar.message}
               </Alert>
             </Snackbar>
-          </Grid2>
+          </Grid>
         </Box>
       </Modal>
     </>
