@@ -150,7 +150,9 @@ export default function HolidayHomesFilter() {
         {/* Search Button */}
         <Grid
           item
-          size={{ xs: 12, sm: 6, md: 2 }}
+          xs={12}
+          sm={6}
+          md={2}
           sx={{ display: "flex", alignItems: "flex-end" }}
         >
           <Button

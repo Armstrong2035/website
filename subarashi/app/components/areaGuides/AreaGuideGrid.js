@@ -75,7 +75,9 @@ export default function AreaGuideGrid({ guides }) {
       {displayGuides.map((guide) => (
         <Grid
           item
-          size={{ xs: 12, sm: 6, md: 4 }}
+          xs={12}
+          sm={6}
+          md={4}
           key={guide.id}
           sx={{
             transition: "filter 0.3s ease, transform 0.3s ease",

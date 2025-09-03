@@ -225,12 +225,7 @@ const ButtonModal = ({
               height: "100%",
             }}
           >
-            <Grid
-              item
-              size={{ sm: 12, md: 4 }}
-              id={"modal-title"}
-              sx={{ pt: 10 }}
-            >
+            <Grid item sm={12} md={4} id={"modal-title"} sx={{ pt: 10 }}>
               <Typography
                 sx={{
                   ...typographyStyles.bodyMedium,

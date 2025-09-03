@@ -18,7 +18,8 @@ export default function ListingDetails({ listing }) {
     >
       <Grid
         item
-        size={{ xs: 12, sm: 6 }}
+        xs={12}
+        sm={6}
         sx={{
           backgroundColor: "#005244",
           p: { xs: 2, sm: 2.5, md: 3 },

@@ -119,6 +119,8 @@ export default function OffPlanProjectsPage() {
               <Box
                 item
                 size={{ xs: 12, sm: 9 }}
+                xs={12}
+                sm={9}
                 key={index}
                 sx={{
                   transition: "filter 0.3s ease, transform 0.3s ease",

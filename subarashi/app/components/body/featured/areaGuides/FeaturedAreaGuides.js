@@ -99,7 +99,9 @@ export default function FeaturedAreaGuides({ guides }) {
           {featuredGuides.map((guide) => (
             <Grid
               item
-              size={{ xs: 12, sm: 6, md: 3 }}
+              xs={12}
+              sm={6}
+              md={3}
               key={guide.id}
               onMouseEnter={() => setHoveredCardId(guide.id)}
               onMouseLeave={() => setHoveredCardId(null)}

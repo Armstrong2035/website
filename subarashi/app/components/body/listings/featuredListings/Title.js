@@ -46,7 +46,7 @@ export default function Title() {
 
       <Grid
         item
-        size={{ lg: 6 }}
+        lg={6}
         justifySelf={"flex-end"}
         sx={{
           display: "flex",

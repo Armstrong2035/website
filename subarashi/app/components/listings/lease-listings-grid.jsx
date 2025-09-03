@@ -35,7 +35,9 @@ export default function LeaseListingsGrid({
         >
           <Grid
             item
-            size={{ xs: 12, sm: 6, md: 4 }}
+            xs={12}
+            sm={6}
+            md={4}
             sx={{
               transition: "filter 0.3s ease, transform 0.3s ease",
               filter:
